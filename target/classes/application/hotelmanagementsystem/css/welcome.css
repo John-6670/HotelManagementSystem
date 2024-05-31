@@ -13,7 +13,8 @@
 }
 
 #pane {
-    -fx-background-image: url("../img/back.png");
+    -fx-background-image: url("../img/background.png");
     -fx-background-repeat: stretch;
     -fx-background-size: 800 500;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
