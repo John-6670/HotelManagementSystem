@@ -1,4 +1,4 @@
-module application.hotelmanagementsystem {
+module application {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,6 +7,6 @@ module application.hotelmanagementsystem {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens application.hotelmanagementsystem to javafx.fxml;
     exports application.hotelmanagementsystem;
+    opens application.hotelmanagementsystem to javafx.fxml;
 }
