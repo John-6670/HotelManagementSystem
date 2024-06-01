@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
     public static double x, y;
@@ -15,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("welcome-view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("welcome-view.fxml")));
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Hotel Management System");
         Scene scene = new Scene(root, 800, 500);
