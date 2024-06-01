@@ -2,20 +2,38 @@ package application.hotelmanagementsystem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.kordamp.bootstrapfx.BootstrapFX;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class Main extends Application {
+    public static double x, y;
+    public static double xxx, yyy;
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("welcome-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
-        stage.setTitle("Welcome Page");
+        Parent root = FXMLLoader.load(Main.class.getResource("welcome-view.fxml"));
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setTitle("Hotel Management System");
+        Scene scene = new Scene(root, 800, 500);
         stage.setScene(scene);
+        stage.setX(380);
+        stage.setY(200);
+
+        root.setOnMousePressed(event -> {
+            xxx = event.getSceneX();
+            yyy = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xxx);
+            stage.setY(event.getScreenY() - yyy);
+            x = stage.getX();
+            y = stage.getY();
+        });
         stage.show();
     }
 
