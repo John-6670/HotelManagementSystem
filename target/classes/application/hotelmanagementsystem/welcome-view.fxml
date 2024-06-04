@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.WelcomeController">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@css/buttonHover.css, @css/backImage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.WelcomeController">
    <children>
       <Text fill="WHITE" layoutX="72.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Hotel Management System" AnchorPane.topAnchor="68.0">
          <font>
@@ -23,12 +23,12 @@
             <String fx:value="btn" />
          </styleClass>
       </Button>
-      <Button layoutX="300.0" layoutY="174.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #fefee0;" text="Guest Login/Sign Up" AnchorPane.topAnchor="180.0">
+      <Button layoutX="300.0" layoutY="174.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #fefee0;" text="Guest Login/Sign Up" AnchorPane.topAnchor="180.0" onAction="#guestLogin">
          <styleClass>
             <String fx:value="btn" />
          </styleClass>
       </Button>
-      <Button id="close-btn" cancelButton="true" defaultButton="true" layoutX="739.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="X" textFill="WHITE">
+      <Button id="close-btn" cancelButton="true" defaultButton="true" layoutX="739.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="X" textFill="#fafafa">
          <font>
             <Font size="20.0" />
          </font>

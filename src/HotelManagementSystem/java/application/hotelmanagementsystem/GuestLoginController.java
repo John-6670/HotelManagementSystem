@@ -3,7 +3,7 @@ package application.hotelmanagementsystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class LoginController {
+public class GuestLoginController extends CloseButton{
     @FXML
     private Label welcomeText;
 

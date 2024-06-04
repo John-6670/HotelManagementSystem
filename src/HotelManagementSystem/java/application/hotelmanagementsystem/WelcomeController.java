@@ -2,9 +2,11 @@ package application.hotelmanagementsystem;
 
 import javafx.fxml.FXML;
 
-public class WelcomeController {
+import java.io.IOException;
+
+public class WelcomeController extends CloseButton {
     @FXML
-    protected void closeWindow() {
-        System.exit(0);
+    public void guestLogin() throws IOException {
+        CommonTasks.PageNavigate("guest-login-view.fxml", Main.stage, this.getClass(), "Guest Login");
     }
 }

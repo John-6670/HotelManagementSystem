@@ -1,0 +1,6 @@
+.textBox {
+    -fx-background-radius: 6;
+    -fx-background-color: transparent;
+    -fx-border-color: #A67B5B;
+    -fx-border-width: 0 0 2 0;
+}

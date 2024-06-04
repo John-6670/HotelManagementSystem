@@ -13,12 +13,20 @@ import java.util.Objects;
 public class Main extends Application {
     public static double x, y;
     public static double xxx, yyy;
+    public static Stage stage;
 
     @Override
     public void start(Stage stage) throws IOException {
+        Main.stage = stage;
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("welcome-view.fxml")));
+        stage = preparePage(root);
+        stage.setTitle("Welcome Page");
+        stage.show();
+    }
+
+    public static Stage preparePage(Parent root) {
+        Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("Hotel Management System");
         Scene scene = new Scene(root, 800, 500);
         stage.setScene(scene);
         stage.setX(380);
@@ -35,7 +43,8 @@ public class Main extends Application {
             x = stage.getX();
             y = stage.getY();
         });
-        stage.show();
+
+        return stage;
     }
 
     public static void main(String[] args) {
