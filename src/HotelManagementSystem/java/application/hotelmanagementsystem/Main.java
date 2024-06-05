@@ -18,7 +18,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("welcome-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("guest-signUp-view.fxml")));
         stage = preparePage(root);
         stage.setTitle("Welcome Page");
         stage.show();
