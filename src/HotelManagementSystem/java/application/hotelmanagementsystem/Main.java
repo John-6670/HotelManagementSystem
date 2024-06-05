@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.kordamp.bootstrapfx.BootstrapFX;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -18,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("guest-signUp-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("guest-login-view.fxml")));
         stage = preparePage(root);
         stage.setTitle("Welcome Page");
         stage.show();
@@ -27,7 +28,8 @@ public class Main extends Application {
     public static Stage preparePage(Parent root) {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root, 1000, 600);
+        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
         stage.setX(380);
         stage.setY(200);

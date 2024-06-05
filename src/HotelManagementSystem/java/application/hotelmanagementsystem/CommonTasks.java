@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class CommonTasks extends Main {
-    public static void PageNavigate(String dest, Stage stage, Class<?> classes, String title) throws IOException {
+    public static void pageNavigate(String dest, Stage stage, Class<?> classes, String title) throws IOException {
         double xTemp = x;
         double yTemp = y;
 
