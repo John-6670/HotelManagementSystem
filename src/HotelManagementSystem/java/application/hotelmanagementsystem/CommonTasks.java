@@ -22,7 +22,7 @@ public class CommonTasks extends Main {
         }
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(classes.getResource(dest)));
-        stage = preparePage(root);
+        preparePage(root);
         stage.setTitle(title);
         stage.show();
     }

@@ -19,15 +19,14 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("guest-login-view.fxml")));
-        stage = preparePage(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("welcome-view.fxml")));
+        stage.initStyle(StageStyle.UNDECORATED);
+        preparePage(root);
         stage.setTitle("Welcome Page");
         stage.show();
     }
 
     public static Stage preparePage(Parent root) {
-        Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         Scene scene = new Scene(root, 1000, 600);
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
