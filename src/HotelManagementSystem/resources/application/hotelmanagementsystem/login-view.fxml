@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="153.0" layoutY="123.0" mnemonicParsing="false" text="Button" />
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #262626;" />
+      <AnchorPane cache="true" cacheHint="SPEED" layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="textUsername" layoutX="100.0" layoutY="266.0" prefHeight="26.0" prefWidth="300.0" promptText="Username" />
+            <PasswordField fx:id="textPassword" layoutX="100.0" layoutY="329.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" />
+            <Label layoutX="124.0" layoutY="163.0" text="Login to your Account">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="166.0" layoutY="105.0" text="Welcome">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="382.0" text="Forgot your Password?" />
+            <JFXButton ellipsisString="" layoutX="163.0" layoutY="425.0" lineSpacing="5.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: white; -fx-text-fill: #4d4d4d;" text="Login" textAlignment="CENTER" textFill="#4d4d4d" textOverrun="WORD_ELLIPSIS" />
+            <Button layoutX="261.0" layoutY="376.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: false; -fx-text-fill: #4d4d4d;" text="Click Here" underline="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button layoutX="182.0" layoutY="534.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: false; -fx-text-fill: #2b1bcc;" text="Signup" textFill="#2b1bcc" underline="true" />
+            <Label layoutX="244.0" layoutY="498.0" text="or" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>
