@@ -23,7 +23,7 @@
 
       </AnchorPane>
    </right>
-   <center>
+   <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
             <Text layoutX="48.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our Hotel">
@@ -53,5 +53,5 @@
             </BorderPane>
          </children>
       </AnchorPane>
-   </center>
+   </left>
 </BorderPane>

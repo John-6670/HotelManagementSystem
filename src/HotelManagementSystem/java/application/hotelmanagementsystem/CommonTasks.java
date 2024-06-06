@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class CommonTasks extends Main {
-    public static void pageNavigate(String dest, Stage stage, Class<?> classes, String title) throws IOException {
+    public static void pageNavigate(String dest) throws IOException {
         double xTemp = x;
         double yTemp = y;
 
@@ -21,9 +21,8 @@ public class CommonTasks extends Main {
             stage.initStyle(StageStyle.UNDECORATED);
         }
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(classes.getResource(dest)));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(dest)));
         preparePage(root);
-        stage.setTitle(title);
         stage.show();
     }
 }

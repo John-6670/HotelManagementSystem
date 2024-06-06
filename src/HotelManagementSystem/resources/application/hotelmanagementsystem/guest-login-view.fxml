@@ -71,7 +71,6 @@
                   <Image url="@img/close.png" />
                </image>
             </ImageView>
-<!--            <Button layoutX="457.0" onAction="#closeWindow" style="-fx-background-color: url(img/close.png) " AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />-->
          </children>
       </AnchorPane>
    </right>
