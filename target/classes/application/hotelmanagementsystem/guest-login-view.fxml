@@ -60,10 +60,10 @@
             </BorderPane>
             <BorderPane layoutX="57.0" layoutY="431.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="400.0">
                <left>
-                  <JFXButton prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #222831" text="Login" textFill="#fcfcfc" BorderPane.alignment="CENTER" />
+                  <JFXButton prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #31363F" text="Login" textFill="#fcfcfc" BorderPane.alignment="CENTER" />
                </left>
                <right>
-                  <JFXButton prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #76ABAE" text="Back" textFill="WHITE" BorderPane.alignment="CENTER" />
+                  <JFXButton prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #76ABAE" text="Back" textFill="WHITE" BorderPane.alignment="CENTER" onAction="#back"/>
                </right>
             </BorderPane>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="457.0" layoutY="14.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
@@ -71,7 +71,6 @@
                   <Image url="@img/close.png" />
                </image>
             </ImageView>
-<!--            <Button layoutX="457.0" onAction="#closeWindow" style="-fx-background-color: url(img/close.png) " AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />-->
          </children>
       </AnchorPane>
    </right>

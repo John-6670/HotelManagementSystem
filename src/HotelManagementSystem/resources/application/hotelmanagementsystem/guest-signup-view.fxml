@@ -40,7 +40,7 @@
             <TextField layoutX="270.0" layoutY="320.0" prefHeight="26.0" prefWidth="200.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField layoutX="270.0" layoutY="246.0" prefHeight="26.0" prefWidth="200.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <PasswordField layoutX="29.0" layoutY="347.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <JFXButton layoutX="161.0" layoutY="441.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #222831;" text="Sign Up" textFill="WHITE" />
+            <JFXButton layoutX="161.0" layoutY="441.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #31363F;" text="Sign Up" textFill="WHITE" />
             <BorderPane layoutX="174.0" layoutY="523.0" prefHeight="24.0" prefWidth="150.0">
                <left>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Have an account?" BorderPane.alignment="CENTER" />
