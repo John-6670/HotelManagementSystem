@@ -1,37 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.WelcomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #222831;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.WelcomeController">
    <children>
-      <Text fill="WHITE" layoutX="72.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Hotel Management System" AnchorPane.topAnchor="68.0">
+      <Text fill="WHITE" layoutX="150.0" layoutY="135.0" smooth="false" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Hotel Management System" wrappingWidth="700" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="96.15234375">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Button layoutX="300.0" layoutY="382.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #cefafd;" text="Admin Login" AnchorPane.bottomAnchor="68.0">
-         <styleClass>
-            <String fx:value="btn" />
-         </styleClass>
-      </Button>
-      <Button layoutX="300.0" layoutY="278.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffe5e2;" text="Receptionist Login" AnchorPane.bottomAnchor="174.0">
-         <styleClass>
-            <String fx:value="btn" />
-         </styleClass>
-      </Button>
-      <Button layoutX="300.0" layoutY="174.0" mnemonicParsing="false" onAction="#guestLogin" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #fefee0;" text="Guest Login/Sign Up" AnchorPane.topAnchor="180.0">
-         <styleClass>
-            <String fx:value="btn" />
-         </styleClass>
-      </Button>
-      <Button id="close-btn" cancelButton="true" defaultButton="true" layoutX="739.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="X" textFill="#fafafa">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="956.0" layoutY="14.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/closeDark.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="400.0" layoutY="183.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#guestLogin" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #0E46A3;" text="Guest Login/Sign Up" textFill="WHITE" AnchorPane.topAnchor="214.2" />
+      <JFXButton layoutX="400.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" text="Receptionist Login" AnchorPane.bottomAnchor="214.2" />
+      <JFXButton layoutX="400.0" layoutY="426.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #8DECB4;" text="Admin Login" AnchorPane.bottomAnchor="85.6" />
    </children>
 </AnchorPane>
