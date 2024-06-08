@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.GuestSignupController">
+<BorderPane stylesheets="@css/buttonHover.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.GuestSignupController">
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
          <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="456.0" layoutY="14.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
@@ -40,7 +40,7 @@
             <TextField layoutX="270.0" layoutY="320.0" prefHeight="26.0" prefWidth="200.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField layoutX="270.0" layoutY="246.0" prefHeight="26.0" prefWidth="200.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <PasswordField layoutX="29.0" layoutY="347.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <JFXButton layoutX="161.0" layoutY="441.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #31363F;" text="Sign Up" textFill="WHITE" />
+            <JFXButton styleClass="button" layoutX="161.0" layoutY="441.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #31363F;" text="Sign Up" textFill="WHITE" />
             <BorderPane layoutX="174.0" layoutY="523.0" prefHeight="24.0" prefWidth="150.0">
                <left>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Have an account?" BorderPane.alignment="CENTER" />
