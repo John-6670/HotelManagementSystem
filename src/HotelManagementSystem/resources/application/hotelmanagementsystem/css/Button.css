@@ -1,0 +1,25 @@
+.nav__Button{
+    -fx-background-color: false;
+    -fx-start-margin: 0;
+    -fx-end-margin: 0;
+    -fx-text-fill: #222831;
+
+}
+.nav__Button:hover{
+    -fx-underline: true;
+}
+#Active-nav__Button{
+    -fx-background-color:  #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76ABAE;
+}
+
+.side-nav__Button{
+    -fx-text-fill: #76ABAE;
+    -fx-font-size: 14;
+    -fx-background-radius: 0;
+}
+.side-nav__Button:hover{
+    -fx-font-size: 15;
+
+}
