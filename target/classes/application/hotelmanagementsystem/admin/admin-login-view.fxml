@@ -14,9 +14,20 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.AdminLoginController">
    <left>
-      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" textFill="#76abae" onAction="#back">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <FontAwesomeIcon disable="true" fill="#76abae" glyphName="ARROW_LEFT" layoutX="16.0" layoutY="37.0" size="2em" />
+         </children></AnchorPane>
    </left>
-   <center>
+   <right>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="165.0" layoutY="129.0" style="-fx-text-fill: #222831;" text="Login As An Admin">
@@ -40,27 +51,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="backButton" layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" onAction="#back">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <FontAwesomeIcon disable="true" glyphName="ARROW_LEFT" glyphStyle="ARROW_LEFT" layoutX="16.0" layoutY="37.0" size="2em" wrappingWidth="10.285714149475098">
-               <font>
-                  <Font size="47.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </FontAwesomeIcon>
             <Text layoutX="130.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Hyperlink layoutX="307.0" layoutY="501.0" text="Create one" textFill="#76abae" onAction="#goToSignUpPage"/>
+            <Hyperlink layoutX="307.0" layoutY="501.0" onAction="#goToSignUpPage" text="Create one" textFill="#76abae" />
             <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="74.0" layoutY="269.0" size="2em" stroke="BLACK" />
             <FontAwesomeIcon fill="WHITE" glyphName="KEY" layoutX="71.0" layoutY="330.0" size="2em" stroke="BLACK" />
-            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" onMouseClicked="#closeWindow">
+            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" onMouseClicked="#closeWindow" size="3em">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -68,5 +63,5 @@
             <PasswordField layoutX="100.0" layoutY="308.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
          </children>
       </AnchorPane>
-   </center>
+   </right>
 </BorderPane>

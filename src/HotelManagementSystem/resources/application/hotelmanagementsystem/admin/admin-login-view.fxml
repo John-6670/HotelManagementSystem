@@ -16,7 +16,7 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" textFill="#76abae">
+            <JFXButton layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" textFill="#76abae" onAction="#back">
                <font>
                   <Font size="15.0" />
                </font>
