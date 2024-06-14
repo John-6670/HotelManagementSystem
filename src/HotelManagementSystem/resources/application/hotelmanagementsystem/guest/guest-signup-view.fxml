@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <Label layoutX="161.0" layoutY="129.0" text="SignUp as an Guest" textFill="#222831">
+            <Label layoutX="170.0" layoutY="129.0" text="SignUp as a Guest" textFill="#222831">
                <font>
                   <Font size="20.0" />
                </font>
