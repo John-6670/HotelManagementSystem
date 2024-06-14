@@ -1,7 +1,8 @@
-package application.hotelmanagementsystem;
+package application.hotelmanagementsystem.guest;
 
+import application.hotelmanagementsystem.CloseButton;
+import application.hotelmanagementsystem.CommonTasks;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 

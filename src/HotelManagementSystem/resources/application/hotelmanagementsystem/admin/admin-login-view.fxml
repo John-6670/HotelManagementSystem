@@ -5,27 +5,20 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.AdminLoginController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="456.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/close.png" />
-               </image>
-            </ImageView>
             <Label layoutX="165.0" layoutY="129.0" style="-fx-text-fill: #222831;" text="Login As An Admin">
                <font>
                   <Font size="20.0" />
@@ -37,18 +30,17 @@
                </font>
             </Label>
             <TextField layoutX="100.0" layoutY="248.0" prefHeight="26.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
-            <TextField layoutX="101.0" layoutY="309.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
             <Text layoutX="104.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" />
             <Hyperlink layoutX="340.0" layoutY="350.0" text="Click here" textFill="#76abae" />
             <JFXButton layoutX="126.0" layoutY="458.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Login" textFill="#76abae">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: #fff;" text="Back">
+            <JFXButton fx:id="backButton" layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" onAction="#back">
                <font>
                   <Font size="15.0" />
                </font>
@@ -56,13 +48,24 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <FontAwesomeIcon glyphName="ARROW_LEFT" glyphStyle="ARROW_LEFT" layoutX="14.0" layoutY="37.0" size="2em" wrappingWidth="18.285714149475098">
+            <FontAwesomeIcon disable="true" glyphName="ARROW_LEFT" glyphStyle="ARROW_LEFT" layoutX="16.0" layoutY="37.0" size="2em" wrappingWidth="10.285714149475098">
                <font>
                   <Font size="47.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </FontAwesomeIcon>
             <Text layoutX="130.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Hyperlink layoutX="307.0" layoutY="501.0" text="Create one" textFill="#76abae" />
+            <Hyperlink layoutX="307.0" layoutY="501.0" text="Create one" textFill="#76abae" onAction="#goToSignUpPage"/>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="74.0" layoutY="269.0" size="2em" stroke="BLACK" />
+            <FontAwesomeIcon fill="WHITE" glyphName="KEY" layoutX="71.0" layoutY="330.0" size="2em" stroke="BLACK" />
+            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" onMouseClicked="#closeWindow">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
+            <PasswordField layoutX="100.0" layoutY="308.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
          </children>
       </AnchorPane>
    </center>

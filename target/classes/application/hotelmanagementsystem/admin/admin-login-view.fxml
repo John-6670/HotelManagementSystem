@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.AdminLoginController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER" />
    </left>
@@ -40,7 +40,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="backButton" layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back">
+            <JFXButton fx:id="backButton" layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" onAction="#back">
                <font>
                   <Font size="15.0" />
                </font>
@@ -57,10 +57,14 @@
                </cursor>
             </FontAwesomeIcon>
             <Text layoutX="130.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Hyperlink layoutX="307.0" layoutY="501.0" text="Create one" textFill="#76abae" />
+            <Hyperlink layoutX="307.0" layoutY="501.0" text="Create one" textFill="#76abae" onAction="#goToSignUpPage"/>
             <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="74.0" layoutY="269.0" size="2em" stroke="BLACK" />
             <FontAwesomeIcon fill="WHITE" glyphName="KEY" layoutX="71.0" layoutY="330.0" size="2em" stroke="BLACK" />
-            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" />
+            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" onMouseClicked="#closeWindow">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
             <PasswordField layoutX="100.0" layoutY="308.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
          </children>
       </AnchorPane>

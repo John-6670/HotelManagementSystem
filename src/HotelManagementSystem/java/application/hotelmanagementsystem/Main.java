@@ -33,7 +33,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setX(380);
         stage.setY(200);
-        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("img/logo.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("statics/img/logo.png"))));
 
         root.setOnMousePressed(event -> {
             xxx = event.getSceneX();

@@ -10,9 +10,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.AdminSignupController">
    <right>
-      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" strokeWidth="0.0" onMouseClicked="#closeWindow">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
+         </children>
+      </AnchorPane>
    </right>
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
@@ -22,7 +30,6 @@
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" strokeWidth="0.0" />
             <Label layoutX="161.0" layoutY="129.0" text="SignUp as an Admin" textFill="#222831">
                <font>
                   <Font size="20.0" />
@@ -42,7 +49,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back">
+            <JFXButton layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="8.0" onAction="#goToLoginPage">
                <font>
                   <Font size="15.0" />
                </font>
@@ -50,7 +57,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <FontAwesomeIcon disable="true" glyphName="ARROW_LEFT" layoutX="16.0" layoutY="37.0" size="2em" />
-         </children></AnchorPane>
+            <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
+         </children>
+      </AnchorPane>
    </left>
 </BorderPane>
