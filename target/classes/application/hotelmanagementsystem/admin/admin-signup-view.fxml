@@ -58,6 +58,7 @@
                </cursor>
             </JFXButton>
             <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
    </left>
 </BorderPane>

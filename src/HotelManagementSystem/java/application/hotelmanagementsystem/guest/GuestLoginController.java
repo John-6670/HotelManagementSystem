@@ -9,7 +9,7 @@ import java.io.IOException;
 public class GuestLoginController extends CloseButton {
     @FXML
     public void goToSignUpPage() throws IOException {
-        CommonTasks.pageNavigate("guest-signUp-view.fxml");
+        CommonTasks.pageNavigate("guest/guest-signUp-view.fxml");
     }
 
     @FXML
