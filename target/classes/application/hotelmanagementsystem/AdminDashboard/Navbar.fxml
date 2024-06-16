@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1000.0" styleClass="pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../css/Panes.css" />
+      <URL value="@../css/Button.css" />
+   </stylesheets>
+   <right>
+      <AnchorPane prefHeight="40.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton id="Active-nav__Button" prefHeight="40.0" prefWidth="79.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Home" textFill="#222831">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="79.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Nav 1" textFill="#222831" />
+            <JFXButton layoutX="149.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Nav 2" textFill="#222831" />
+            <JFXButton layoutX="219.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Nav 3" textFill="#222831" />
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

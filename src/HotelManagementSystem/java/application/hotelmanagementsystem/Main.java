@@ -18,7 +18,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        Parent root = FXMLLoader.load(Main.class.getResource("welcome-view.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("AdminDashboard/admin-dashboard.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);
         preparePage(root);
         stage.show();
