@@ -3,3 +3,16 @@
     -fx-label-padding: 0;
     -fx-background-color: #fff;
 }
+
+.card{
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.gridPane{
+
+
+}
+.cardContent{
+    -fx-background-color: #fff;
+}

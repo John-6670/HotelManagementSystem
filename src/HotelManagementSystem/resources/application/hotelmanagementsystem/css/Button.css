@@ -5,6 +5,9 @@
     -fx-text-fill: #222831;
 
 }
+.button{
+    -fx-cursor: hand;
+}
 .nav__Button:hover{
     -fx-underline: true;
 }
@@ -22,4 +25,40 @@
 .side-nav__Button:hover{
     -fx-font-size: 15;
 
+}
+
+.regButton{
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76ABAE;
+    -fx-font-size:14px ;
+}
+
+.backButton{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0 30 0 0;
+    -fx-font-size: 15px;
+}
+
+.cancelButton{
+    -fx-font-size: 15px;
+    -fx-padding: 10px 5px;
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76ABAE;
+}
+
+.optionButton{
+    -fx-font-size: 15px;
+    -fx-padding: 10px 25px;
+    -fx-background-color: #fff;
+    -fx-background-radius: 0;
+    -fx-text-fill: #222831;
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0.5;
+}
+
+.optionButton:hover{
+    -fx-border-width: 1;
 }
