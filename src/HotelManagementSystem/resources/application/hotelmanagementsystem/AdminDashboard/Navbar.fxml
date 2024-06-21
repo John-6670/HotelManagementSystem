@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
@@ -18,26 +19,34 @@
    <right>
       <AnchorPane prefHeight="40.0" prefWidth="960.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton id="Active-nav__Button" layoutX="5.0" prefHeight="40.0" prefWidth="80.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Home" textFill="#222831">
+            <JFXButton id="Active-nav__Button" layoutX="5.0" prefHeight="40.0" prefWidth="80.0" stylesheets="@../css/Button.css" text="Home" textFill="#222831">
                <font>
                   <Font size="14.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="nav__Button" />
+                  <String fx:value="button" />
+               </styleClass>
             </JFXButton>
-            <JFXButton layoutX="84.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Nav 1" textFill="#222831">
+            <JFXButton layoutX="84.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Profile" textFill="#222831">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></JFXButton>
-            <JFXButton layoutX="154.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Nav 2" textFill="#222831">
+            <JFXButton layoutX="154.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Finance" textFill="#222831">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></JFXButton>
-            <JFXButton layoutX="224.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../css/Button.css" text="Nav 3" textFill="#222831">
+            <JFXButton layoutX="224.0" layoutY="8.0" prefWidth="70.0" stylesheets="@../css/Button.css" text="Log out" textFill="#222831">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
+               </cursor>
+               <styleClass>
+                  <String fx:value="nav__Button" />
+                  <String fx:value="nav-Logout__Button" />
+               </styleClass></JFXButton>
             <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="924.0" layoutY="32.0" size="3em" text="" />
             <JFXButton layoutX="918.0" layoutY="1.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text=" ">
                <cursor>

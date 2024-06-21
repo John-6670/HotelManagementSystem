@@ -16,11 +16,9 @@
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton layoutY="205.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Side-nav1" />
-            <JFXButton layoutY="250.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Side-nav1" />
-            <JFXButton layoutY="295.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Side-nav1" />
-            <JFXButton layoutY="160.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Side-nav1" />
-            <JFXButton layoutY="115.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Rooms" />
+            <JFXButton layoutY="205.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Staff Affairs" />
+            <JFXButton layoutY="250.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Reports" />
+            <JFXButton layoutY="160.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Rooms" />
          </children>
       </AnchorPane>
    </center>

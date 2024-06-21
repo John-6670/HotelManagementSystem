@@ -1,3 +1,7 @@
+.button{
+    -fx-cursor: hand;
+}
+
 .nav__Button{
     -fx-background-color: false;
     -fx-start-margin: 0;
@@ -5,16 +9,27 @@
     -fx-text-fill: #222831;
 
 }
-.button{
-    -fx-cursor: hand;
-}
+
 .nav__Button:hover{
     -fx-underline: true;
+    -fx-font-size: 13px;
 }
+
+.nav-Logout__Button:hover{
+    -fx-text-fill: #ff3232;
+    -fx-underline: false;
+}
+
 #Active-nav__Button{
     -fx-background-color:  #222831;
+    -fx-font-size: 14px;
     -fx-background-radius: 0;
     -fx-text-fill: #76ABAE;
+}
+
+#Active-nav__Button:hover{
+    -fx-font-size: 15px;
+    -fx-underline: false;
 }
 
 .side-nav__Button{
@@ -26,6 +41,7 @@
     -fx-font-size: 15;
 
 }
+
 
 .regButton{
     -fx-background-color: #222831;
