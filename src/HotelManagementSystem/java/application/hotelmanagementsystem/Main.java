@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.kordamp.bootstrapfx.BootstrapFX;
@@ -18,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        Parent root = FXMLLoader.load(Main.class.getResource("welcome-view.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("guest/Guest-Dashboard.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);
         preparePage(root);
         stage.show();

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane id="dashbordBoarderPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.GuestRoomController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css">
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="52.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" text="Room Details" textFill="#222831" AnchorPane.rightAnchor="132.0">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="CENTER" layoutX="122.0" layoutY="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="144.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="100.0">
+                           <children>
+                              <Label layoutY="57.5" minHeight="-Infinity" minWidth="-Infinity" text="Room Number" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="138.0" layoutY="219.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="112.0" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="215.0">
+                           <children>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Room Type" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="143.0" layoutY="330.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="102.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="143.0">
+                           <children>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Dialy Price" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="120.0" layoutY="430.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="148.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="120.0">
+                           <children>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Room Capacity" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow offsetX="4.0" offsetY="4.0">
+                           <color>
+                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css" GridPane.columnIndex="1">
+               <bottom>
+                  <AnchorPane minHeight="-Infinity" prefHeight="220.0" prefWidth="406.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="185.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" text="Bill" textFill="#222831" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="CENTER" layoutX="61.0" layoutY="60.0" prefHeight="60.0" prefWidth="134.0" AnchorPane.topAnchor="60.0">
+                           <children>
+                              <Label layoutY="57.5" minHeight="-Infinity" minWidth="-Infinity" text="Room Charge" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="36.0" layoutY="134.0" prefHeight="60.0" prefWidth="184.0" AnchorPane.bottomAnchor="25.0">
+                           <children>
+                              <Label layoutY="57.5" minHeight="-Infinity" minWidth="-Infinity" text="Additional Services" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="304.0" layoutY="90.0" prefHeight="60.0" prefWidth="44.0">
+                           <children>
+                              <Label layoutY="57.5" minHeight="-Infinity" minWidth="-Infinity" text="Total" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow offsetX="4.0" offsetY="4.0">
+                           <color>
+                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </AnchorPane>
+               </bottom>
+               <top>
+                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="300.0" prefWidth="406.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="109.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" text="Request Service" textFill="#222831">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="127.0" layoutY="151.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Request" AnchorPane.bottomAnchor="25.0" />
+                        <ChoiceBox fx:id="service" layoutX="126.0" layoutY="84.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../../css/ChoiceBox.css" AnchorPane.topAnchor="85.5" />
+                        <VBox alignment="CENTER" layoutX="177.0" layoutY="160.0" prefHeight="60.0" prefWidth="48.0" AnchorPane.bottomAnchor="93.5">
+                           <children>
+                              <Label layoutY="57.5" minHeight="-Infinity" minWidth="-Infinity" text="Price" textFill="#222831">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow offsetX="4.0" offsetY="4.0">
+                           <color>
+                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </AnchorPane>
+               </top>
+            </BorderPane>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

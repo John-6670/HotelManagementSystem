@@ -1,0 +1,33 @@
+.date-picker .arrow-button {
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #76ABAE;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: #222831;
+    -fx-text-fill: #76ABAE;
+}
+
+.date-picker .cell:focused {
+    -fx-background-color: #31363F;
+}
+
+.date-picker-popup  {
+    -fx-border-color: transparent;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #222831;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+
+.date-picker {
+    -fx-background-radius: 5;
+}

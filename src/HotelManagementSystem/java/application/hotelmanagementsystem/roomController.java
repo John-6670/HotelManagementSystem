@@ -30,6 +30,6 @@ public class roomController implements Initializable {
                 CurrentType = roomTypeList.getSelectionModel().getSelectedItem();
                 roomTypeLabel.setText(CurrentType);
             }
-        });*/
+        }); */
     }
 }

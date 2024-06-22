@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="150.0" style="-fx-background-color: #222831;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="#76abae" glyphName="ANGLE_DOWN" layoutX="63.0" layoutY="37.0" selectionFill="#76abae" size="3em" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutY="205.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Staff Affairs" />
+            <JFXButton layoutY="250.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Reports" />
+            <JFXButton layoutY="160.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../css/Button.css" text="Rooms" />
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="#76abae" glyphName="ANGLE_UP" layoutX="63.0" layoutY="37.0" size="3em" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
