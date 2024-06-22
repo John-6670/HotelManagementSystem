@@ -9,4 +9,9 @@ public class WelcomeController extends CloseButton {
     public void guestLogin() throws IOException {
         CommonTasks.pageNavigate("guest-login-view.fxml");
     }
+
+    @FXML
+    public void adminLogin() throws IOException {
+        CommonTasks.pageNavigate("admin-login-view.fxml");
+    }
 }
