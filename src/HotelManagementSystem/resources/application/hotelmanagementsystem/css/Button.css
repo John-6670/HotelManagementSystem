@@ -45,7 +45,7 @@
 
 .regButton{
     -fx-background-color: #222831;
-    -fx-background-radius: 5;
+    -fx-background-radius: 0;
     -fx-text-fill: #76ABAE;
     -fx-font-size:14px ;
 }

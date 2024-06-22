@@ -27,7 +27,3 @@
 .date-picker-popup .month-year-pane .label {
     -fx-text-fill: white;
 }
-
-.date-picker {
-    -fx-background-radius: 5;
-}

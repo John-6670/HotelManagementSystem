@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="276.0" layoutY="184.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="94.0" layoutY="1.0" text="Options">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="45.0" layoutY="61.0" prefHeight="40.0" prefWidth="160.0" stylesheets="@../../../css/Button.css" text="View Reports">
+               <styleClass>
+                  <String fx:value="optionButton" />
+                  <String fx:value="button" />
+               </styleClass></JFXButton>
+            <JFXButton layoutX="45.0" layoutY="112.0" prefHeight="40.0" prefWidth="160.0" stylesheets="@../../../css/Button.css" text="Monthly Salary">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <styleClass>
+                  <String fx:value="optionButton" />
+                  <String fx:value="button" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton layoutX="45.0" layoutY="163.0" prefHeight="40.0" prefWidth="160.0" stylesheets="@../../../css/Button.css" text="Edit Information">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <styleClass>
+                  <String fx:value="optionButton" />
+                  <String fx:value="button" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton layoutX="45.0" layoutY="214.0" prefHeight="40.0" prefWidth="160.0" stylesheets="@../../../css/Button.css" text="Suspend">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <styleClass>
+                  <String fx:value="optionButton" />
+                  <String fx:value="button" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton layoutX="45.0" layoutY="265.0" prefHeight="40.0" prefWidth="160.0" stylesheets="@../../../css/Button.css" text="Fire">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <styleClass>
+                  <String fx:value="optionButton" />
+                  <String fx:value="button" />
+               </styleClass>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow offsetX="4.0" offsetY="4.0">
+               <color>
+                  <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="184.0" prefHeight="340.0" prefWidth="250.0" styleClass="pane" stylesheets="@../../../css/Panes.css">
+         <children>
+            <Label layoutX="71.0" layoutY="1.0" text="Last Activities">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView layoutX="25.0" layoutY="40.0" prefHeight="280.0" prefWidth="200.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
+         </children>
+         <effect>
+            <DropShadow offsetX="4.0" offsetY="4.0">
+               <color>
+                  <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="60.0" prefHeight="111.0" prefWidth="510.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">
+         <children>
+            <Label layoutX="14.0" layoutY="3.0" text="Full Name: ">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="39.0" text="Signed in by: ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="66.0" text="Signed in date: ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow offsetX="4.0" offsetY="4.0">
+               <color>
+                  <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

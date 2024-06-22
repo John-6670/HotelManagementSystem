@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.login.GuestSignup">
+   <right>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" onMouseClicked="#closeWindow" size="3em" strokeWidth="0.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="173.0" layoutY="78.0" text="Welcome" textFill="#222831">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="177.0" layoutY="129.0" text="SignUp as Guest" textFill="#222831">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="77.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="National ID" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField layoutX="77.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField layoutX="269.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField layoutX="269.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <PasswordField layoutX="77.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+            <PasswordField layoutX="269.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Repeat Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+            <JFXButton layoutX="126.0" layoutY="458.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Sign up" textFill="#76abae">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="6.0" layoutY="8.0" onAction="#goToLoginPage" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="8.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
+            <TextField layoutX="179.0" layoutY="203.0" prefHeight="26.0" prefWidth="140.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
