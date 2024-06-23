@@ -22,4 +22,10 @@ module application {
     opens application.hotelmanagementsystem.guest.navbars to javafx.fxml;
     exports application.hotelmanagementsystem.admin.navbars;
     opens application.hotelmanagementsystem.admin.navbars to javafx.fxml;
+    exports application.hotelmanagementsystem.receptionist.dashboard;
+    opens application.hotelmanagementsystem.receptionist.dashboard to javafx.fxml;
+    exports application.hotelmanagementsystem.receptionist.login;
+    opens application.hotelmanagementsystem.receptionist.login to javafx.fxml;
+    exports application.hotelmanagementsystem.receptionist.navbars;
+    opens application.hotelmanagementsystem.receptionist.navbars to javafx.fxml;
 }

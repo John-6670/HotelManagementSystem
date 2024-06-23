@@ -16,137 +16,159 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.RoomView">
    <center>
-      <GridPane prefHeight="560.0" prefWidth="810.0" styleClass="gridPane" stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../../css/Panes.css">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="102.0" layoutY="15.0" text="Add" textFill="#222831">
-                           <font>
-                              <Font size="27.0" />
-                           </font>
-                        </Label>
-                        <TextField alignment="CENTER" layoutX="53.0" layoutY="94.0" promptText="Room Number" styleClass="field" stylesheets="@../../../css/fields.css" />
-                        <ListView fx:id="roomTypeList" layoutX="27.0" layoutY="245.0" prefHeight="162.0" prefWidth="200.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
-                        <Label fx:id="roomTypeLabel" layoutX="79.0" layoutY="184.0" text="Room Type" textFill="#222831">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <JFXButton layoutX="52.0" layoutY="489.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Add to the Room" />
-                     </children>
-                     <effect>
-                        <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
-                           <color>
-                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </AnchorPane>
-               </center>
-            </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../../css/Panes.css" GridPane.columnIndex="1">
-               <top>
-                  <AnchorPane prefHeight="260.0" prefWidth="253.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="83.0" layoutY="14.0" text="Update" textFill="#222831">
-                           <font>
-                              <Font size="27.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="53.0" layoutY="94.0" promptText="Room Number" styleClass="field" stylesheets="@../../../css/fields.css" />
-                        <JFXButton layoutX="53.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Search" />
-                     </children>
-                     <effect>
-                        <DropShadow offsetX="4.0" offsetY="4.0">
-                           <color>
-                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </AnchorPane>
-               </top>
-               <bottom>
-                  <AnchorPane prefHeight="260.0" prefWidth="263.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefWidth="230.0" text="Room is Now" textFill="#222831">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Label>
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="41.0" prefWidth="230.0" text="-" textFill="#222831">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ListView layoutX="27.0" layoutY="78.0" prefHeight="84.0" prefWidth="200.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
-                        <JFXButton layoutX="57.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Update" />
-                     </children>
-                     <effect>
-                        <DropShadow offsetX="4.0" offsetY="4.0">
-                           <color>
-                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </AnchorPane>
-               </bottom>
-            </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../../css/Panes.css" GridPane.columnIndex="2">
-               <bottom>
-                  <AnchorPane prefHeight="260.0" prefWidth="253.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label alignment="CENTER" layoutX="12.0" layoutY="103.0" prefWidth="230.0" text="Room is Now" textFill="#222831">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="12.0" layoutY="130.0" prefWidth="230.0" text="-" textFill="#222831">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <effect>
-                        <DropShadow offsetX="4.0" offsetY="4.0">
-                           <color>
-                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </AnchorPane>
-               </bottom>
-               <top>
-                  <AnchorPane prefHeight="260.0" prefWidth="253.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="88.0" layoutY="14.0" text="Delete" textFill="#222831">
-                           <font>
-                              <Font size="27.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="52.0" layoutY="94.0" promptText="Room Number" styleClass="field" stylesheets="@../../../css/fields.css" />
-                        <JFXButton layoutX="57.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Delete" />
-                        <Text layoutX="49.0" layoutY="168.0" stroke="#0066ff" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="If room were booked, you wont be able to delete!" wrappingWidth="155.404296875" />
-                     </children>
-                     <effect>
-                        <DropShadow offsetX="4.0" offsetY="4.0">
-                           <color>
-                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </AnchorPane>
-               </top>
-            </BorderPane>
-         </children>
+      <GridPane prefHeight="560.0" prefWidth="810.0" styleClass="gridPane" stylesheets="@../../../css/Panes.css"
+                BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         </rowConstraints>
+         <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../../css/Panes.css">
+            <center>
+               <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardContent"
+                           stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label layoutX="102.0" layoutY="15.0" text="Add" textFill="#222831">
+                        <font>
+                           <Font size="27.0"/>
+                        </font>
+                     </Label>
+                     <TextField alignment="CENTER" layoutX="53.0" layoutY="94.0" promptText="Room Number"
+                                styleClass="field" stylesheets="@../../../css/fields.css"/>
+                     <ListView fx:id="roomTypeList" layoutX="27.0" layoutY="245.0" prefHeight="162.0" prefWidth="200.0"
+                               styleClass="regList" stylesheets="@../../../css/lists.css"/>
+                     <Label fx:id="roomTypeLabel" layoutX="79.0" layoutY="184.0" text="Room Type" textFill="#222831">
+                        <font>
+                           <Font size="19.0"/>
+                        </font>
+                     </Label>
+                     <JFXButton layoutX="52.0" layoutY="489.0" prefHeight="37.0" prefWidth="150.0"
+                                styleClass="regButton" stylesheets="@../../../css/Button.css" text="Add to the Room"/>
+                  </children>
+                  <effect>
+                     <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
+                        <color>
+                           <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053"/>
+                        </color>
+                     </DropShadow>
+                  </effect>
+               </AnchorPane>
+            </center>
+         </BorderPane>
+         <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../../css/Panes.css"
+                     GridPane.columnIndex="1">
+            <top>
+               <AnchorPane prefHeight="260.0" prefWidth="253.0" styleClass="cardContent"
+                           stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label layoutX="83.0" layoutY="14.0" text="Update" textFill="#222831">
+                        <font>
+                           <Font size="27.0"/>
+                        </font>
+                     </Label>
+                     <TextField layoutX="53.0" layoutY="94.0" promptText="Room Number" styleClass="field"
+                                stylesheets="@../../../css/fields.css"/>
+                     <JFXButton layoutX="53.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0"
+                                styleClass="regButton" stylesheets="@../../../css/Button.css" text="Search"/>
+                  </children>
+                  <effect>
+                     <DropShadow offsetX="4.0" offsetY="4.0">
+                        <color>
+                           <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053"/>
+                        </color>
+                     </DropShadow>
+                  </effect>
+               </AnchorPane>
+            </top>
+            <bottom>
+               <AnchorPane prefHeight="260.0" prefWidth="263.0" styleClass="cardContent"
+                           stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefWidth="230.0" text="Room is Now"
+                            textFill="#222831">
+                        <font>
+                           <Font size="18.0"/>
+                        </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="41.0" prefWidth="230.0" text="-"
+                            textFill="#222831">
+                        <font>
+                           <Font size="18.0"/>
+                        </font>
+                     </Label>
+                     <ListView layoutX="27.0" layoutY="78.0" prefHeight="84.0" prefWidth="200.0" styleClass="regList"
+                               stylesheets="@../../../css/lists.css"/>
+                     <JFXButton layoutX="57.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0"
+                                styleClass="regButton" stylesheets="@../../../css/Button.css" text="Update"/>
+                  </children>
+                  <effect>
+                     <DropShadow offsetX="4.0" offsetY="4.0">
+                        <color>
+                           <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053"/>
+                        </color>
+                     </DropShadow>
+                  </effect>
+               </AnchorPane>
+            </bottom>
+         </BorderPane>
+         <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../../css/Panes.css"
+                     GridPane.columnIndex="2">
+            <bottom>
+               <AnchorPane prefHeight="260.0" prefWidth="253.0" styleClass="cardContent"
+                           stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label alignment="CENTER" layoutX="12.0" layoutY="103.0" prefWidth="230.0" text="Room is Now"
+                            textFill="#222831">
+                        <font>
+                           <Font size="18.0"/>
+                        </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="12.0" layoutY="130.0" prefWidth="230.0" text="-"
+                            textFill="#222831">
+                        <font>
+                           <Font size="18.0"/>
+                        </font>
+                     </Label>
+                  </children>
+                  <effect>
+                     <DropShadow offsetX="4.0" offsetY="4.0">
+                        <color>
+                           <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053"/>
+                        </color>
+                     </DropShadow>
+                  </effect>
+               </AnchorPane>
+            </bottom>
+            <top>
+               <AnchorPane prefHeight="260.0" prefWidth="253.0" styleClass="cardContent"
+                           stylesheets="@../../../css/Panes.css" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label layoutX="88.0" layoutY="14.0" text="Delete" textFill="#222831">
+                        <font>
+                           <Font size="27.0"/>
+                        </font>
+                     </Label>
+                     <TextField layoutX="52.0" layoutY="94.0" promptText="Room Number" styleClass="field"
+                                stylesheets="@../../../css/fields.css"/>
+                     <JFXButton layoutX="57.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0"
+                                styleClass="regButton" stylesheets="@../../../css/Button.css" text="Delete"/>
+                     <Text layoutX="49.0" layoutY="168.0" stroke="#0066ff" strokeType="OUTSIDE" strokeWidth="0.0"
+                           style="-fx-text-alignment: center;" text="If room were booked, you wont be able to delete!"
+                           wrappingWidth="155.404296875"/>
+                  </children>
+                  <effect>
+                     <DropShadow offsetX="4.0" offsetY="4.0">
+                        <color>
+                           <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053"/>
+                        </color>
+                     </DropShadow>
+                  </effect>
+               </AnchorPane>
+            </top>
+         </BorderPane>
       </GridPane>
    </center>
 </BorderPane>

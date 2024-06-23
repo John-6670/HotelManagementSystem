@@ -20,7 +20,7 @@
          </cursor>
       </FontAwesomeIcon>
       <JFXButton layoutX="400.0" layoutY="183.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#guestLogin" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #0E46A3;" styleClass="button" text="Guest Login/Sign Up" textFill="WHITE" AnchorPane.topAnchor="214.2" />
-      <JFXButton layoutX="400.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" styleClass="button" text="Receptionist Login" AnchorPane.bottomAnchor="214.2" />
+      <JFXButton layoutX="400.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#receptionistLogin" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" styleClass="button" text="Receptionist Login" AnchorPane.bottomAnchor="214.2" />
       <JFXButton layoutX="400.0" layoutY="426.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#adminLogin" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #8DECB4;" styleClass="button" text="Admin Login" AnchorPane.bottomAnchor="85.6" />
    </children>
 </AnchorPane>
