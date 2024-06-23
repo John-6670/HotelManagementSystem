@@ -1,161 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane id="dashbordBoarderPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <center>
-        <GridPane BorderPane.alignment="CENTER">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css">
-                    <center>
-                        <AnchorPane prefHeight="540.0" prefWidth="264.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
-                            <children>
-                                <Label layoutX="121.0" layoutY="15.0" text="Book A Room" textFill="#222831">
-                                    <font>
-                                        <Font size="27.0" />
-                                    </font>
-                                </Label>
-                                <JFXButton layoutX="126.0" layoutY="408.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Book" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="126.0" />
-                                <VBox alignment="CENTER" layoutX="179.0" layoutY="301.0" prefHeight="60.0" prefWidth="44.0" AnchorPane.bottomAnchor="177.5">
-                                    <children>
-                                        <Label layoutY="57.5" minWidth="-Infinity" text="Price" textFill="#222831">
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                        </Label>
-                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                                            <font>
-                                                <Font size="15.0" />
-                                            </font>
-                                        </Text>
-                                    </children>
-                                </VBox>
-                                <TextField fx:id="numberOfNights" alignment="CENTER" layoutX="146.0" layoutY="235.0" prefHeight="20.0" prefWidth="110.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" AnchorPane.topAnchor="238.0" />
-                                <DatePicker layoutX="114.0" layoutY="174.0" prefHeight="20.0" promptText="Date" stylesheets="@../../css/DatePicker.css" AnchorPane.topAnchor="174.0" />
-                                <ComboBox fx:id="roomType" layoutX="126.0" layoutY="100.0" prefHeight="30.0" prefWidth="150.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../css/ChoiceBox.css" AnchorPane.topAnchor="99.0" />
-                                <Text fill="#ea0a0a" layoutX="79.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Please note: Changing the number of nights after booking may result in additional charges." wrappingWidth="246.739501953125" AnchorPane.bottomAnchor="25.0" />
-                            </children>
-                            <effect>
-                                <DropShadow offsetX="4.0" offsetY="4.0">
-                                    <color>
-                                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </AnchorPane>
-                    </center>
-                </BorderPane>
-                <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css" GridPane.columnIndex="1">
-                    <bottom>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                    </bottom>
-                </BorderPane>
-                <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css" GridPane.columnIndex="1">
-                    <bottom>
-                        <AnchorPane minHeight="-Infinity" prefHeight="250.0" prefWidth="406.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
-                            <children>
-                                <Label layoutX="140.0" layoutY="14.0" text="Check Out" textFill="#222831" AnchorPane.topAnchor="14.0">
-                                    <font>
-                                        <Font size="27.0" />
-                                    </font>
-                                </Label>
-                                <VBox alignment="CENTER" layoutX="37.0" layoutY="153.0" prefHeight="60.0" prefWidth="134.0" AnchorPane.topAnchor="153.0">
-                                    <children>
-                                        <Label layoutY="57.5" text="Room Charge" textFill="#222831">
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                        </Label>
-                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                                            <font>
-                                                <Font size="15.0" />
-                                            </font>
-                                        </Text>
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" layoutX="13.0" layoutY="74.0" prefHeight="60.0" prefWidth="184.0" AnchorPane.bottomAnchor="116.4">
-                                    <children>
-                                        <Label layoutY="57.5" text="Additional Services" textFill="#222831">
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                        </Label>
-                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                                            <font>
-                                                <Font size="15.0" />
-                                            </font>
-                                        </Text>
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" layoutX="294.0" layoutY="74.0" prefHeight="60.0" prefWidth="44.0">
-                                    <children>
-                                        <Label layoutY="57.5" minWidth="-Infinity" text="Total" textFill="#222831">
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                        </Label>
-                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                                            <font>
-                                                <Font size="15.0" />
-                                            </font>
-                                        </Text>
-                                    </children>
-                                </VBox>
-                                <JFXButton layoutX="232.0" layoutY="175.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Pay" />
-                            </children>
-                            <effect>
-                                <DropShadow offsetX="4.0" offsetY="4.0">
-                                    <color>
-                                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </AnchorPane>
-                    </bottom>
-                    <top>
-                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="270.0" prefWidth="406.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
-                            <children>
-                                <Label layoutX="58.0" layoutY="14.0" text="Change The Reservation" textFill="#222831">
-                                    <font>
-                                        <Font size="27.0" />
-                                    </font>
-                                </Label>
-                                <JFXButton layoutX="127.0" layoutY="151.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Change" AnchorPane.bottomAnchor="25.0" />
-                                <DatePicker layoutX="26.0" layoutY="135.0" prefHeight="20.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
-                                <TextField fx:id="changedNumberOfNights" alignment="CENTER" layoutX="252.0" layoutY="135.0" prefWidth="110.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
-                            </children>
-                            <effect>
-                                <DropShadow offsetX="4.0" offsetY="4.0">
-                                    <color>
-                                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </AnchorPane>
-                    </top>
-                </BorderPane>
-            </children>
-        </GridPane>
-    </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" >
+   <left>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="150.0" style="-fx-background-color: #222831;">
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIcon fill="#76abae" glyphName="ANGLE_DOWN" layoutX="63.0" layoutY="37.0" selectionFill="#76abae" size="3em" />
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="3.0" layoutY="182.0"  prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Reservation" />
+                  <JFXButton layoutX="5.0" layoutY="230.0"  prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Bills And Reports" />
+                  <JFXButton layoutX="5.0" layoutY="137.0"  prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Check-in Check-out" />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIcon fill="#76abae" glyphName="ANGLE_UP" layoutX="63.0" layoutY="37.0" size="3em" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </left>
+   <top>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1000.0" styleClass="pane">
+         <stylesheets>
+            <URL value="@../../css/Panes.css" />
+            <URL value="@../../css/Button.css" />
+         </stylesheets>
+         <right>
+            <AnchorPane prefHeight="40.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton id="Active-nav__Button" layoutX="5.0" prefHeight="40.0" prefWidth="80.0" stylesheets="@../../css/Button.css" text="Home" textFill="#222831">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <styleClass>
+                        <String fx:value="nav__Button" />
+                        <String fx:value="button" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton layoutX="84.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../../css/Button.css" text="Profile" textFill="#222831">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton layoutX="224.0" layoutY="8.0" prefWidth="70.0" stylesheets="@../../css/Button.css" text="Log out" textFill="#222831" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="8.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <styleClass>
+                        <String fx:value="nav__Button" />
+                        <String fx:value="nav-Logout__Button" />
+                     </styleClass>
+                  </JFXButton>
+                  <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="924.0" layoutY="32.0" size="3em" />
+                  <JFXButton layoutX="918.0" layoutY="1.0"  prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text=" ">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </right>
+         <left>
+            <AnchorPane prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </top>
+   <center>
+      <BorderPane fx:id="content" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

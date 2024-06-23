@@ -4,61 +4,75 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="dashbordBoarderPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../css/Panes.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <AnchorPane prefHeight="560.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="42.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="368.0" style="-fx-background-color: #fff;">
          <children>
-            <Label layoutX="64.0" layoutY="21.0" text="Check-ins And Check-outs" textFill="#222831">
+            <Label layoutX="33.0" layoutY="27.0" text="Check-ins And Check-outs" textFill="#222831">
                <font>
-                  <Font size="27.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
-            <DatePicker layoutX="134.0" layoutY="103.0" promptText="Date" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/DatePicker.css" />
-            <DatePicker layoutX="134.0" layoutY="166.0" promptText="Date" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/DatePicker.css" />
-            <Label layoutX="192.0" layoutY="75.0" text="From" textFill="#222831">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="200.0" layoutY="145.0" text="Till" textFill="#222831">
+            <DatePicker layoutX="98.0" layoutY="102.0" promptText="Date" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/DatePicker.css" />
+            <DatePicker layoutX="98.0" layoutY="166.0" promptText="Date" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/DatePicker.css" />
+            <Label layoutX="167.0" layoutY="74.0" text="From" textFill="#222831">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="184.0" layoutY="218.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Search" textFill="#76abae">
+            <Label layoutX="175.0" layoutY="139.0" text="Till" textFill="#222831">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="149.0" layoutY="209.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Search" textFill="#76abae">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <ListView layoutX="10.0" layoutY="257.0" prefHeight="292.0" prefWidth="415.0" />
+            <ListView layoutX="20.0" layoutY="247.0" prefHeight="273.0" prefWidth="326.0" />
          </children>
+         <effect>
+            <DropShadow offsetX="4.0" offsetY="4.0">
+               <color>
+                  <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+               </color>
+            </DropShadow>
+         </effect>
       </AnchorPane>
-   </left>
-   <right>
-      <AnchorPane prefHeight="560.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+      <AnchorPane layoutX="434.0" layoutY="17.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="368.0" style="-fx-background-color: #fff;">
          <children>
-            <Label layoutX="180.0" layoutY="40.0" text="Bill" textFill="#222831">
+            <Label layoutX="153.0" layoutY="28.0" text="Bills" textFill="#222831">
                <font>
-                  <Font size="27.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
-            <DatePicker layoutX="129.0" layoutY="152.0" promptText="Date" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/DatePicker.css" />
-            <Label layoutX="169.0" layoutY="106.0" text="Pick A Date" textFill="#222831">
+            <DatePicker layoutX="97.0" layoutY="147.0" promptText="Date" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/DatePicker.css" />
+            <Label layoutX="138.0" layoutY="97.0" text="Pick A Date" textFill="#222831">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="172.0" layoutY="210.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Search" textFill="#76abae">
+            <Button layoutX="140.0" layoutY="202.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../../../../java/application/hotelmanagementsystem/css/Button.css" text="Search" textFill="#76abae">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <ListView layoutX="39.0" layoutY="265.0" prefHeight="269.0" prefWidth="338.0" />
+            <ListView layoutX="21.0" layoutY="242.0" prefHeight="273.0" prefWidth="326.0" />
          </children>
+         <effect>
+            <DropShadow offsetX="4.0" offsetY="4.0">
+               <color>
+                  <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+               </color>
+            </DropShadow>
+         </effect>
       </AnchorPane>
-   </right>
-</BorderPane>
+   </children>
+</AnchorPane>
