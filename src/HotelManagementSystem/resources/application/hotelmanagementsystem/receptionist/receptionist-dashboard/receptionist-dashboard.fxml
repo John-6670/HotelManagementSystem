@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane id="dashbordBoarderPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <GridPane BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css">
+                    <center>
+                        <AnchorPane prefHeight="540.0" prefWidth="264.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="121.0" layoutY="15.0" text="Book A Room" textFill="#222831">
+                                    <font>
+                                        <Font size="27.0" />
+                                    </font>
+                                </Label>
+                                <JFXButton layoutX="126.0" layoutY="408.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Book" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="126.0" />
+                                <VBox alignment="CENTER" layoutX="179.0" layoutY="301.0" prefHeight="60.0" prefWidth="44.0" AnchorPane.bottomAnchor="177.5">
+                                    <children>
+                                        <Label layoutY="57.5" minWidth="-Infinity" text="Price" textFill="#222831">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <TextField fx:id="numberOfNights" alignment="CENTER" layoutX="146.0" layoutY="235.0" prefHeight="20.0" prefWidth="110.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" AnchorPane.topAnchor="238.0" />
+                                <DatePicker layoutX="114.0" layoutY="174.0" prefHeight="20.0" promptText="Date" stylesheets="@../../css/DatePicker.css" AnchorPane.topAnchor="174.0" />
+                                <ComboBox fx:id="roomType" layoutX="126.0" layoutY="100.0" prefHeight="30.0" prefWidth="150.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../css/ChoiceBox.css" AnchorPane.topAnchor="99.0" />
+                                <Text fill="#ea0a0a" layoutX="79.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Please note: Changing the number of nights after booking may result in additional charges." wrappingWidth="246.739501953125" AnchorPane.bottomAnchor="25.0" />
+                            </children>
+                            <effect>
+                                <DropShadow offsetX="4.0" offsetY="4.0">
+                                    <color>
+                                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css" GridPane.columnIndex="1">
+                    <bottom>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                    </bottom>
+                </BorderPane>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card" stylesheets="@../../css/Panes.css" GridPane.columnIndex="1">
+                    <bottom>
+                        <AnchorPane minHeight="-Infinity" prefHeight="250.0" prefWidth="406.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="140.0" layoutY="14.0" text="Check Out" textFill="#222831" AnchorPane.topAnchor="14.0">
+                                    <font>
+                                        <Font size="27.0" />
+                                    </font>
+                                </Label>
+                                <VBox alignment="CENTER" layoutX="37.0" layoutY="153.0" prefHeight="60.0" prefWidth="134.0" AnchorPane.topAnchor="153.0">
+                                    <children>
+                                        <Label layoutY="57.5" text="Room Charge" textFill="#222831">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" layoutX="13.0" layoutY="74.0" prefHeight="60.0" prefWidth="184.0" AnchorPane.bottomAnchor="116.4">
+                                    <children>
+                                        <Label layoutY="57.5" text="Additional Services" textFill="#222831">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" layoutX="294.0" layoutY="74.0" prefHeight="60.0" prefWidth="44.0">
+                                    <children>
+                                        <Label layoutY="57.5" minWidth="-Infinity" text="Total" textFill="#222831">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <JFXButton layoutX="232.0" layoutY="175.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Pay" />
+                            </children>
+                            <effect>
+                                <DropShadow offsetX="4.0" offsetY="4.0">
+                                    <color>
+                                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                        </AnchorPane>
+                    </bottom>
+                    <top>
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="270.0" prefWidth="406.0" styleClass="cardContent" stylesheets="@../../css/Panes.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="58.0" layoutY="14.0" text="Change The Reservation" textFill="#222831">
+                                    <font>
+                                        <Font size="27.0" />
+                                    </font>
+                                </Label>
+                                <JFXButton layoutX="127.0" layoutY="151.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../css/Button.css" text="Change" AnchorPane.bottomAnchor="25.0" />
+                                <DatePicker layoutX="26.0" layoutY="135.0" prefHeight="20.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
+                                <TextField fx:id="changedNumberOfNights" alignment="CENTER" layoutX="252.0" layoutY="135.0" prefWidth="110.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+                            </children>
+                            <effect>
+                                <DropShadow offsetX="4.0" offsetY="4.0">
+                                    <color>
+                                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                        </AnchorPane>
+                    </top>
+                </BorderPane>
+            </children>
+        </GridPane>
+    </center>
+</BorderPane>
