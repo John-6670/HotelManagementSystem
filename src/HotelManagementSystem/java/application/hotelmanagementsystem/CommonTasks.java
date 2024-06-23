@@ -2,6 +2,7 @@ package application.hotelmanagementsystem;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -27,12 +28,19 @@ public class CommonTasks extends Main {
         stage.show();
     }
 
-    public static void loadPage(String dest, Pane parent) {
+    public static Object loadPage(String dest, Pane parent) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource(dest));
             Pane child = loader.load();
+            if (parent instanceof BorderPane) {
+                BorderPane pane = (BorderPane) ((BorderPane) parent.getParent()).getRight();
+                if (pane != null) {
+                    pane.getChildren().clear();
+                }
+            }
             parent.getChildren().clear();
             parent.getChildren().add(child);
+            return loader.getController();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

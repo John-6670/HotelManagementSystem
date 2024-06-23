@@ -18,4 +18,8 @@ module application {
     opens application.hotelmanagementsystem.admin.dashboard to javafx.fxml;
     exports application.hotelmanagementsystem.admin.login;
     opens application.hotelmanagementsystem.admin.login to javafx.fxml;
+    exports application.hotelmanagementsystem.guest.navbars;
+    opens application.hotelmanagementsystem.guest.navbars to javafx.fxml;
+    exports application.hotelmanagementsystem.admin.navbars;
+    opens application.hotelmanagementsystem.admin.navbars to javafx.fxml;
 }

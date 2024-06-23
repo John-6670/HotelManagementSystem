@@ -1,97 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import java.lang.String?>
-<?import java.net.URL?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.GuestDashboard">
    <left>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="150.0" style="-fx-background-color: #222831;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-         <top>
-            <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-               <children>
-                  <FontAwesomeIcon fill="#76abae" glyphName="ANGLE_DOWN" layoutX="63.0" layoutY="37.0" selectionFill="#76abae" size="3em" />
-               </children>
-            </AnchorPane>
-         </top>
-         <center>
-            <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-               <children>
-                  <JFXButton layoutY="230.0" onAction="#loadReservationPage" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text="Reservation" />
-                  <JFXButton layoutY="175.0" onAction="#loadRoomPage" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text="Room" />
-               </children>
-            </AnchorPane>
-         </center>
-         <bottom>
-            <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-               <children>
-                  <FontAwesomeIcon fill="#76abae" glyphName="ANGLE_UP" layoutX="63.0" layoutY="37.0" size="3em" />
-               </children>
-            </AnchorPane>
-         </bottom>
-      </BorderPane>
+      <BorderPane fx:id="sideNav" prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
    </left>
    <top>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1000.0" styleClass="pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-         <stylesheets>
-            <URL value="@../../css/Panes.css" />
-            <URL value="@../../css/Button.css" />
-         </stylesheets>
-         <right>
-            <AnchorPane prefHeight="40.0" prefWidth="960.0" BorderPane.alignment="CENTER">
-               <children>
-                  <JFXButton id="Active-nav__Button" layoutX="5.0" prefHeight="40.0" prefWidth="80.0" stylesheets="@../../css/Button.css" text="Home" textFill="#222831">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="nav__Button" />
-                        <String fx:value="button" />
-                     </styleClass>
-                  </JFXButton>
-                  <JFXButton layoutX="84.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" stylesheets="@../../css/Button.css" text="Profile" textFill="#222831">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></JFXButton>
-                  <JFXButton layoutX="224.0" layoutY="8.0" prefWidth="70.0" stylesheets="@../../css/Button.css" text="Log out" textFill="#222831" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="8.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="nav__Button" />
-                        <String fx:value="nav-Logout__Button" />
-                     </styleClass></JFXButton>
-                  <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="924.0" layoutY="32.0" size="3em" />
-                  <JFXButton layoutX="918.0" layoutY="1.0" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text=" ">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
-               </children>
-            </AnchorPane>
-         </right>
-         <left>
-            <AnchorPane prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </left>
-      </BorderPane>
+      <BorderPane fx:id="topNav" prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
    </top>
    <center>
       <BorderPane fx:id="content" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
