@@ -36,7 +36,7 @@ public class ReceptionistDashboard implements Initializable {
     }
 
     public void showProfile() {
-
+        CommonTasks.pageNavigate("receptionist/dashboard/profile/receptionist-profile.fxml");
     }
 
     public void showFinance() {
@@ -47,6 +47,7 @@ public class ReceptionistDashboard implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ReceptionistSideNav nav = (ReceptionistSideNav) CommonTasks.loadPage("receptionist/navbars/receptionist-side-nav.fxml", sideNav);
         ReceptionistTopNav navbar = (ReceptionistTopNav) CommonTasks.loadPage("receptionist/navbars/receptionist-top-nav.fxml", topNav);
+        loadReservation();
         nav.setDashboard(this);
         navbar.setDashboard(this);
     }
