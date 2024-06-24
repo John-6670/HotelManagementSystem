@@ -3,7 +3,7 @@
 }
 
 .nav__Button{
-    -fx-background-color: transparent;
+    -fx-background-color: false;
     -fx-start-margin: 0;
     -fx-end-margin: 0;
     -fx-text-fill: #222831;
@@ -77,4 +77,28 @@
 
 .optionButton:hover{
     -fx-border-width: 1;
+}
+
+#quitButton{
+    -fx-border-color: #ff0000;
+
+}
+
+#quitButton:hover{
+    -fx-text-fill: #ff0000;
+    -fx-underline: true;
+}
+
+.okButton{
+    -fx-background-color: #76abae;
+    -fx-background-radius: 0;
+    -fx-text-fill: #222831;
+}
+
+.noButton{
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76abae;
+    -fx-border-color: #76abae;
+    -fx-border-width: 0.5;
 }

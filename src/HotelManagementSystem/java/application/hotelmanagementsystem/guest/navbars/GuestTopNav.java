@@ -12,7 +12,7 @@ public class GuestTopNav extends TopNav {
 
     @Override
     public void showProfile() {
-
+        dashboard.showProfile();
     }
 
     @Override

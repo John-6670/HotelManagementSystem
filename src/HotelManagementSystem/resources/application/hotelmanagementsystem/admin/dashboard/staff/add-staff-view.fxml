@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -10,54 +9,40 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.AddStaff">
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+<BorderPane styleClass="card" stylesheets="@../../../css/Panes.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.AddStaff">
    <center>
-       <AnchorPane prefHeight="560.0" prefWidth="540.0" style="-fx-background-color: #fff;"
-                   BorderPane.alignment="CENTER">
-           <Label layoutX="113.0" layoutY="87.0" text="Receptionist Recruitment" textFill="#222831">
-               <font>
-                   <Font size="27.0"/>
-               </font>
-           </Label>
-           <TextField layoutX="193.0" layoutY="172.0" prefHeight="26.0" prefWidth="140.0" promptText="Full Name"
-                      style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;"/>
-           <TextField fx:id="phoneNumber" layoutX="112.0" layoutY="344.0" prefHeight="26.0" prefWidth="140.0"
-                      promptText="Phone Number"
-                      style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;"/>
-           <TextField layoutX="286.0" layoutY="224.0" prefHeight="26.0" prefWidth="140.0" promptText="Username"
-                      style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;"/>
-           <TextField layoutX="286.0" layoutY="344.0" prefHeight="26.0" prefWidth="140.0" promptText="Email"
-                      style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;"/>
-           <PasswordField layoutX="112.0" layoutY="284.0" prefHeight="26.0" prefWidth="140.0" promptText="Password"
-                          style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;"/>
-           <PasswordField layoutX="286.0" layoutY="284.0" prefHeight="26.0" prefWidth="140.0"
-                          promptText="Repeat Password"
-                          style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;"/>
-           <JFXButton layoutX="145.0" layoutY="458.0" prefHeight="35.0" prefWidth="250.0"
-                      style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Add Staff"
-                      textFill="#76abae">
-               <font>
-                   <Font name="System Bold" size="13.0"/>
-               </font>
-               <cursor>
-                   <Cursor fx:constant="HAND"/>
-               </cursor>
-           </JFXButton>
-           <JFXButton layoutX="37.0" layoutY="10.0" prefHeight="37.0" prefWidth="91.0"
-                      style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back"
-                      textFill="#222831" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="10.0">
-               <font>
-                   <Font size="15.0"/>
-               </font>
-               <cursor>
-                   <Cursor fx:constant="HAND"/>
-               </cursor>
-           </JFXButton>
-           <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="16.0" layoutY="37.0"
-                            size="2em"/>
-           <TextField fx:id="nationalId" layoutX="112.0" layoutY="224.0" prefHeight="26.0" prefWidth="140.0"
-                      promptText="National ID"
-                      style="-fx-background-color: tranparent; -fx-border-color: #222831; -fx-background-radius: 0; -fx-border-width: 0 0 1 0;"/>
+       <AnchorPane styleClass="cardContent" stylesheets="@../../../css/Panes.css" prefHeight="560.0" prefWidth="540.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+           <children>
+               <Label layoutX="113.0" layoutY="37.0" text="Receptionist Recruitment" textFill="#222831">
+                   <font>
+                       <Font size="27.0" />
+                   </font>
+               </Label>
+               <TextField layoutX="193.0" layoutY="172.0" prefHeight="26.0" prefWidth="140.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+               <TextField fx:id="phoneNumber" layoutX="112.0" layoutY="344.0" prefHeight="26.0" prefWidth="140.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+               <TextField layoutX="286.0" layoutY="224.0" prefHeight="26.0" prefWidth="140.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+               <TextField layoutX="286.0" layoutY="344.0" prefHeight="26.0" prefWidth="140.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+               <PasswordField layoutX="112.0" layoutY="284.0" prefHeight="26.0" prefWidth="140.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+               <PasswordField layoutX="286.0" layoutY="284.0" prefHeight="26.0" prefWidth="140.0" promptText="Repeat Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+               <JFXButton layoutX="145.0" layoutY="458.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Add Staff" textFill="#76abae">
+                   <font>
+                       <Font name="System Bold" size="13.0" />
+                   </font>
+                   <cursor>
+                       <Cursor fx:constant="HAND" />
+                   </cursor>
+               </JFXButton>
+               <TextField fx:id="nationalId" layoutX="112.0" layoutY="224.0" prefHeight="26.0" prefWidth="140.0" promptText="National ID" style="-fx-background-color: tranparent; -fx-border-color: #222831; -fx-background-radius: 0; -fx-border-width: 0 0 1 0;" />
+           </children>
+           <effect>
+               <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
+                   <color>
+                       <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                   </color>
+               </DropShadow>
+           </effect>
        </AnchorPane>
    </center>
 </BorderPane>

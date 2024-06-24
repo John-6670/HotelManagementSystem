@@ -1,3 +1,7 @@
+#searchBar{
+    -fx-alignment: left;
+}
+
 .field{
     -fx-background-color: transparent;
     -fx-background-radius: 0;
@@ -28,4 +32,10 @@
 #reportField{
     -fx-alignment: left;
 }
+
+.datePicker{
+    -fx-text-fill: #222831;
+}
+
+
 

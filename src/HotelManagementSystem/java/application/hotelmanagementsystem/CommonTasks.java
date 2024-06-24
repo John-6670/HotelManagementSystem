@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class CommonTasks extends Main {
-    public static void pageNavigate(String dest) throws IOException {
+    public static void pageNavigate(String dest) {
         double xTemp = x;
         double yTemp = y;
 
@@ -23,27 +23,26 @@ public class CommonTasks extends Main {
             stage.initStyle(StageStyle.UNDECORATED);
         }
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(dest)));
-
-        preparePage(root);
-        stage.show();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(dest)));
+            preparePage(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Object loadPage(String dest, Pane parent) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource(dest));
             Pane child = loader.load();
-            if (parent instanceof BorderPane) {
-                BorderPane pane = (BorderPane) ((BorderPane) parent.getParent()).getRight();
-                if (pane != null) {
-                    pane.getChildren().clear();
-                }
-            }
             parent.getChildren().clear();
             parent.getChildren().add(child);
             return loader.getController();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return null;
         }
     }
 

@@ -10,7 +10,7 @@ public class StaffView {
     }
 
     @FXML
-    public void loadStaffSample() {
-        dashboard.loadStaffSample();
+    public void loadAddStaff() {
+        dashboard.loadAddStaff();
     }
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.roomsController">
+<BorderPane fx:controller="application.hotelmanagementsystem.admin.dashboard.RoomSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -49,13 +49,13 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="443.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" promptText="min" styleClass="field" stylesheets="@../../../css/fields.css" />
+                  <TextField fx:id="from" layoutX="443.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" promptText="min" styleClass="field" stylesheets="@../../../css/fields.css" />
                   <Label layoutX="535.0" layoutY="15.0" text="To">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="564.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" promptText="max" styleClass="field" stylesheets="@../../../css/fields.css" />
+                  <TextField fx:id="to" layoutX="564.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" promptText="max" styleClass="field" stylesheets="@../../../css/fields.css" />
                </children>
                <effect>
                   <DropShadow offsetX="4.0" offsetY="4.0">

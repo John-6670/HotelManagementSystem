@@ -9,17 +9,17 @@ import java.io.IOException;
 
 public class GuestLogin extends CloseButton implements LoginController {
     @FXML
-    public void goToSignUpPage() throws IOException {
+    public void goToSignUpPage() {
         CommonTasks.pageNavigate("guest/login/guest-signUp-view.fxml");
     }
 
     @FXML
-    public void login() throws IOException {
+    public void login() {
         CommonTasks.pageNavigate("guest/dashboard/guest-dashboard.fxml");
     }
 
     @Override
-    public void back() throws IOException {
+    public void back() {
         CommonTasks.pageNavigate("welcome-view.fxml");
     }
 }

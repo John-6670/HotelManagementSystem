@@ -12,12 +12,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.AdminProfile">
    <top>
       <AnchorPane prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="966.0" layoutY="32.0" size="3em" stroke="WHITE" />
+            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="966.0" layoutY="32.0" onMouseClicked="#closeWindow" size="3em" stroke="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
             <JFXButton layoutX="960.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -28,7 +31,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="5.0" layoutY="33.0" size="3em" stroke="WHITE" strokeWidth="2.0" />
+            <FontAwesomeIcon fill="#222831" glyphName="ARROW_LEFT" layoutX="5.0" layoutY="33.0" onMouseClicked="#back" size="3em" stroke="WHITE" strokeWidth="2.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
          </children>
       </AnchorPane>
    </top>
@@ -85,7 +92,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You are able to:" wrappingWidth="89.91015625">
+                  <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You are able to:" wrappingWidth="137.11013793945312" AnchorPane.bottomAnchor="91.0">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -109,7 +116,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="16.0" layoutY="61.0" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Edit Information" />
+                  <JFXButton layoutX="16.0" layoutY="61.0" prefHeight="42.0" onAction="#loadEdit" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Edit Information" />
                   <JFXButton layoutX="16.0" layoutY="113.0" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Check Finance" />
                   <JFXButton id="quitButton" layoutX="16.0" layoutY="333.0" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Quit" />
                </children>
@@ -128,7 +135,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="44.0" prefHeight="27.0" prefWidth="220.0" text="mnmcmc20.04@gmail.com">
+                  <Label alignment="CENTER" layoutY="44.0" prefHeight="27.0" prefWidth="220.0" text="-">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -141,7 +148,7 @@
    <right>
       <AnchorPane prefHeight="540.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="520.0" prefWidth="460.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">
+            <AnchorPane fx:id="editInfo" layoutX="20.0" layoutY="20.0" prefHeight="520.0" prefWidth="460.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">
                <effect>
                   <DropShadow offsetX="4.0" offsetY="4.0">
                      <color>

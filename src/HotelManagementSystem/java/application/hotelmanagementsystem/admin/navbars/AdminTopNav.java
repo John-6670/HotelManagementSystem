@@ -5,6 +5,8 @@ import application.hotelmanagementsystem.TopNav;
 import application.hotelmanagementsystem.admin.dashboard.AdminDashboard;
 import javafx.fxml.FXML;
 
+import java.io.IOException;
+
 public class AdminTopNav extends TopNav {
     private AdminDashboard dashboard;
 
@@ -12,14 +14,13 @@ public class AdminTopNav extends TopNav {
         this.dashboard = dashboard;
     }
 
-
     @Override
-    public void showProfile() {
-
+    public void showProfile() throws IOException {
+        dashboard.showProfile();
     }
 
     @Override
     public void showFinance() {
-
+        dashboard.showFinance();
     }
 }

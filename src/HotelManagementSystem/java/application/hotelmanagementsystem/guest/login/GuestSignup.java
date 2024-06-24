@@ -18,7 +18,7 @@ public class GuestSignup extends CloseButton implements Initializable {
     private TextField phoneNumber;
 
     @FXML
-    public void goToLoginPage() throws IOException {
+    public void goToLoginPage() {
         CommonTasks.pageNavigate("guest/login/guest-login-view.fxml");
     }
 

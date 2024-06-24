@@ -8,17 +8,17 @@ import java.io.IOException;
 
 public class AdminLogin extends CloseButton implements LoginController {
     @Override
-    public void goToSignUpPage() throws IOException {
+    public void goToSignUpPage() {
         CommonTasks.pageNavigate("admin/login/admin-signup-view.fxml");
     }
 
     @Override
-    public void login() throws IOException {
+    public void login() {
         CommonTasks.pageNavigate("admin/dashboard/admin-dashboard.fxml");
     }
 
     @Override
-    public void back() throws IOException {
+    public void back() {
         CommonTasks.pageNavigate("welcome-view.fxml");
     }
 }

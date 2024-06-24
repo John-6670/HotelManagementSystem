@@ -2,15 +2,16 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.layout.Pane?>
 <BorderPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.AdminDashboard">
     <left>
-        <BorderPane fx:id="sideNav" prefHeight="560.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
+        <Pane fx:id="sideNav" prefHeight="560.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
     </left>
     <top>
-        <BorderPane fx:id="topNav" prefWidth="1000.0" prefHeight="40.0" BorderPane.alignment="CENTER" />
+        <Pane fx:id="topNav" prefWidth="1000.0" prefHeight="40.0" BorderPane.alignment="CENTER" />
     </top>
    <center>
-      <BorderPane fx:id="content" prefHeight="560.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="560.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <left>
             <BorderPane fx:id="listView" prefHeight="560.0" prefWidth="310.0" BorderPane.alignment="CENTER" />
          </left>

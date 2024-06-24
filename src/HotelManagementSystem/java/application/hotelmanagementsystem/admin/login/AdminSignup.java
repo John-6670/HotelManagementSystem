@@ -18,7 +18,7 @@ public class AdminSignup extends CloseButton implements Initializable {
     private TextField phoneNumber;
 
     @FXML
-    public void goToLoginPage() throws IOException {
+    public void goToLoginPage() {
         CommonTasks.pageNavigate("admin/login/admin-login-view.fxml");
     }
 

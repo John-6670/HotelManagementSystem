@@ -13,12 +13,12 @@ public class ReceptionistLogin extends CloseButton implements LoginController {
     }
 
     @Override
-    public void login() throws IOException {
+    public void login() {
         CommonTasks.pageNavigate("receptionist/dashboard/receptionist-dashboard.fxml");
     }
 
     @Override
-    public void back() throws IOException {
+    public void back() {
         CommonTasks.pageNavigate("welcome-view.fxml");
     }
 }

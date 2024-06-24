@@ -22,11 +22,15 @@ public class GuestDashboard extends CloseButton implements Initializable {
     private BorderPane topNav;
 
     public void loadRoomPage() {
-        CommonTasks.loadPage("guest/dashboard/room.fxml", content);
+        CommonTasks.loadPage("guest/dashboard/room/room.fxml", content);
     }
 
     public void loadReservationPage() {
-        CommonTasks.loadPage("guest/dashboard/reservation.fxml", content);
+        CommonTasks.loadPage("guest/dashboard/reservation/reservation.fxml", content);
+    }
+
+    public void showProfile() {
+        CommonTasks.pageNavigate("guest/dashboard/profile/profile-view.fxml");
     }
 
     @Override

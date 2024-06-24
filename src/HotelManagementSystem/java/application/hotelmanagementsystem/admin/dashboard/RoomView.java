@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RoomView implements Initializable {
+    private AdminDashboard dashboard;
+
     @FXML
     private TextField addRoomNumber;
 
@@ -18,6 +20,15 @@ public class RoomView implements Initializable {
 
     @FXML
     private TextField deleteRoomNumber;
+
+    public void setDashboard(AdminDashboard dashboard) {
+        this.dashboard = dashboard;
+    }
+
+    @FXML
+    public void loadRooms() {
+        dashboard.loadSearchRooms();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
