@@ -25,7 +25,10 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="alertContent" fill="#76abae" layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." wrappingWidth="316.51953125" />
+            <Text fx:id="alertContent" fill="#76abae" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." wrappingWidth="378.11956787109375">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
             <Text fill="#76abae" layoutX="14.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are You Sure?">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -37,12 +40,12 @@
    <bottom>
       <AnchorPane prefHeight="40.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton layoutX="310.0" layoutY="4.0" prefHeight="30.0" prefWidth="82.0" styleClass="okButton" text="Yes">
+            <JFXButton fx:id="confirm" layoutX="310.0" layoutY="4.0" prefHeight="30.0" prefWidth="82.0" styleClass="okButton" text="Yes">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="218.0" layoutY="4.0" prefHeight="30.0" prefWidth="82.0" styleClass="noButton" text="No">
+            <JFXButton fx:id="cancel" layoutX="218.0" layoutY="4.0" prefHeight="30.0" prefWidth="82.0" styleClass="noButton" text="No">
                <font>
                   <Font size="14.0" />
                </font>

@@ -28,4 +28,20 @@ module application {
     opens application.hotelmanagementsystem.receptionist.login to javafx.fxml;
     exports application.hotelmanagementsystem.receptionist.navbars;
     opens application.hotelmanagementsystem.receptionist.navbars to javafx.fxml;
+    exports application.hotelmanagementsystem.admin.dashboard.room;
+    opens application.hotelmanagementsystem.admin.dashboard.room to javafx.fxml;
+    exports application.hotelmanagementsystem.admin.dashboard.profile;
+    opens application.hotelmanagementsystem.admin.dashboard.profile to javafx.fxml;
+    exports application.hotelmanagementsystem.admin.dashboard.staff;
+    opens application.hotelmanagementsystem.admin.dashboard.staff to javafx.fxml;
+    exports application.hotelmanagementsystem.admin.dashboard.reports;
+    opens application.hotelmanagementsystem.admin.dashboard.reports to javafx.fxml;
+    exports application.hotelmanagementsystem.admin.dashboard.finanace;
+    opens application.hotelmanagementsystem.admin.dashboard.finanace to javafx.fxml;
+    exports application.hotelmanagementsystem.guest.dashborad.profile;
+    opens application.hotelmanagementsystem.guest.dashborad.profile to javafx.fxml;
+    exports application.hotelmanagementsystem.guest.dashborad.reservation;
+    opens application.hotelmanagementsystem.guest.dashborad.reservation to javafx.fxml;
+    exports application.hotelmanagementsystem.guest.dashborad.room;
+    opens application.hotelmanagementsystem.guest.dashborad.room to javafx.fxml;
 }

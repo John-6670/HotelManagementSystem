@@ -10,34 +10,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:controller="application.hotelmanagementsystem.guest.dashborad.GuestEdit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.profile.GuestEdit">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="163.0" layoutY="20.0" text="Verify Your Self">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nationalId" layoutX="130.0" layoutY="103.0" prefHeight="30.0" prefWidth="200.0" promptText="National ID" styleClass="field" />
-            <Text layoutX="140.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your National ID and Your password" textAlignment="CENTER" wrappingWidth="183.51953125" />
-            <PasswordField layoutX="130.0" layoutY="143.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
-            <Label layoutX="107.0" layoutY="197.0" text="Enter Your New Information">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Text layoutX="138.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you let any field of information empty, it won't change" textAlignment="CENTER" wrappingWidth="183.51953125" />
-            <TextField layoutX="130.0" layoutY="280.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" styleClass="field" />
-            <TextField fx:id="phoneNumber" layoutX="130.0" layoutY="321.0" prefHeight="30.0" prefWidth="200.0" promptText="Phone Number" styleClass="field" />
-            <PasswordField layoutX="131.0" layoutY="362.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
-            <PasswordField layoutX="130.0" layoutY="403.0" prefHeight="30.0" prefWidth="200.0" promptText="Password Repeat" styleClass="field" />
-            <JFXButton layoutX="146.0" layoutY="465.0" prefHeight="41.0" prefWidth="170.0" styleClass="regButton" text="Verify and Submit" />
-         </children>
          <stylesheets>
-            <URL value="@../../../css/fields.css" />
-            <URL value="@../../../css/Button.css" />
+            <URL value="@../../../css/fields.css"/>
+            <URL value="@../../../css/Button.css"/>
          </stylesheets>
+         <Label layoutX="163.0" layoutY="20.0" text="Verify Your Self">
+            <font>
+               <Font size="20.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="nationalId" layoutX="130.0" layoutY="103.0" prefHeight="30.0" prefWidth="200.0"
+                    promptText="National ID" styleClass="field"/>
+         <Text layoutX="140.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Please enter your National ID and Your password" textAlignment="CENTER"
+               wrappingWidth="183.51953125"/>
+         <PasswordField layoutX="130.0" layoutY="143.0" prefHeight="30.0" prefWidth="200.0" promptText="Password"
+                        styleClass="field"/>
+         <Label layoutX="107.0" layoutY="197.0" text="Enter Your New Information">
+            <font>
+               <Font size="20.0"/>
+            </font>
+         </Label>
+         <Text layoutX="138.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="If you let any field of information empty, it won't change" textAlignment="CENTER"
+               wrappingWidth="183.51953125"/>
+         <TextField layoutX="130.0" layoutY="280.0" prefHeight="30.0" prefWidth="200.0" promptText="Email"
+                    styleClass="field"/>
+         <TextField fx:id="phoneNumber" layoutX="130.0" layoutY="321.0" prefHeight="30.0" prefWidth="200.0"
+                    promptText="Phone Number" styleClass="field"/>
+         <PasswordField layoutX="131.0" layoutY="362.0" prefHeight="30.0" prefWidth="200.0" promptText="Password"
+                        styleClass="field"/>
+         <PasswordField layoutX="130.0" layoutY="403.0" prefHeight="30.0" prefWidth="200.0" promptText="Password Repeat"
+                        styleClass="field"/>
+         <JFXButton layoutX="146.0" layoutY="465.0" onAction="#edit" prefHeight="41.0" prefWidth="170.0"
+                    styleClass="regButton" text="Verify and Submit"/>
       </AnchorPane>
    </center>
 </BorderPane>

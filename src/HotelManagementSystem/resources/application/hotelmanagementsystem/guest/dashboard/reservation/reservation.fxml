@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane id="dashbordBoarderPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.GuestReservation">
+<BorderPane id="dashbordBoarderPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.reservation.GuestReservation">
     <center>
         <GridPane BorderPane.alignment="CENTER">
             <columnConstraints>
@@ -35,7 +35,7 @@
                                     <Font size="27.0" />
                                 </font>
                             </Label>
-                            <JFXButton layoutX="126.0" layoutY="408.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Book" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="126.0" />
+                            <JFXButton layoutX="126.0" layoutY="408.0" onAction="#book" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Book" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="126.0" />
                             <VBox alignment="CENTER" layoutX="179.0" layoutY="301.0" prefHeight="60.0" prefWidth="44.0" AnchorPane.bottomAnchor="177.5">
                                 <children>
                                     <Label layoutY="57.5" minWidth="-Infinity" text="Price" textFill="#222831">
@@ -43,7 +43,7 @@
                                             <Font size="18.0" />
                                         </font>
                                     </Label>
-                                    <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                    <Text fx:id="roomPrice" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                         <font>
                                             <Font size="15.0" />
                                         </font>
@@ -86,7 +86,7 @@
                                             <Font size="18.0" />
                                         </font>
                                     </Label>
-                                    <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                    <Text fx:id="roomCharge" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                         <font>
                                             <Font size="15.0" />
                                         </font>
@@ -100,7 +100,7 @@
                                             <Font size="18.0" />
                                         </font>
                                     </Label>
-                                    <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                    <Text fx:id="additionalServices" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                         <font>
                                             <Font size="15.0" />
                                         </font>
@@ -114,14 +114,14 @@
                                             <Font size="18.0" />
                                         </font>
                                     </Label>
-                                    <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                    <Text fx:id="totalBill" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                         <font>
                                             <Font size="15.0" />
                                         </font>
                                     </Text>
                                 </children>
                             </VBox>
-                            <JFXButton layoutX="232.0" layoutY="175.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Pay" />
+                            <JFXButton layoutX="232.0" layoutY="175.0" onAction="#pay" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Pay" />
                         </children>
                         <effect>
                             <DropShadow offsetX="4.0" offsetY="4.0">
@@ -140,7 +140,7 @@
                                     <Font size="27.0" />
                                 </font>
                             </Label>
-                            <JFXButton layoutX="127.0" layoutY="151.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Change" AnchorPane.bottomAnchor="25.0" />
+                            <JFXButton layoutX="127.0" layoutY="151.0" onAction="#changeReservation" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Change" AnchorPane.bottomAnchor="25.0" />
                             <DatePicker layoutX="26.0" layoutY="135.0" prefHeight="20.0" promptText="Date" stylesheets="@../../../css/DatePicker.css" />
                             <TextField fx:id="changedNumberOfNights" alignment="CENTER" layoutX="233.0" layoutY="134.0" prefWidth="150.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
                         </children>

@@ -1,10 +1,12 @@
 package application.hotelmanagementsystem;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -52,5 +54,59 @@ public class CommonTasks extends Main {
                 field.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
+    }
+
+    public static void showConfirmation(String text) {
+        try {
+            Parent root = FXMLLoader.load(Main.class.getResource("alerts/confirm-alert-view.fxml"));
+            Stage newStage = new Stage();
+
+            Text alertText = (Text) root.lookup("#alertContent");
+            alertText.setText(text);
+
+            JFXButton confirmButton = (JFXButton) root.lookup("#confirm");
+            JFXButton cancelButton = (JFXButton) root.lookup("#cancel");
+
+            confirmButton.setOnAction(event -> {
+                newStage.close();
+            });
+            cancelButton.setOnAction(event -> {
+                newStage.close();
+            });
+
+            newStage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root, 400, 170);
+            newStage.setScene(scene);
+            newStage.setX(580);
+            newStage.setY(370);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showError(String text) {
+        try {
+            Parent root = FXMLLoader.load(Main.class.getResource("alerts/error-alert-view.fxml"));
+            Stage newStage = new Stage();
+
+            Text errorText = (Text) root.lookup("#errorContent");
+            errorText.setText(text);
+
+            JFXButton button = (JFXButton) root.lookup("#ok");
+
+            button.setOnAction(event -> {
+                newStage.close();
+            });
+
+            newStage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root, 300, 100);
+            newStage.setScene(scene);
+            newStage.setX(630);
+            newStage.setY(400);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

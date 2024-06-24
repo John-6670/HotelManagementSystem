@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        Parent root = FXMLLoader.load(Main.class.getResource("guest/dashboard/guest-dashboard.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("welcome-view.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);
         preparePage(root);
         stage.show();
@@ -27,7 +27,6 @@ public class Main extends Application {
 
     public static void preparePage(Parent root) {
         Scene scene = new Scene(root, 1000, 600);
-        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
         stage.setX(280);
         stage.setY(170);

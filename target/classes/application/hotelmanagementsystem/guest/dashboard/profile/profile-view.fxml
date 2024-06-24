@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.GuestProfile">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.profile.GuestProfile">
    <top>
       <AnchorPane prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
@@ -117,7 +117,7 @@
                      </font>
                   </Label>
                   <JFXButton layoutX="16.0" layoutY="61.0" onAction="#loadEdit" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Edit Information" />
-                  <JFXButton id="quitButton" layoutX="16.0" layoutY="333.0" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Delete Account" />
+                  <JFXButton id="quitButton" layoutX="16.0" layoutY="333.0" onAction="#deleteAccount" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Delete Account" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="20.0" layoutY="320.0" prefHeight="220.0" prefWidth="220.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">

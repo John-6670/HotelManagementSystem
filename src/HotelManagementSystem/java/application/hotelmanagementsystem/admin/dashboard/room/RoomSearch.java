@@ -1,4 +1,4 @@
-package application.hotelmanagementsystem.admin.dashboard;
+package application.hotelmanagementsystem.admin.dashboard.room;
 
 import application.hotelmanagementsystem.CommonTasks;
 import javafx.fxml.FXML;
@@ -8,15 +8,16 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminEdit implements Initializable {
+public class RoomSearch implements Initializable {
     @FXML
-    private TextField nationalId;
+    private TextField from;
+
     @FXML
-    private TextField phoneNumber;
+    private TextField to;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        CommonTasks.setOnlyNumber(nationalId);
-        CommonTasks.setOnlyNumber(phoneNumber);
+        CommonTasks.setOnlyNumber(from);
+        CommonTasks.setOnlyNumber(to);
     }
 }

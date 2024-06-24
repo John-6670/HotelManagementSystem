@@ -1,22 +1,18 @@
 package application.hotelmanagementsystem.admin.dashboard;
 
-import application.hotelmanagementsystem.CloseButton;
 import application.hotelmanagementsystem.CommonTasks;
-import application.hotelmanagementsystem.Main;
+import application.hotelmanagementsystem.admin.dashboard.reports.ReportView;
+import application.hotelmanagementsystem.admin.dashboard.room.RoomView;
+import application.hotelmanagementsystem.admin.dashboard.staff.StaffView;
 import application.hotelmanagementsystem.admin.navbars.AdminSideNav;
 import application.hotelmanagementsystem.admin.navbars.AdminTopNav;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminDashboard implements Initializable {

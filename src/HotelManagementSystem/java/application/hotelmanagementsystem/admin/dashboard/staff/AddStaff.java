@@ -1,17 +1,17 @@
-package application.hotelmanagementsystem.guest.dashborad;
+package application.hotelmanagementsystem.admin.dashboard.staff;
 
 import application.hotelmanagementsystem.CommonTasks;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GuestEdit implements Initializable {
+public class AddStaff implements Initializable {
     @FXML
     private TextField nationalId;
+
     @FXML
     private TextField phoneNumber;
 

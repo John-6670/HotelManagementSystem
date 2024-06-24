@@ -1,4 +1,4 @@
-package application.hotelmanagementsystem.admin.dashboard;
+package application.hotelmanagementsystem.admin.dashboard.profile;
 
 import application.hotelmanagementsystem.CloseButton;
 import application.hotelmanagementsystem.CommonTasks;
@@ -15,5 +15,13 @@ public class AdminProfile extends CloseButton {
 
     public void loadEdit() {
         CommonTasks.loadPage("admin/dashboard/profile/edit-info-view.fxml", editInfo);
+    }
+
+    public void loadFinance() {
+        CommonTasks.pageNavigate("admin/dashboard/finance/finance-view.fxml");
+    }
+
+    public void quit() {
+        CommonTasks.showConfirmation("Your are going to quit from the hotel!!");
     }
 }

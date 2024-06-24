@@ -1,5 +1,6 @@
-package application.hotelmanagementsystem.admin.dashboard;
+package application.hotelmanagementsystem.admin.dashboard.staff;
 
+import application.hotelmanagementsystem.admin.dashboard.AdminDashboard;
 import javafx.fxml.FXML;
 
 public class StaffView {
