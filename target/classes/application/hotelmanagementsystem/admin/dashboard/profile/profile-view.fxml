@@ -16,26 +16,18 @@
    <top>
       <AnchorPane prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="966.0" layoutY="32.0" onMouseClicked="#closeWindow" size="3em" stroke="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </FontAwesomeIcon>
-            <JFXButton layoutX="960.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
+            <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="966.0" layoutY="32.0" size="3em" stroke="WHITE" />
+            <JFXButton layoutX="960.0" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
+            <JFXButton onAction="#back" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <FontAwesomeIcon fill="#222831" glyphName="ARROW_LEFT" layoutX="5.0" layoutY="33.0" onMouseClicked="#back" size="3em" stroke="WHITE" strokeWidth="2.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </FontAwesomeIcon>
+            <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="5.0" layoutY="33.0" size="3em" stroke="WHITE" strokeWidth="2.0" />
          </children>
       </AnchorPane>
    </top>
@@ -92,7 +84,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You are able to:" wrappingWidth="137.11013793945312" AnchorPane.bottomAnchor="91.0">
+                  <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You are able to:" wrappingWidth="89.91015625">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -140,6 +132,17 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
+                  <Label layoutX="50.0" layoutY="83.0" text="Phone Number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutY="110.0" prefHeight="27.0" prefWidth="220.0" text="-">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="15.0" layoutY="163.0" onAction="#showSecurityKey" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Show Admin Key" />
                </children>
             </AnchorPane>
          </children>

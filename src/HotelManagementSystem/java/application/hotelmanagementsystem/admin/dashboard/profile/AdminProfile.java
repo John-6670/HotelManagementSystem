@@ -24,4 +24,8 @@ public class AdminProfile extends CloseButton {
     public void quit() {
         CommonTasks.showConfirmation("Your are going to quit from the hotel!!");
     }
+
+    public void showSecurityKey() {
+        CommonTasks.loadPopUp("admin/dashboard/profile/show-admin-key.fxml");
+    }
 }

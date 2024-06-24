@@ -35,6 +35,21 @@ public class CommonTasks extends Main {
         }
     }
 
+    public static void loadPopUp(String dest) {
+        try {
+            Parent root = FXMLLoader.load(Main.class.getResource(dest));
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root, 400, 200);
+            newStage.setScene(scene);
+            newStage.setX(580);
+            newStage.setY(370);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static Object loadPage(String dest, Pane parent) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource(dest));

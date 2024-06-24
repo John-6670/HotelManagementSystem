@@ -4,7 +4,6 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -12,19 +11,19 @@
 
 <AnchorPane fx:controller="application.hotelmanagementsystem.admin.dashboard.staff.StaffSample" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="276.0" layoutY="184.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #fff;">
+      <AnchorPane layoutX="276.0" layoutY="174.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #fff;">
          <children>
-            <Label layoutX="94.0" layoutY="1.0" text="Options">
+            <Label layoutX="94.0" layoutY="8.0" text="Options">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="45.0" layoutY="61.0" prefHeight="40.0" prefWidth="160.0" text="View Reports">
+            <JFXButton layoutX="45.0" layoutY="60.0" prefHeight="40.0" prefWidth="160.0" text="View Reports">
                <styleClass>
                   <String fx:value="optionButton" />
                   <String fx:value="button" />
                </styleClass></JFXButton>
-            <JFXButton layoutX="45.0" layoutY="112.0" prefHeight="40.0" prefWidth="160.0" text="Monthly Salary">
+            <JFXButton layoutX="45.0" layoutY="112.0" onAction="#loadSuspend" prefHeight="40.0" prefWidth="160.0" text="Suspend">
                <effect>
                   <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
                      <color>
@@ -37,33 +36,7 @@
                   <String fx:value="button" />
                </styleClass>
             </JFXButton>
-            <JFXButton layoutX="45.0" layoutY="163.0" prefHeight="40.0" prefWidth="160.0" text="Edit Information">
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
-                     <color>
-                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
-                     </color>
-                  </DropShadow>
-               </effect>
-               <styleClass>
-                  <String fx:value="optionButton" />
-                  <String fx:value="button" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="45.0" layoutY="214.0" prefHeight="40.0" prefWidth="160.0" text="Suspend">
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
-                     <color>
-                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
-                     </color>
-                  </DropShadow>
-               </effect>
-               <styleClass>
-                  <String fx:value="optionButton" />
-                  <String fx:value="button" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton id="quitButton" layoutX="45.0" layoutY="265.0" prefHeight="40.0" prefWidth="160.0" text="Fire">
+            <JFXButton id="quitButton" layoutX="45.0" layoutY="265.0" onAction="#fire" prefHeight="40.0" prefWidth="160.0" text="Fire">
                <effect>
                   <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
                      <color>
@@ -85,14 +58,33 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="184.0" prefHeight="340.0" prefWidth="250.0" styleClass="pane">
+      <AnchorPane layoutX="14.0" layoutY="174.0" prefHeight="340.0" prefWidth="250.0" styleClass="pane">
          <children>
-            <Label layoutX="71.0" layoutY="1.0" text="Last Activities">
+            <Label layoutX="75.0" layoutY="8.0" styleClass="regLabel" text="Salary Status">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView layoutX="25.0" layoutY="40.0" prefHeight="280.0" prefWidth="200.0" styleClass="regList" />
+            <Label layoutX="66.0" layoutY="104.0" styleClass="regLabel" text="This Month Salary">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="53.0" layoutY="130.0" prefHeight="21.0" prefWidth="144.0" styleClass="regLabel" text="-">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="87.0" layoutY="208.0" styleClass="regLabel" text="Total Salary">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="53.0" layoutY="234.0" prefHeight="21.0" prefWidth="144.0" styleClass="regLabel" text="-">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
          <effect>
             <DropShadow offsetX="4.0" offsetY="4.0">
@@ -102,7 +94,7 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="60.0" prefHeight="111.0" prefWidth="510.0" styleClass="cardContent">
+      <AnchorPane layoutX="14.0" layoutY="50.0" prefHeight="111.0" prefWidth="510.0" styleClass="cardContent">
          <children>
             <Label layoutX="14.0" layoutY="3.0" text="Full Name: ">
                <font>
@@ -133,5 +125,6 @@
       <URL value="@../../../css/Panes.css" />
       <URL value="@../../../css/Button.css" />
       <URL value="@../../../css/lists.css" />
+      <URL value="@../../../css/label.css" />
    </stylesheets>
 </AnchorPane>
