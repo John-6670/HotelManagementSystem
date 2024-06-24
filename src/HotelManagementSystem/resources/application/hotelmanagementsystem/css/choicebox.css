@@ -1,0 +1,12 @@
+.regChoiceBox{
+    -fx-background-color: #fff;
+    -fx-background-radius: 0;
+    -fx-border-color: #222831;
+    -fx-border-width: 0 0 0.5 0;
+    -fx-prompt-text-fill: rgba(34, 40, 49, 0.51);
+    -fx-arrows-visible: #76abae;
+}
+
+.regChoiceBox:hover{
+    -fx-border-width:0 0 1 0;
+}

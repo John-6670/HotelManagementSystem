@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon disable="true" fill="WHITE" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" size="3em" />
+            <JFXButton layoutX="451.0" layoutY="12.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../css/Button.css" text=" ">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="card" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton alignment="CENTER_RIGHT" layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="102.0" styleClass="backButton" stylesheets="@../../css/Button.css" text="Back" />
+            <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="20.0" layoutY="37.0" size="2em" />
+            <Label layoutX="166.0" layoutY="88.0" text="Verify Your Self">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Text layoutX="160.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your National ID and Your Username" textAlignment="CENTER" wrappingWidth="180.13671875" />
+            <TextField layoutX="150.0" layoutY="176.0" prefHeight="30.0" prefWidth="200.0" promptText="National ID" styleClass="field" />
+            <TextField layoutX="150.0" layoutY="216.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" styleClass="field" />
+            <Label layoutX="170.0" layoutY="292.0" text="New Password">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Text layoutX="160.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your new Password" textAlignment="CENTER" wrappingWidth="180.13671875" />
+            <PasswordField layoutX="150.0" layoutY="380.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
+            <PasswordField layoutX="150.0" layoutY="420.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
+            <JFXButton layoutX="165.0" layoutY="506.0" prefHeight="41.0" prefWidth="170.0" styleClass="regButton" text="Button" />
+         </children>
+         <stylesheets>
+            <URL value="@../../css/Panes.css" />
+            <URL value="@../../css/fields.css" />
+            <URL value="@../../css/Button.css" />
+         </stylesheets>
+      </AnchorPane>
+   </left>
+</BorderPane>

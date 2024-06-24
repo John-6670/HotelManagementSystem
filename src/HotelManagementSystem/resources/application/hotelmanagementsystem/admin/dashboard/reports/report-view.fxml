@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -30,9 +31,9 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <ListView layoutX="25.0" layoutY="69.0" prefHeight="433.0" prefWidth="260.0" styleClass="regList" stylesheets="@../../css/lists.css" />
+                  <ListView layoutX="25.0" layoutY="69.0" prefHeight="433.0" prefWidth="260.0" styleClass="regList" />
                   <FontAwesomeIcon disable="true" fill="#222831" glyphName="PLUS" layoutX="253.0" layoutY="533.0" size="3em" stroke="WHITE" strokeWidth="5.0" />
-                  <JFXButton layoutX="251.0" layoutY="502.0" prefHeight="33.0" prefWidth="31.0" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text=" ">
+                  <JFXButton layoutX="251.0" layoutY="502.0" prefHeight="33.0" prefWidth="31.0" styleClass="side-nav__Button" text=" ">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -42,4 +43,8 @@
          </children>
       </GridPane>
    </center>
+   <stylesheets>
+      <URL value="@../../../css/lists.css" />
+      <URL value="@../../../css/Button.css" />
+   </stylesheets>
 </BorderPane>

@@ -16,3 +16,14 @@
 .cardContent{
     -fx-background-color: #fff;
 }
+
+.alertBox{
+    -fx-background-color: #222831;
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0.5;
+}
+
+.alertHeader{
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0 0 0.5 0;
+}
