@@ -18,7 +18,7 @@
       </Label>
       <TextField id="reportField" layoutX="16.0" layoutY="123.0" prefHeight="36.0" prefWidth="190.0" promptText="Subject" styleClass="field" />
       <TextArea layoutX="16.0" layoutY="169.0" prefHeight="304.0" prefWidth="510.0" styleClass="reportArea" />
-      <JFXButton layoutX="377.0" layoutY="492.0" prefHeight="26.0" prefWidth="149.0" styleClass="cancelButton" stylesheets="@../../css/Button.css" text="Submit" />
+      <JFXButton layoutX="377.0" layoutY="492.0" prefHeight="26.0" prefWidth="149.0" styleClass="cancelButton" text="Submit" />
       <FontAwesomeIcon fill="#222831" glyphName="ARROW_LEFT" layoutX="14.0" layoutY="45.0" size="3em" />
       <JFXButton layoutX="9.0" layoutY="12.0" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" " />
    </children>

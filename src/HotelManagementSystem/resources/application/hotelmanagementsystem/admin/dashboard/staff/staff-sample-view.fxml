@@ -12,14 +12,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="276.0" layoutY="184.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #fff;">
+      <AnchorPane layoutX="276.0" layoutY="174.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #fff;">
          <children>
             <Label layoutX="94.0" layoutY="1.0" text="Options">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="45.0" layoutY="61.0" prefHeight="40.0" prefWidth="160.0" text="View Reports">
+            <JFXButton layoutX="45.0" layoutY="60.0" prefHeight="40.0" prefWidth="160.0" text="View Reports">
                <styleClass>
                   <String fx:value="optionButton" />
                   <String fx:value="button" />
@@ -37,20 +37,7 @@
                   <String fx:value="button" />
                </styleClass>
             </JFXButton>
-            <JFXButton layoutX="45.0" layoutY="163.0" prefHeight="40.0" prefWidth="160.0" text="Edit Information">
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
-                     <color>
-                        <Color red="0.4399999976158142" green="0.4399999976158142" blue="0.4399999976158142" />
-                     </color>
-                  </DropShadow>
-               </effect>
-               <styleClass>
-                  <String fx:value="optionButton" />
-                  <String fx:value="button" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="45.0" layoutY="214.0" prefHeight="40.0" prefWidth="160.0" text="Suspend">
+            <JFXButton layoutX="45.0" layoutY="166.0" prefHeight="40.0" prefWidth="160.0" text="Suspend">
                <effect>
                   <DropShadow blurType="GAUSSIAN" offsetX="4.0" offsetY="4.0">
                      <color>
@@ -85,7 +72,7 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="184.0" prefHeight="340.0" prefWidth="250.0" styleClass="pane">
+      <AnchorPane layoutX="14.0" layoutY="174.0" prefHeight="340.0" prefWidth="250.0" styleClass="pane">
          <children>
             <Label layoutX="71.0" layoutY="1.0" text="Last Activities">
                <font>
@@ -102,7 +89,7 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="60.0" prefHeight="111.0" prefWidth="510.0" styleClass="cardContent">
+      <AnchorPane layoutX="14.0" layoutY="50.0" prefHeight="111.0" prefWidth="510.0" styleClass="cardContent">
          <children>
             <Label layoutX="14.0" layoutY="3.0" text="Full Name: ">
                <font>

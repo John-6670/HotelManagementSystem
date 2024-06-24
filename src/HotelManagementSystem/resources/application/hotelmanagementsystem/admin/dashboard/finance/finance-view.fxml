@@ -87,22 +87,22 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="79.0" layoutY="51.0" styleClass="regLabel" text="Total Rooms">
+                        <Label layoutX="66.0" layoutY="51.0" styleClass="regLabel" text="Total Rooms">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="69.0" layoutY="85.0" prefHeight="21.0" prefWidth="103.0" styleClass="regLabel" text="-">
+                        <Label layoutX="250.0" layoutY="51.0" styleClass="regLabel" text="Rooms in use">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="237.0" layoutY="51.0" styleClass="regLabel" text="Rooms in use">
+                        <Label alignment="CENTER" layoutX="222.0" layoutY="85.0" prefHeight="21.0" prefWidth="146.0" styleClass="regLabel" text="-">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="230.0" layoutY="85.0" prefHeight="21.0" prefWidth="103.0" styleClass="regLabel" text="-">
+                        <Label alignment="CENTER" layoutX="35.0" layoutY="85.0" prefHeight="21.0" prefWidth="146.0" styleClass="regLabel" text="-">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -129,4 +129,52 @@
       <URL value="@../../../css/Panes.css" />
       <URL value="@../../../css/label.css" />
    </stylesheets>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="500.0" styleClass="card" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="512.0" prefWidth="456.0" styleClass="cardContent">
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label layoutX="173.0" layoutY="14.0" styleClass="regLabel" text="Staff Status">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="28.0" layoutY="62.0" prefHeight="128.0" prefWidth="400.0" styleClass="cardContent">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <Label layoutX="136.0" layoutY="14.0" styleClass="regLabel" text="General Status">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="147.0" layoutY="60.0" styleClass="regLabel" text="Number of Staff">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="127.0" layoutY="88.0" prefHeight="21.0" prefWidth="146.0" styleClass="regLabel" text="-">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>

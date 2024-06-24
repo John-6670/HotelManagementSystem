@@ -33,5 +33,7 @@
     -fx-alignment: left;
 }
 
-
+.datePicker{
+    -fx-text-fill: #222831;
+}
 
