@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="card" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="24.0" layoutY="14.0" prefHeight="180.0" prefWidth="456.0" styleClass="cardContent">
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label layoutX="174.0" layoutY="14.0" styleClass="regLabel" text="Your Status">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="157.0" layoutY="83.0" styleClass="regLabel" text="This Month Salary">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="93.0" layoutY="130.0" prefHeight="21.0" prefWidth="270.0" style="-fx-label-padding: 0 20;" styleClass="regLabel" text="-">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="24.0" layoutY="215.0" prefHeight="312.0" prefWidth="456.0" styleClass="cardContent">
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label layoutX="169.0" layoutY="14.0" styleClass="regLabel" text="Hotel Status">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="24.0" layoutY="70.0" styleClass="regLabel" text="This Month Income">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="73.0" prefHeight="21.0" prefWidth="262.0" style="-fx-label-padding: 0 20;" styleClass="regLabel" text="-">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="24.0" layoutY="113.0" styleClass="regLabel" text="Total Month Income">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="190.0" layoutY="116.0" prefHeight="21.0" prefWidth="254.0" style="-fx-label-padding: 0 20;" styleClass="regLabel" text="-">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="27.0" layoutY="160.0" prefHeight="130.0" prefWidth="400.0" styleClass="cardContent">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <Label layoutX="140.0" layoutY="14.0" styleClass="regLabel" text="Rooms Status">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="79.0" layoutY="51.0" styleClass="regLabel" text="Total Rooms">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="69.0" layoutY="85.0" prefHeight="21.0" prefWidth="103.0" styleClass="regLabel" text="-">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="237.0" layoutY="51.0" styleClass="regLabel" text="Rooms in use">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="230.0" layoutY="85.0" prefHeight="21.0" prefWidth="103.0" styleClass="regLabel" text="-">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <top>
+      <AnchorPane prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="455.0" layoutY="6.0" styleClass="regLabel" text="Finance">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <stylesheets>
+      <URL value="@../../../css/Panes.css" />
+      <URL value="@../../../css/label.css" />
+   </stylesheets>
+</BorderPane>

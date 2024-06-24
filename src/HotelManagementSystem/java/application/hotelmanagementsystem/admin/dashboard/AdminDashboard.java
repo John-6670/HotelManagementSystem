@@ -63,7 +63,7 @@ public class AdminDashboard implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AdminSideNav nav = (AdminSideNav) CommonTasks.loadPage("admin/navbars/admin-side-nav.fxml", sideNav);
-        AdminTopNav navbar = (AdminTopNav) CommonTasks.loadPage("admin/navbars/admin-top-nav.fxml", topNav);
+        AdminTopNav navbar = (AdminTopNav) CommonTasks.loadPage("admin/navbars/Navbar.fxml", topNav);
         nav.setDashboard(this);
         navbar.setDashboard(this);
     }

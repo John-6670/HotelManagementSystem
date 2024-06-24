@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="400.0" styleClass="alertBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="30.0" prefWidth="400.0" styleClass="alertHeader" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="#76abae" glyphName="EXCLAMATION_CIRCLE" layoutX="10.0" layoutY="22.0" size="2em" />
+            <Label fx:id="alertHeader" layoutX="38.0" layoutY="5.0" text="Confirmation alert" textFill="#76abae">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="alertContent" fill="#76abae" layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." wrappingWidth="316.51953125" />
+            <Text fill="#76abae" layoutX="14.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are You Sure?">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="40.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="310.0" layoutY="4.0" prefHeight="30.0" prefWidth="82.0" styleClass="okButton" text="Yes">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="218.0" layoutY="4.0" prefHeight="30.0" prefWidth="82.0" styleClass="noButton" text="No">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <stylesheets>
+      <URL value="@../css/Panes.css" />
+      <URL value="@../css/Button.css" />
+   </stylesheets>
+</BorderPane>
