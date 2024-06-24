@@ -3,6 +3,7 @@ package application.hotelmanagementsystem.admin.login;
 import application.hotelmanagementsystem.CloseButton;
 import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.LoginController;
+import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
@@ -20,5 +21,10 @@ public class AdminLogin extends CloseButton implements LoginController {
     @Override
     public void back() {
         CommonTasks.pageNavigate("welcome-view.fxml");
+    }
+
+    @Override
+    public void forgetPass() {
+        CommonTasks.pageNavigate("admin/login/forgot-pass-view.fxml");
     }
 }

@@ -8,9 +8,7 @@ import java.io.IOException;
 
 public class ReceptionistLogin extends CloseButton implements LoginController {
     @Override
-    public void goToSignUpPage() throws IOException {
-
-    }
+    public void goToSignUpPage() {}
 
     @Override
     public void login() {
@@ -20,5 +18,10 @@ public class ReceptionistLogin extends CloseButton implements LoginController {
     @Override
     public void back() {
         CommonTasks.pageNavigate("welcome-view.fxml");
+    }
+
+    @Override
+    public void forgetPass() {
+        CommonTasks.pageNavigate("receptionist/login/forgot-pass-view.fxml");
     }
 }

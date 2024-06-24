@@ -5,7 +5,8 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 
 public interface LoginController {
-    void goToSignUpPage() throws IOException;
-    void login() throws IOException;
-    void back() throws IOException;
+    void goToSignUpPage();
+    void login();
+    void back();
+    void forgetPass();
 }
