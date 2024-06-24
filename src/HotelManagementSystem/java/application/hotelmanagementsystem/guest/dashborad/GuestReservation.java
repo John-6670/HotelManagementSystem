@@ -1,5 +1,7 @@
 package application.hotelmanagementsystem.guest.dashborad;
 
+import application.hotelmanagementsystem.CommonTasks;
+import application.hotelmanagementsystem.receptionist.dashboard.ReceptionistReservation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -21,17 +23,8 @@ public class GuestReservation implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        numberOfNights.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d+")) {
-                numberOfNights.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
-
-        changedNumberOfNights.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d+")) {
-                changedNumberOfNights.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
+        CommonTasks.setOnlyNumber(numberOfNights);
+        CommonTasks.setOnlyNumber(changedNumberOfNights);
 
         roomType.getItems().add("Single");
         roomType.getItems().add("Double");

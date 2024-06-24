@@ -35,8 +35,8 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="77.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="National ID" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <TextField layoutX="77.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="nationalId" layoutX="77.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="National ID" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="phoneNumber" layoutX="77.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField layoutX="269.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField layoutX="269.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <PasswordField layoutX="77.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />

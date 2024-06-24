@@ -57,7 +57,7 @@ public class AdminDashboard implements Initializable {
 
     @FXML
     public void loadStaffSample() {
-        CommonTasks.loadPage("admin/dashboard/staff/staff-sample-view.fxml", addView);
+        CommonTasks.loadPage("admin/dashboard/staff/add-staff-view.fxml", addView);
     }
 
     @Override

@@ -29,8 +29,8 @@ public class Main extends Application {
         Scene scene = new Scene(root, 1000, 600);
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
-        stage.setX(380);
-        stage.setY(200);
+        stage.setX(280);
+        stage.setY(170);
 
         root.setOnMousePressed(event -> {
             xxx = event.getSceneX();

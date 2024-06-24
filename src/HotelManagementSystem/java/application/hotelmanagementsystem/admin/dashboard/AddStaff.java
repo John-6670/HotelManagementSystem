@@ -5,24 +5,19 @@ import application.hotelmanagementsystem.CommonTasks;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RoomView implements Initializable {
+public class AddStaff implements Initializable {
     @FXML
-    private TextField addRoomNumber;
+    private TextField nationalId;
 
     @FXML
-    private TextField updateRoomNumber;
-
-    @FXML
-    private TextField deleteRoomNumber;
+    private TextField phoneNumber;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        CommonTasks.setOnlyNumber(addRoomNumber);
-        CommonTasks.setOnlyNumber(updateRoomNumber);
-        CommonTasks.setOnlyNumber(deleteRoomNumber);
+        CommonTasks.setOnlyNumber(nationalId);
+        CommonTasks.setOnlyNumber(phoneNumber);
     }
 }

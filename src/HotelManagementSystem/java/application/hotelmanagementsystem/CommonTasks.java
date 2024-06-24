@@ -2,6 +2,7 @@ package application.hotelmanagementsystem;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -44,5 +45,13 @@ public class CommonTasks extends Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void setOnlyNumber(TextField field) {
+        field.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d+")) {
+                field.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
     }
 }

@@ -20,18 +20,18 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="173.0" layoutY="78.0" text="Welcome" textFill="#222831">
+            <Label layoutX="173.0" layoutY="64.0" text="Welcome" textFill="#222831">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <Label layoutX="161.0" layoutY="129.0" text="SignUp as an Admin" textFill="#222831">
+            <Label layoutX="161.0" layoutY="115.0" text="SignUp as an Admin" textFill="#222831">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="80.0" layoutY="224.0" prefHeight="26.0" prefWidth="160.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <TextField layoutX="80.0" layoutY="344.0" prefHeight="26.0" prefWidth="160.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField layoutX="160.0" layoutY="177.0" prefHeight="26.0" prefWidth="160.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="phoneNumber" layoutX="80.0" layoutY="344.0" prefHeight="26.0" prefWidth="160.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField layoutX="260.0" layoutY="224.0" prefHeight="26.0" prefWidth="160.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField layoutX="260.0" layoutY="344.0" prefHeight="26.0" prefWidth="160.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <PasswordField layoutX="80.0" layoutY="284.0" prefHeight="26.0" prefWidth="160.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
@@ -53,6 +53,7 @@
                </cursor>
             </JFXButton>
             <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
+            <TextField fx:id="nationalId" layoutX="80.0" layoutY="224.0" prefHeight="26.0" prefWidth="160.0" promptText="National ID" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
          </children>
       </AnchorPane>
    </left>
