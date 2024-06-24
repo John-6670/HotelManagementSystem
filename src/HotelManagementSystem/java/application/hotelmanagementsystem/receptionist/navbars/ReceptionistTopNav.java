@@ -12,11 +12,9 @@ public class ReceptionistTopNav extends TopNav {
 
     @Override
     public void showProfile() {
-
+        dashboard.showProfile();
     }
 
     @Override
-    public void showFinance() {
-
-    }
+    public void showFinance() {}
 }

@@ -27,15 +27,11 @@
                         <String fx:value="button" />
                     </styleClass>
                 </JFXButton>
-                <JFXButton onAction="#showProfile" layoutX="84.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" text="Profile" textFill="#222831">
+                <JFXButton layoutX="84.0" layoutY="8.0" onAction="#showProfile" prefWidth="70.0" styleClass="nav__Button" text="Profile" textFill="#222831">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></JFXButton>
-                <JFXButton onAction="#showFinance" layoutX="154.0" layoutY="8.0" prefWidth="70.0" styleClass="nav__Button" text="Finance" textFill="#222831">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor></JFXButton>
-                <JFXButton onAction="#logout" layoutX="224.0" layoutY="8.0" prefWidth="70.0" text="Log out" textFill="#222831">
+                <JFXButton layoutX="154.0" layoutY="8.0" onAction="#logout" prefWidth="70.0" text="Log out" textFill="#222831">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -44,7 +40,7 @@
                         <String fx:value="nav-Logout__Button" />
                     </styleClass></JFXButton>
                 <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="924.0" layoutY="32.0" size="3em" text="" />
-                <JFXButton onAction="#closeWindow" layoutX="918.0" layoutY="1.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text=" ">
+                <JFXButton layoutX="918.0" layoutY="1.0" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text=" ">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

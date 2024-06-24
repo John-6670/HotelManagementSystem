@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller="application.hotelmanagementsystem.admin.dashboard.profile.ShowSecurityKey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,7 +34,7 @@
                   <Cursor fx:constant="DISAPPEAR" />
                </cursor>
             </TextField>
-            <Button layoutX="163.0" layoutY="3.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="backButton" text=" ">
+            <Button onAction="#closeWindow" layoutX="163.0" layoutY="3.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="backButton" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

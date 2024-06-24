@@ -39,10 +39,6 @@ public class ReceptionistDashboard implements Initializable {
         CommonTasks.pageNavigate("receptionist/dashboard/profile/receptionist-profile.fxml");
     }
 
-    public void showFinance() {
-
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ReceptionistSideNav nav = (ReceptionistSideNav) CommonTasks.loadPage("receptionist/navbars/receptionist-side-nav.fxml", sideNav);
