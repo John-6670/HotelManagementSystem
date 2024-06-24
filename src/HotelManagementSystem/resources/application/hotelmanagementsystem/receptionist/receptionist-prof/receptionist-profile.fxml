@@ -158,7 +158,7 @@
          </children>
       </AnchorPane>
       <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="14.0" layoutY="34.0" size="2em" wrappingWidth="28.285715103149414" />
-      <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="957.0" layoutY="39.0" onMouseClicked="#closeWindow" size="3em">
+      <FontAwesomeIcon fill="#222831" glyphName="CLOSE" layoutX="957.0" layoutY="39.0"  size="3em">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
