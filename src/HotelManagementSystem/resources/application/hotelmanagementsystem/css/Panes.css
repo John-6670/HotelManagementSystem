@@ -27,3 +27,8 @@
     -fx-border-color: #76ABAE;
     -fx-border-width: 0 0 0.5 0;
 }
+
+.navBox{
+    -fx-border-color: #222831;
+    -fx-border-width: 1;
+}
