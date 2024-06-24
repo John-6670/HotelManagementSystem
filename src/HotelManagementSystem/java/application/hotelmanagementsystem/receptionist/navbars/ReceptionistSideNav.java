@@ -10,13 +10,15 @@ public class ReceptionistSideNav {
         this.dashboard = dashboard;
     }
 
-    @FXML
     public void loadReservation() {
         dashboard.loadReservation();
     }
 
-    @FXML
     public void loadReports() {
         dashboard.loadReports();
+    }
+
+    public void loadSearchRooms() {
+        dashboard.loadSearchRooms();
     }
 }

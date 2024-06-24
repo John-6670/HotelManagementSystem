@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:controller="application.hotelmanagementsystem.admin.dashboard.RoomSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.RoomSearch">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -42,8 +42,8 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="107.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Room Type" styleClass="regChoiceBox" stylesheets="@../../../css/choicebox.css" />
-                  <ComboBox layoutX="247.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Status" styleClass="regChoiceBox" stylesheets="@../../../css/choicebox.css" />
+                  <ComboBox layoutX="107.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
+                  <ComboBox layoutX="247.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Status" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
                   <Label layoutX="389.0" layoutY="16.0" text="Range">
                      <font>
                         <Font size="15.0" />

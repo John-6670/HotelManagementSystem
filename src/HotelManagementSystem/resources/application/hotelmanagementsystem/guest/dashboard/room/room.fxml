@@ -185,7 +185,7 @@
                               </Text>
                            </children>
                         </VBox>
-                        <ComboBox fx:id="service" layoutX="125.0" layoutY="92.0" prefWidth="150.0" promptText="Service" styleClass="choice-box" stylesheets="@../../css/ChoiceBox.css" />
+                        <ComboBox fx:id="service" layoutX="125.0" layoutY="92.0" prefWidth="150.0" promptText="Service" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
                      </children>
                      <effect>
                         <DropShadow offsetX="4.0" offsetY="4.0">

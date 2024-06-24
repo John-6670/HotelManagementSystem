@@ -20,7 +20,7 @@
                <children>
                   <JFXButton layoutY="205.0" prefHeight="30.0" prefWidth="150.0" onAction="#loadReservation" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text="Reservation" />
                   <JFXButton layoutY="250.0" prefHeight="30.0" prefWidth="150.0" onAction="#loadReports" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text="Bills And Reports" />
-                  <JFXButton layoutY="160.0" prefHeight="30.0" prefWidth="150.0" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text="Check-in Check-out" />
+                  <JFXButton layoutY="160.0" prefHeight="30.0" prefWidth="150.0" onAction="#loadSearchRooms" styleClass="side-nav__Button" stylesheets="@../../css/Button.css" text="Check Rooms" />
                </children>
             </AnchorPane>
          </center>

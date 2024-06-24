@@ -31,7 +31,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></JFXButton>
-                <JFXButton layoutX="154.0" layoutY="8.0" prefWidth="70.0" text="Log out" textFill="#222831">
+                <JFXButton onAction="#logout" layoutX="154.0" layoutY="8.0" prefWidth="70.0" text="Log out" textFill="#222831">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
