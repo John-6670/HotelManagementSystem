@@ -1,0 +1,9 @@
+.regList{
+    -fx-background-color: #fff;
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0.5;
+}
+
+.regList:hover{
+    -fx-border-width: 1;
+}

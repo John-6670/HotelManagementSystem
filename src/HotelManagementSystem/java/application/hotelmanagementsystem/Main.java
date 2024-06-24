@@ -2,7 +2,6 @@ package application.hotelmanagementsystem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -11,7 +10,6 @@ import javafx.stage.StageStyle;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class Main extends Application {
     public static double x, y;
@@ -29,11 +27,9 @@ public class Main extends Application {
 
     public static void preparePage(Parent root) {
         Scene scene = new Scene(root, 1000, 600);
-        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
-        stage.setX(380);
-        stage.setY(200);
-        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("statics/img/logo.png"))));
+        stage.setX(280);
+        stage.setY(170);
 
         root.setOnMousePressed(event -> {
             xxx = event.getSceneX();

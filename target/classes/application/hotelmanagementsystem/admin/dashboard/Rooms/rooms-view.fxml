@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.room.RoomSearch">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="90.0" layoutY="66.0" prefHeight="50.0" prefWidth="660.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">
+               <children>
+                  <Label layoutX="10.0" layoutY="6.0" text="Rooms" textFill="#222831">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="561.0" layoutY="6.0" prefHeight="39.0" prefWidth="85.0" text="-" textFill="#222831">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="90.0" layoutY="126.0" prefHeight="50.0" prefWidth="660.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">
+               <children>
+                  <Label layoutX="10.0" layoutY="6.0" text="Filters" textFill="#222831">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="107.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
+                  <ComboBox layoutX="247.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Status" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
+                  <Label layoutX="389.0" layoutY="16.0" text="Range">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="from" layoutX="443.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" promptText="min" styleClass="field" stylesheets="@../../../css/fields.css" />
+                  <Label layoutX="535.0" layoutY="15.0" text="To">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="to" layoutX="564.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" promptText="max" styleClass="field" stylesheets="@../../../css/fields.css" />
+               </children>
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="90.0" layoutY="186.0" prefHeight="311.0" prefWidth="660.0" styleClass="cardContent" stylesheets="@../../../css/Panes.css">
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0">
+                     <color>
+                        <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <ListView layoutX="17.0" layoutY="15.0" prefHeight="282.0" prefWidth="626.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

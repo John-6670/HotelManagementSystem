@@ -1,0 +1,6 @@
+.Button__icon{
+    -fx-text-fill: #222831;
+}
+.Button__icon:hover{
+    -fx-text-fill: #76ABAE;
+}

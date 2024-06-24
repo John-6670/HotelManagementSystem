@@ -1,0 +1,12 @@
+.tableContent{
+    -fx-background-color: #fff;
+    -fx-background-radius: 0;
+    -fx-border-color: #222831;
+    -fx-border-width: 0.25;
+}
+.tableHeader{
+    -fx-background-color: #fff;
+    -fx-background-radius: 0;
+    -fx-border-color: #222831;
+    -fx-border-width: 0 0.125 0.25 0.125;
+}

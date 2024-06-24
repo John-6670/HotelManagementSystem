@@ -1,0 +1,104 @@
+.button{
+    -fx-cursor: hand;
+}
+
+.nav__Button{
+    -fx-background-color: false;
+    -fx-start-margin: 0;
+    -fx-end-margin: 0;
+    -fx-text-fill: #222831;
+
+}
+
+.nav__Button:hover{
+    -fx-underline: true;
+    -fx-font-size: 13px;
+}
+
+.nav-Logout__Button:hover{
+    -fx-text-fill: #ff3232;
+    -fx-underline: false;
+}
+
+#Active-nav__Button{
+    -fx-background-color:  #222831;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76ABAE;
+}
+
+#Active-nav__Button:hover{
+    -fx-font-size: 15px;
+    -fx-underline: false;
+}
+
+.side-nav__Button{
+    -fx-text-fill: #76ABAE;
+    -fx-font-size: 14;
+    -fx-background-radius: 0;
+}
+.side-nav__Button:hover{
+    -fx-font-size: 15;
+
+}
+
+
+.regButton{
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76ABAE;
+    -fx-font-size:14px ;
+}
+
+.backButton{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0 30 0 0;
+    -fx-font-size: 15px;
+}
+
+.cancelButton{
+    -fx-font-size: 15px;
+    -fx-padding: 10px 5px;
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76ABAE;
+}
+
+.optionButton{
+    -fx-font-size: 15px;
+    -fx-padding: 10px 25px;
+    -fx-background-color: #fff;
+    -fx-background-radius: 0;
+    -fx-text-fill: #222831;
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0.5;
+}
+
+.optionButton:hover{
+    -fx-border-width: 1;
+}
+
+#quitButton{
+    -fx-border-color: #ff0000;
+
+}
+
+#quitButton:hover{
+    -fx-text-fill: #ff0000;
+    -fx-underline: true;
+}
+
+.okButton{
+    -fx-background-color: #76abae;
+    -fx-background-radius: 0;
+    -fx-text-fill: #222831;
+}
+
+.noButton{
+    -fx-background-color: #222831;
+    -fx-background-radius: 0;
+    -fx-text-fill: #76abae;
+    -fx-border-color: #76abae;
+    -fx-border-width: 0.5;
+}

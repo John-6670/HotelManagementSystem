@@ -1,0 +1,30 @@
+.pane{
+    -fx-padding: 0 0 0 0;
+    -fx-label-padding: 0;
+    -fx-background-color: #fff;
+}
+
+.card{
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.cardContent{
+    -fx-background-color: #fff;
+}
+
+.alertBox{
+    -fx-background-color: #222831;
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0.5;
+}
+
+.alertHeader{
+    -fx-border-color: #76ABAE;
+    -fx-border-width: 0 0 0.5 0;
+}
+
+.navBox {
+    -fx-border-color: #222831;
+    -fx-border-width: 1;
+}

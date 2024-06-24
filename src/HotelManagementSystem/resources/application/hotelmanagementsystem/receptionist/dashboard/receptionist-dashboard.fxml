@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:controller="application.hotelmanagementsystem.receptionist.dashboard.ReceptionistDashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" >
+   <left>
+      <BorderPane fx:id="sideNav" prefWidth="150.0" prefHeight="560.0" BorderPane.alignment="CENTER" />
+   </left>
+   <top>
+      <BorderPane fx:id="topNav" prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <BorderPane fx:id="content" prefHeight="560.0" prefWidth="850.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
