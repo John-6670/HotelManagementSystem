@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <left>
@@ -122,12 +126,26 @@
                   <Font size="27.0" />
                </font>
             </Label>
+            <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="936.0" layoutY="39.0" size="3em" />
+            <JFXButton layoutX="930.0" layoutY="7.0" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" ">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="24.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" " />
+            <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="31.0" layoutY="38.0" size="2.5em">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
          </children>
       </AnchorPane>
    </top>
    <stylesheets>
       <URL value="@../../../css/Panes.css" />
       <URL value="@../../../css/label.css" />
+      <URL value="@../../../css/Button.css" />
+      <URL value="@../../../css/tableview.css" />
    </stylesheets>
    <right>
       <AnchorPane prefHeight="200.0" prefWidth="500.0" styleClass="card" BorderPane.alignment="CENTER">
@@ -172,6 +190,23 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <TableView layoutX="28.0" layoutY="203.0" prefHeight="283.0" prefWidth="400.0" styleClass="tableContent">
+                    <columns>
+                      <TableColumn prefWidth="121.0" styleClass="tableHeader" text="Full Name" />
+                        <TableColumn prefWidth="153.0" styleClass="tableHeader" text="Registration Date" />
+                      <TableColumn prefWidth="125.0" styleClass="tableHeader" text="This Month Salary" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </TableView>
                </children>
             </AnchorPane>
          </children>

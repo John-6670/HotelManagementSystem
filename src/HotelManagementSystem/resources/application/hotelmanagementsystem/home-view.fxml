@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="homeBG" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="welcomeMenu" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="70.0" layoutY="66.0" styleClass="homeLabel" text="Hotel Management System">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <effect>
+                  <Blend mode="OVERLAY" />
+               </effect>
+            </Label>
+            <Label layoutX="201.0" layoutY="261.0" styleClass="homeLabel" text="Enter As...">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <effect>
+                  <Blend mode="OVERLAY" />
+               </effect>
+            </Label>
+            <JFXButton layoutX="126.0" layoutY="356.0" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Guest" />
+            <JFXButton layoutX="125.0" layoutY="426.0" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Reseptionist" />
+            <JFXButton layoutX="125.0" layoutY="496.0" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Admin" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="467.0" layoutY="34.0" size="3em" />
+            <JFXButton layoutX="461.0" layoutY="1.0" prefHeight="40.0" prefWidth="40.0" text=" " />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

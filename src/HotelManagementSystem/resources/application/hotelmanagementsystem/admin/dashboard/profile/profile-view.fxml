@@ -132,16 +132,17 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="50.0" layoutY="115.0" text="Phone Number">
+                  <Label layoutX="50.0" layoutY="83.0" text="Phone Number">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="142.0" prefHeight="27.0" prefWidth="220.0" text="-">
+                  <Label alignment="CENTER" layoutY="110.0" prefHeight="27.0" prefWidth="220.0" text="-">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
+                  <JFXButton layoutX="15.0" layoutY="163.0" prefHeight="42.0" prefWidth="190.0" styleClass="optionButton" stylesheets="@../../../css/Button.css" text="Show Admin Key" />
                </children>
             </AnchorPane>
          </children>

@@ -37,5 +37,8 @@
     -fx-text-fill: #222831;
 }
 
-
+.noneEditable{
+    -fx-prompt-text-fill: #76abae;
+    -fx-border-color: #76abae;
+}
 

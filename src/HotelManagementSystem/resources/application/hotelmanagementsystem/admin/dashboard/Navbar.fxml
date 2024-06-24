@@ -5,10 +5,12 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
@@ -71,4 +73,11 @@
       <String fx:value="pane" />
       <String fx:value="navBox" />
    </styleClass>
+   <effect>
+      <DropShadow offsetY="4.0">
+         <color>
+            <Color red="0.7333333492279053" green="0.7333333492279053" blue="0.7333333492279053" />
+         </color>
+      </DropShadow>
+   </effect>
 </BorderPane>
