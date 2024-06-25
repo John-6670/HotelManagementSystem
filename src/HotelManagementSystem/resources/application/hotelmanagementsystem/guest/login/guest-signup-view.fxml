@@ -10,19 +10,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<<< HEAD:src/HotelManagementSystem/resources/application/hotelmanagementsystem/admin/admin-signup-view.fxml
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.AdminSignupController">
-   <right>
-      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
-         <children>
-            <FontAwesomeIcon fill="#76abae" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" onMouseClicked="#closeWindow" size="3em" strokeWidth="0.0">
-========
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.login.GuestSignup">
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="457.0" layoutY="45.0" onMouseClicked="#closeWindow" size="3em" strokeWidth="0.0">
->>>>>>>> alert-navigate:src/HotelManagementSystem/resources/application/hotelmanagementsystem/guest/login/guest-signup-view.fxml
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -30,11 +22,7 @@
          </children>
       </AnchorPane>
    </right>
-<<<<<<<< HEAD:src/HotelManagementSystem/resources/application/hotelmanagementsystem/admin/admin-signup-view.fxml
-   <left>
-========
    <center>
->>>>>>>> alert-navigate:src/HotelManagementSystem/resources/application/hotelmanagementsystem/guest/login/guest-signup-view.fxml
       <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="173.0" layoutY="78.0" text="Welcome" textFill="#222831">
@@ -42,11 +30,7 @@
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-<<<<<<<< HEAD:src/HotelManagementSystem/resources/application/hotelmanagementsystem/admin/admin-signup-view.fxml
-            <Label layoutX="161.0" layoutY="129.0" text="SignUp as an Admin" textFill="#222831">
-========
             <Label layoutX="177.0" layoutY="129.0" text="SignUp as Guest" textFill="#222831">
->>>>>>>> alert-navigate:src/HotelManagementSystem/resources/application/hotelmanagementsystem/guest/login/guest-signup-view.fxml
                <font>
                   <Font size="20.0" />
                </font>
@@ -65,11 +49,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-<<<<<<<< HEAD:src/HotelManagementSystem/resources/application/hotelmanagementsystem/admin/admin-signup-view.fxml
-            <JFXButton layoutX="6.0" layoutY="8.0" onAction="#goToLoginPage" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" textFill="#222831" AnchorPane.rightAnchor="392.0" AnchorPane.topAnchor="8.0">
-========
             <JFXButton layoutX="6.0" layoutY="8.0" onAction="#goToLoginPage" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="8.0">
->>>>>>>> alert-navigate:src/HotelManagementSystem/resources/application/hotelmanagementsystem/guest/login/guest-signup-view.fxml
                <font>
                   <Font size="15.0" />
                </font>
@@ -77,16 +57,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-<<<<<<<< HEAD:src/HotelManagementSystem/resources/application/hotelmanagementsystem/admin/admin-signup-view.fxml
-            <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="16.0" layoutY="37.0" size="2em" />
-         </children>
-      </AnchorPane>
-   </left>
-========
             <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
             <TextField layoutX="179.0" layoutY="203.0" prefHeight="26.0" prefWidth="140.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
          </children>
       </AnchorPane>
    </center>
->>>>>>>> alert-navigate:src/HotelManagementSystem/resources/application/hotelmanagementsystem/guest/login/guest-signup-view.fxml
 </BorderPane>

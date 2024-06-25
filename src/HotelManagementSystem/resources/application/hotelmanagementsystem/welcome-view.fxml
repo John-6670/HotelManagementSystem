@@ -2,35 +2,12 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<<<<<<< HEAD
-<?import javafx.scene.Cursor?>
-=======
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
->>>>>>> alert-navigate
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@statics/css/imageSet.css, @statics/css/buttonHover.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.WelcomeController">
-   <children>
-      <Text fill="WHITE" layoutX="150.0" layoutY="135.0" smooth="false" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Hotel Management System" wrappingWidth="700" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="96.15234375">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
-      <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="957.0" layoutY="45.0" onMouseClicked="#closeWindow" size="3em">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </FontAwesomeIcon>
-      <JFXButton layoutX="400.0" layoutY="183.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#guestLogin" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #0E46A3;" styleClass="button" text="Guest Login/Sign Up" textFill="WHITE" AnchorPane.topAnchor="214.2" />
-      <JFXButton layoutX="400.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" styleClass="button" text="Receptionist Login" AnchorPane.bottomAnchor="214.2" />
-      <JFXButton layoutX="400.0" layoutY="426.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#adminLogin" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #8DECB4;" styleClass="button" text="Admin Login" AnchorPane.bottomAnchor="85.6" />
-   </children>
-</AnchorPane>
-=======
 
 <BorderPane fx:controller="application.hotelmanagementsystem.WelcomeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="homeBG" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <left>
@@ -67,4 +44,3 @@
       </AnchorPane>
    </right>
 </BorderPane>
->>>>>>> alert-navigate
