@@ -39,7 +39,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="467.0" layoutY="34.0" size="3em" />
-            <JFXButton layoutX="461.0" layoutY="1.0" prefHeight="40.0" prefWidth="40.0" text=" " />
+            <JFXButton onAction="#closeWindow" layoutX="461.0" layoutY="1.0" prefHeight="40.0" prefWidth="40.0" text=" " />
          </children>
       </AnchorPane>
    </right>

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 import java.net.CookiePolicy;
 import java.net.URL;
@@ -15,10 +16,10 @@ import java.util.ResourceBundle;
 
 public class ReceptionistDashboard implements Initializable {
     @FXML
-    private BorderPane sideNav;
+    private Pane sideNav;
 
     @FXML
-    private BorderPane topNav;
+    private Pane topNav;
 
     @FXML
     private BorderPane content;

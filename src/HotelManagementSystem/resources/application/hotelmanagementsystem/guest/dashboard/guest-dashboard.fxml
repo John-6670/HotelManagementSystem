@@ -2,12 +2,13 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.layout.Pane?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.dashborad.GuestDashboard">
    <left>
-      <BorderPane fx:id="sideNav" prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="sideNav" prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
    </left>
    <top>
-      <BorderPane fx:id="topNav" prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="topNav" prefHeight="40.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
    </top>
    <center>
       <BorderPane fx:id="content" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />

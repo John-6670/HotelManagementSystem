@@ -7,6 +7,7 @@ import application.hotelmanagementsystem.guest.navbars.GuestTopNav;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,10 +17,10 @@ public class GuestDashboard extends CloseButton implements Initializable {
     private BorderPane content;
 
     @FXML
-    private BorderPane sideNav;
+    private Pane sideNav;
 
     @FXML
-    private BorderPane topNav;
+    private Pane topNav;
 
     public void loadRoomPage() {
         CommonTasks.loadPage("guest/dashboard/room/room.fxml", content);
