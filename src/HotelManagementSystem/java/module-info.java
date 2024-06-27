@@ -6,6 +6,9 @@ module application {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.jfoenix;
+    requires ormlite.jdbc;
+    requires java.sql;
+    requires org.apache.commons.validator;
 
     exports application.hotelmanagementsystem;
     opens application.hotelmanagementsystem to javafx.fxml;
