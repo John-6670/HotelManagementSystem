@@ -44,7 +44,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="376.0" layoutY="19.0" onAction="#goToLoginPage" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" text="Back" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="8.0">
+            <JFXButton alignment="CENTER_RIGHT" layoutX="14.0" layoutY="6.0" onAction="#goToLoginPage" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="backButton" stylesheets="@../../css/Button.css" text="Back" AnchorPane.rightAnchor="384.0" AnchorPane.topAnchor="6.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
+            <FontAwesomeIcon disable="true" glyphName="ARROW_LEFT" layoutX="25.0" layoutY="35.0" size="2em" />
             <TextField fx:id="nationalId" layoutX="80.0" layoutY="224.0" prefHeight="26.0" prefWidth="160.0" promptText="National ID" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
          </children>
       </AnchorPane>

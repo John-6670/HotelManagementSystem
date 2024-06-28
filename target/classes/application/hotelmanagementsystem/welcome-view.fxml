@@ -2,14 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:controller="application.hotelmanagementsystem.WelcomeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="homeBG" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="homeBG" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.WelcomeController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="welcomeMenu" BorderPane.alignment="CENTER">
          <children>
@@ -29,9 +29,9 @@
                   <Blend mode="OVERLAY" />
                </effect>
             </Label>
-            <JFXButton onAction="#guestLogin" layoutX="126.0" layoutY="356.0" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Guest" />
-            <JFXButton onAction="#receptionistLogin" layoutX="125.0" layoutY="426.0" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Receptionist" />
-            <JFXButton onAction="#adminLogin" layoutX="125.0" layoutY="496.0" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Admin" />
+            <JFXButton layoutX="126.0" layoutY="356.0" onAction="#guestLogin" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Guest" />
+            <JFXButton layoutX="125.0" layoutY="426.0" onAction="#receptionistLogin" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Receptionist" />
+            <JFXButton layoutX="125.0" layoutY="496.0" onAction="#adminLogin" prefHeight="40.0" prefWidth="250.0" styleClass="homeButton" text="Admin" />
          </children>
       </AnchorPane>
    </left>
@@ -39,8 +39,12 @@
       <AnchorPane prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="467.0" layoutY="34.0" size="3em" />
-            <JFXButton onAction="#closeWindow" layoutX="461.0" layoutY="1.0" prefHeight="40.0" prefWidth="40.0" text=" " />
+            <JFXButton layoutX="461.0" layoutY="1.0" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" text=" " />
          </children>
       </AnchorPane>
    </right>
+   <stylesheets>
+      <URL value="@css/home.css" />
+      <URL value="@css/Button.css" />
+   </stylesheets>
 </BorderPane>

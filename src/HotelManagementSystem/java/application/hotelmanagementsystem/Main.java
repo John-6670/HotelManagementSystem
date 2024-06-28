@@ -28,8 +28,8 @@ public class Main extends Application {
     public static void preparePage(Parent root) {
         Scene scene = new Scene(root, 1000, 600);
         stage.setScene(scene);
-        stage.setX(280);
-        stage.setY(170);
+        stage.setX(200);
+        stage.setY(80);
 
         root.setOnMousePressed(event -> {
             xxx = event.getSceneX();
