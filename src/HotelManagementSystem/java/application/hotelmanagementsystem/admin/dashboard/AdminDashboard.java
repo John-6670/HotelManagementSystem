@@ -27,6 +27,7 @@ public class AdminDashboard implements Initializable {
 
     public void loadReports() throws IOException {
         listView.setPrefWidth(150.0);
+        addView.getChildren().clear();
         ReportView reportView = (ReportView) CommonTasks.loadPage("admin/dashboard/reports/report-view.fxml", listView);
         reportView.setDashboard(this);
     }
@@ -41,6 +42,7 @@ public class AdminDashboard implements Initializable {
 
     public void loadRoomView() {
         listView.setPrefWidth(850.0);
+        addView.getChildren().clear();
         RoomView roomView = (RoomView) CommonTasks.loadPage("admin/dashboard/Rooms/room-view.fxml", listView);
         roomView.setDashboard(this);
     }
