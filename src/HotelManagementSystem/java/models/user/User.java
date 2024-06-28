@@ -2,11 +2,12 @@ package models.user;
 
 import com.j256.ormlite.field.DatabaseField;
 import models.exceptions.*;
-import org.apache.commons.validator.routines.EmailValidator;
+//import org.apache.commons.validator.routines.EmailValidator;
 import models.socket.Client;
 
 import java.io.Serializable;
 
+// TODO: resolve email validate issue
 public abstract class User implements Serializable {
     @DatabaseField(canBeNull = false)
     protected String name;
@@ -62,11 +63,11 @@ public abstract class User implements Serializable {
     }
 
     public void setEmail(String email) {
-        if (isValidEmail(email))
+//        if (isValidEmail(email))
             this.email = email;
-        else
-            throw new InvalidEmailException("The email address you entered" +
-                    " seems to be invalid. Please double-check and try again.");
+//        else
+//            throw new InvalidEmailException("The email address you entered" +
+//                    " seems to be invalid. Please double-check and try again.");
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -141,13 +142,13 @@ public abstract class User implements Serializable {
         return hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
     }
 
-    private boolean isValidEmail(String email) {
-        if (email == null)
-            return true;
-
-        EmailValidator validator = EmailValidator.getInstance();
-        return validator.isValid(email);
-    }
+//    private boolean isValidEmail(String email) {
+//        if (email == null)
+//            return true;
+//
+//        EmailValidator validator = EmailValidator.getInstance();
+//        return validator.isValid(email);
+//    }
 
     private boolean isValidPhoneNumber(String phoneNumber) {
         if (phoneNumber == null)

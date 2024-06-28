@@ -26,19 +26,22 @@ public class Guest extends User implements ReservationMaker {
     @DatabaseField(canBeNull = false)
     private Date registrationDate;
 
-    public Guest() {}
+    public Guest() {
+        registrationDate = new Date();
+        type = RoleType.GUEST;
+    }
 
     public Guest(String name, String nationalId, String phoneNumber) {
+        this();
         setName(name);
         this.nationalId = nationalId;
         setPhoneNumber(phoneNumber);
-        registrationDate = new Date();
     }
 
     public Guest(String name, String username, String password, String email, String phoneNumber, String nationalID) throws SQLException {
         super(name, username, password, email, phoneNumber, nationalID);
-        type = RoleType.GUEST;
         registrationDate = new Date();
+        type = RoleType.GUEST;
     }
 
     public void setRoom(Room room) {
