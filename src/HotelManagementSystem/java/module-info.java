@@ -3,9 +3,6 @@ module application {
     requires javafx.fxml;
     requires ormlite.jdbc;
 
-    requires com.dlsc.formsfx;
-    requires org.kordamp.ikonli.javafx;
-    requires org.kordamp.bootstrapfx.core;
     requires com.jfoenix;
     requires java.sql;
 //    requires org.apache.commons.validator;
