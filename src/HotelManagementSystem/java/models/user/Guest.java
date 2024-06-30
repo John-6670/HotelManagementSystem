@@ -14,17 +14,17 @@ import java.util.Date;
 
 @DatabaseTable(tableName = "Guest")
 public class Guest extends User implements ReservationMaker {
-    @DatabaseField(foreign = true, columnName = "room_number", foreignColumnName = "room_number")
+    @DatabaseField(foreign = true, columnName = "room_number", foreignColumnName = "room_number", foreignAutoRefresh = true)
     private Room room = null;
 
-    @DatabaseField(foreign = true, columnName = "bill_id", foreignColumnName = "ID")
+    @DatabaseField(foreign = true, columnName = "bill_id", foreignColumnName = "ID", foreignAutoRefresh = true)
     private Bill bill = null;
 
-    @DatabaseField(foreign = true, columnName = "reservation_id", foreignColumnName = "ID")
+    @DatabaseField(foreign = true, columnName = "reservation_id", foreignColumnName = "ID", foreignAutoRefresh = true)
     private Reservation reservation;
 
     @DatabaseField(canBeNull = false)
-    private Date registrationDate;
+    private final Date registrationDate;
 
     public Guest() {
         registrationDate = new Date();

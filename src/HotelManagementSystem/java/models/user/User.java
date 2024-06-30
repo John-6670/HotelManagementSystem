@@ -9,6 +9,10 @@ import java.io.Serializable;
 
 // TODO: resolve email validate issue
 public abstract class User implements Serializable {
+    public enum RoleType {
+        ADMIN, GUEST, RECEPTIONIST
+    }
+
     @DatabaseField(canBeNull = false)
     protected String name;
 
@@ -33,7 +37,7 @@ public abstract class User implements Serializable {
     @DatabaseField(canBeNull = false)
     protected String nationalId;
 
-    protected Client client;
+    protected transient Client client;
 
 
     protected User() {}
@@ -156,9 +160,5 @@ public abstract class User implements Serializable {
 
         return phoneNumber.chars().allMatch(Character::isDigit) &&
                 phoneNumber.startsWith("09") && phoneNumber.length() == 11;
-    }
-
-    public enum RoleType {
-        ADMIN, GUEST, RECEPTIONIST
     }
 }

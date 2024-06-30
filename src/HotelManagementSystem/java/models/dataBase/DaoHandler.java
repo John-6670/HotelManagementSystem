@@ -23,7 +23,7 @@ public class DaoHandler<T> {
             dao = DaoManager.createDao(connection, type);
             TableUtils.createTableIfNotExists(connection, type);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
