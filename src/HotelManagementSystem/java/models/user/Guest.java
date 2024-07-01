@@ -45,9 +45,10 @@ public class Guest extends User implements ReservationMaker {
     }
 
     public void setRoom(Room room) {
-        if (room.getStatus().equals(Room.Status.AVAILABLE))
+        if (room.getStatus().equals(Room.Status.AVAILABLE)) {
             this.room = room;
-        else
+            room.setStatus(Room.Status.BOOKED);
+        } else
             throw new RoomNotAvailableException("This room isn't available for booking now.");
     }
 

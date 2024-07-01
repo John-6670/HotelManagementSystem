@@ -124,4 +124,11 @@ public class CommonTasks extends Main {
             e.printStackTrace();
         }
     }
+
+    public static String intOrDouble(double value) {
+        if (value % 1 == 0)
+            return String.valueOf((int) value);
+
+        return String.valueOf(value);
+    }
 }

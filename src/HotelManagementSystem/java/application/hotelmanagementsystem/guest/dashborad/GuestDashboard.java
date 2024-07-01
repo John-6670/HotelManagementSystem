@@ -43,6 +43,5 @@ public class GuestDashboard extends CloseButton implements Initializable {
         loadRoomPage();
         nav.setDashboard(this);
         navbar.setDashboard(this);
-        System.out.println(UserData.getInstance().getUser().getName());
     }
 }

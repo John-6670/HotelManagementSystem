@@ -41,6 +41,6 @@ public class Bill implements Serializable {
 
     // TODO: implement method
     public double calculateBill() {
-        return 0;
+        return roomCharge + additionalServices;
     }
 }

@@ -41,7 +41,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="roomNumber" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -55,7 +55,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="roomType" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -69,7 +69,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="price" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -83,7 +83,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="capacity" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -117,7 +117,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="roomCharge" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -131,7 +131,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="additionalServices" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -145,7 +145,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Text fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <Text fx:id="totalBill" fill="#222831" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -185,7 +185,7 @@
                               </Text>
                            </children>
                         </VBox>
-                        <ComboBox fx:id="service" layoutX="125.0" layoutY="92.0" prefWidth="150.0" promptText="Service" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
+                        <ComboBox fx:id="services" layoutX="125.0" layoutY="92.0" prefWidth="150.0" promptText="Service" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
                      </children>
                      <effect>
                         <DropShadow offsetX="4.0" offsetY="4.0">

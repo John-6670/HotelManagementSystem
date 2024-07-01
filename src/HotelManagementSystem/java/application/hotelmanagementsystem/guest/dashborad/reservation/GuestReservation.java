@@ -1,11 +1,16 @@
 package application.hotelmanagementsystem.guest.dashborad.reservation;
 
 import application.hotelmanagementsystem.CommonTasks;
+import application.hotelmanagementsystem.UserData;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import models.bill.Bill;
+import models.room.RoomType;
+import models.user.Guest;
+import org.sqlite.util.StringUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,8 +48,15 @@ public class GuestReservation implements Initializable {
         CommonTasks.setOnlyNumber(numberOfNights);
         CommonTasks.setOnlyNumber(changedNumberOfNights);
 
-        roomType.getItems().add("Single");
-        roomType.getItems().add("Double");
-        roomType.getItems().add("VIP");
+        for (RoomType type : RoomType.values()) {
+            roomType.getItems().add(type.toString());
+        }
+
+        Bill bill = ((Guest) UserData.getInstance().getUser()).getBill();
+        if (bill != null) {
+            additionalServices.setText(CommonTasks.intOrDouble(bill.getAdditionalServices()));
+            roomCharge.setText(CommonTasks.intOrDouble(bill.getRoomCharge()));
+            totalBill.setText(CommonTasks.intOrDouble(bill.calculateBill()));
+        }
     }
 }

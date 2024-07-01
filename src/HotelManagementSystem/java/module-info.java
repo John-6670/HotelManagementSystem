@@ -5,6 +5,7 @@ module application {
 
     requires com.jfoenix;
     requires java.sql;
+    requires org.xerial.sqlitejdbc;
 //    requires org.apache.commons.validator;
 
     exports application.hotelmanagementsystem;
