@@ -2,12 +2,14 @@ package application.hotelmanagementsystem.guest.dashborad;
 
 import application.hotelmanagementsystem.CloseButton;
 import application.hotelmanagementsystem.CommonTasks;
+import application.hotelmanagementsystem.UserData;
 import application.hotelmanagementsystem.guest.navbars.GuestSideNav;
 import application.hotelmanagementsystem.guest.navbars.GuestTopNav;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import models.user.Guest;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,5 +43,6 @@ public class GuestDashboard extends CloseButton implements Initializable {
         loadRoomPage();
         nav.setDashboard(this);
         navbar.setDashboard(this);
+        System.out.println(UserData.getInstance().getUser().getName());
     }
 }

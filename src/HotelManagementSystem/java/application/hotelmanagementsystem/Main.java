@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import models.socket.Client;
+import models.socket.Server;
 
 import java.io.IOException;
 
@@ -13,9 +15,16 @@ public class Main extends Application {
     public static double x, y;
     public static double xxx, yyy;
     public static Stage stage;
+    public static String address = "localhost";
+    public static int port = 8080;
+    public static Client client;
 
     @Override
     public void start(Stage stage) throws IOException {
+        Server server = Server.getInstance(port);
+        new Thread(server::start).start();
+        client = new Client(address, port);
+
         Main.stage = stage;
         Parent root = FXMLLoader.load(Main.class.getResource("welcome-view.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);

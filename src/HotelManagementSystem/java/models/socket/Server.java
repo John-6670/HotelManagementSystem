@@ -6,20 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Server {
+    private static Server server;
     private int port = 8080;
-    private ServerSocket server;
+    private final ServerSocket serverSocket;
     private final List<ClientHandler> clients;
 
     public Server(int port) throws IOException {
         this.port = port;
-        server = new ServerSocket(port);
+        serverSocket = new ServerSocket(port);
         clients = new ArrayList<>();
     }
 
     public void start() {
         while (true) {
             try {
-                ClientHandler client = new ClientHandler(server.accept());
+                ClientHandler client = new ClientHandler(serverSocket.accept());
                 acceptClient(client);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -29,7 +30,7 @@ public class Server {
 
     public void stop() {
         try {
-            server.close();
+            serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,5 +39,17 @@ public class Server {
     public void acceptClient(ClientHandler client) {
         clients.add(client);
         client.run();
+    }
+
+    public static synchronized Server getInstance(int port) throws IOException {
+        if (server == null) {
+            server = new Server(port);
+        }
+
+        return server;
+    }
+
+    public int getPort() {
+        return port;
     }
 }

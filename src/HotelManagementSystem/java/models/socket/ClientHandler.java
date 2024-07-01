@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 public class ClientHandler implements Runnable {
@@ -59,7 +60,12 @@ public class ClientHandler implements Runnable {
     }
 
     private <T> User handeLogin(Request request, DaoHandler<T> dao) throws SQLException {
-        return (User) dao.search((Map) request.getData()).getFirst();
+        List result = dao.search((Map) request.getData());
+        if (result.isEmpty()) {
+            return null;
+        }
+
+        return (User) result.getFirst();
     }
 
     private <T> User handleSignup(Request request, DaoHandler<T> dao) {

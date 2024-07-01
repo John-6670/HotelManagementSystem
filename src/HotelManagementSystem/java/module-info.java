@@ -62,4 +62,6 @@ module application {
     opens models.room to ormlite.jdbc;
     exports models.service;
     opens models.service to ormlite.jdbc;
+    exports models;
+    opens models to javafx.graphics;
 }

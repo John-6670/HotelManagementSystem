@@ -11,7 +11,7 @@ public class Client {
     private ObjectOutputStream out;
 
     public Client(String host, int port) throws IOException {
-        socket = new Socket(host, port);
+        socket = new    Socket(host, port);
         out = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
 
