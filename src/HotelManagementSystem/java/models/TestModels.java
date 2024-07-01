@@ -17,9 +17,7 @@ public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         DaoHandler<Guest> guestDaoHandler = new DaoHandler<>(Guest.class);
 
-        Guest guest = guestDaoHandler.getById(2);
-        guest.setPhoneNumber("09652781346");
-        guest.setEmail("john@gmail.com");
-        guestDaoHandler.update(guest);
+        Guest guest = new Guest("Joe", "Joe_99", "Joe/2005", null, null, "1365");
+        guestDaoHandler.create(guest);
     }
 }

@@ -40,7 +40,11 @@ public class GuestDashboard extends CloseButton implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         GuestSideNav nav = (GuestSideNav) CommonTasks.loadPage("guest/navbars/guest-side-nav.fxml", sideNav);
         GuestTopNav navbar = (GuestTopNav) CommonTasks.loadPage("guest/navbars/guest-top-nav.fxml", topNav);
-        loadRoomPage();
+        if (((Guest) UserData.getInstance().getUser()).getRoom() != null) {
+            loadRoomPage();
+        } else {
+            loadReservationPage();
+        }
         nav.setDashboard(this);
         navbar.setDashboard(this);
     }

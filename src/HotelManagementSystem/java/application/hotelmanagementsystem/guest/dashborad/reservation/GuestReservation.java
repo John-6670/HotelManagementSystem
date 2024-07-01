@@ -10,7 +10,6 @@ import javafx.scene.text.Text;
 import models.bill.Bill;
 import models.room.RoomType;
 import models.user.Guest;
-import org.sqlite.util.StringUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,6 +42,16 @@ public class GuestReservation implements Initializable {
         CommonTasks.showConfirmation("Your bill is " + totalBill.getText() + "$.\nRoom Charge: " + roomCharge.getText() + "$,  Additional Services: " + additionalServices.getText() + "$.");
     }
 
+    private void updateRoomPrice() {
+        if (!numberOfNights.getText().isEmpty() && roomType.getSelectionModel().getSelectedItem() != null) {
+            RoomType type = RoomType.valueOf(roomType.getSelectionModel().getSelectedItem().toUpperCase());
+            double price = type.getPrice() * Integer.parseInt(numberOfNights.getText());
+            roomPrice.setText(CommonTasks.intOrDouble(price));
+        } else {
+            roomPrice.setText("-");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CommonTasks.setOnlyNumber(numberOfNights);
@@ -51,6 +60,13 @@ public class GuestReservation implements Initializable {
         for (RoomType type : RoomType.values()) {
             roomType.getItems().add(type.toString());
         }
+
+        roomType.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> updateRoomPrice()
+        );
+        numberOfNights.textProperty().addListener(
+                (observable, oldValue, newValue) -> updateRoomPrice()
+        );
 
         Bill bill = ((Guest) UserData.getInstance().getUser()).getBill();
         if (bill != null) {

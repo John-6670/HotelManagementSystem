@@ -14,7 +14,7 @@ public enum RoomType {
         this.price = price;
     }
 
-    double getPrice() {
+    public double getPrice() {
         return price;
     }
 
