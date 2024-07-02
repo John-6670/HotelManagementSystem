@@ -7,7 +7,6 @@ import models.exceptions.RoomNotAvailableException;
 import models.interfaces.ReservationMaker;
 import models.reservation.Reservation;
 import models.room.Room;
-import models.socket.Client;
 
 import java.sql.SQLException;
 import java.util.Date;

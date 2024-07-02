@@ -21,7 +21,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </FontAwesomeIcon>
-            <JFXButton layoutX="960.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
+            <JFXButton onAction="#closeWindow" layoutX="960.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

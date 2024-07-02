@@ -1,6 +1,7 @@
 package models.socket;
 
 import application.hotelmanagementsystem.CommonTasks;
+import javafx.application.Platform;
 import models.dataBase.DaoHandler;
 import models.user.Admin;
 import models.user.Guest;
@@ -59,6 +60,11 @@ public class ClientHandler implements Runnable {
             }
             case UPDATE_INFO -> {
                 handleEditInfo(request, dao);
+                return new Response(Response.ResponseType.SUCCESS, null);
+            }
+            case DELETE_ACCOUNT -> {
+                User deltedUser = handleDeleteAccount(request, dao);
+                return new Response(Response.ResponseType.SUCCESS, deltedUser);
             }
         }
         return null;
@@ -90,8 +96,22 @@ public class ClientHandler implements Runnable {
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
-                CommonTasks.showError("This email or phone number is invalid.");
+                Platform.runLater(() -> {
+                    CommonTasks.showError("This email or phone number is invalid.");
+                });
             }
         }
+    }
+
+    private <T> User handleDeleteAccount(Request request, DaoHandler<T> dao) {
+        User user = request.getUser();
+        try {
+            dao.delete((T) user);
+        } catch (SQLException e) {
+            CommonTasks.showError("An unknown error acquired.");
+            e.printStackTrace();
+        }
+
+        return user;
     }
 }

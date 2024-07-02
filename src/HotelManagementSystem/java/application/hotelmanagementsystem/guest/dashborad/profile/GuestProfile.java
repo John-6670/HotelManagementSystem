@@ -7,8 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import models.socket.Request;
+import models.user.Guest;
 import models.user.User;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,7 +28,14 @@ public class GuestProfile extends CloseButton implements Initializable {
     private AnchorPane editInfo;
 
     public void deleteAccount() {
-        CommonTasks.showConfirmation("You are deleting your account!!");
+        Guest guest = (Guest) UserData.getInstance().getUser();
+        try {
+            CommonTasks.showConfirmation("You are deleting your account!!");
+            guest.getClient().sendRequest(new Request(Request.RequestType.DELETE_ACCOUNT, guest, null));
+        } catch (IOException e) {
+            CommonTasks.showError("An unknown error acquired.");
+            e.printStackTrace();
+        }
     }
 
     public void back() {

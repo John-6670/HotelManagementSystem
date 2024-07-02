@@ -29,6 +29,7 @@ public class GuestLogin extends CloseButton implements LoginController {
         try {
             client.sendRequest(new Request(Request.RequestType.LOGIN, new Guest(), Map.of("username", username.getText(), "password", password.getText())));
             User user = (User) client.receiveResponse().getData();
+            user.setClient(client);
 
             if (user != null) {
                 UserData.getInstance().setUser(user);

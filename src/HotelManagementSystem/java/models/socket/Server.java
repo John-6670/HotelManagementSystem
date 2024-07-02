@@ -2,6 +2,7 @@ package models.socket;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
