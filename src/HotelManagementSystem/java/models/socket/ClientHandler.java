@@ -33,7 +33,7 @@ public class ClientHandler implements Runnable {
                 Request request = (Request) input.readObject();
                 Response response = processRequest(request);
                 out.writeObject(response);
-            } catch (IOException | ClassNotFoundException | SQLException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -79,6 +79,8 @@ public class ClientHandler implements Runnable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        return null;
     }
 
     private <T> User handleSignup(Request request, DaoHandler<T> dao) {
