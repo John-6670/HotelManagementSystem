@@ -66,7 +66,7 @@ public class GuestEdit implements Initializable {
                 e.printStackTrace();
             }
         } else {
-            CommonTasks.showError("Old password is incorrect.");
+            CommonTasks.showError("Current password or national ID is incorrect.");
         }
     }
 

@@ -40,7 +40,7 @@ public class ClientHandler implements Runnable {
     }
 
     // TODO: implement processRequest method
-    private Response processRequest(Request request) throws SQLException {
+    private Response processRequest(Request request) {
         User user = request.getUser();
         DaoHandler<? extends User> dao = switch (user.getType()) {
             case GUEST -> new DaoHandler<>(Guest.class);
@@ -69,15 +69,18 @@ public class ClientHandler implements Runnable {
         return null;
     }
 
-    private <T> User handeLogin(Request request, DaoHandler<T> dao) throws SQLException {
-        List result = dao.search((Map) request.getData());
-        if (result.isEmpty()) {
-            return null;
+    private <T> User handeLogin(Request request, DaoHandler<T> dao) {
+        try {
+            List result = dao.search((Map) request.getData());
+            if (result.isEmpty()) {
+                return null;
+            }
+            return (User) result.getFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        return (User) result.getFirst();
     }
-    
+
     private <T> User handleSignup(Request request, DaoHandler<T> dao) {
         Map<String, Object> data = (Map) request.getData();
         User newUser = null;
