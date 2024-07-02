@@ -1,5 +1,6 @@
 package models.socket;
 
+import application.hotelmanagementsystem.CommonTasks;
 import models.dataBase.DaoHandler;
 import models.user.Admin;
 import models.user.Guest;
@@ -9,6 +10,7 @@ import models.user.User;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Field;
 import java.net.Socket;
 import java.sql.SQLException;
 import java.util.List;
@@ -55,6 +57,9 @@ public class ClientHandler implements Runnable {
             case SIGNUP -> {
                 User signupUser = handleSignup(request, dao);
             }
+            case UPDATE_INFO -> {
+                handleEditInfo(request, dao);
+            }
         }
         return null;
     }
@@ -68,7 +73,25 @@ public class ClientHandler implements Runnable {
         return (User) result.getFirst();
     }
 
+    // TODO: complete method
     private <T> User handleSignup(Request request, DaoHandler<T> dao) {
         return null;
+    }
+
+    private <T> void handleEditInfo(Request request, DaoHandler<T> dao) {
+        Map<String, Object> data = (Map) request.getData();
+        User user = request.getUser();
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
+            try {
+                Field field = User.class.getDeclaredField(entry.getKey());
+                field.setAccessible(true);
+                field.set(user, entry.getValue());
+                dao.update((T) user);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                CommonTasks.showError("This email or phone number is invalid.");
+            }
+        }
     }
 }
