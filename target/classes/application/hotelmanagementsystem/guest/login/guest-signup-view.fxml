@@ -37,11 +37,11 @@
             </Label>
             <TextField fx:id="nationalId" layoutX="77.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="National ID" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
             <TextField fx:id="phoneNumber" layoutX="77.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <TextField layoutX="269.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <TextField layoutX="269.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
-            <PasswordField layoutX="77.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
-            <PasswordField layoutX="269.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Repeat Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
-            <JFXButton layoutX="126.0" layoutY="458.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Sign up" textFill="#76abae">
+            <TextField fx:id="username" layoutX="269.0" layoutY="250.0" prefHeight="26.0" prefWidth="140.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="email" layoutX="269.0" layoutY="357.0" prefHeight="26.0" prefWidth="140.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <PasswordField fx:id="password" layoutX="77.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+            <PasswordField fx:id="confirmPassword" layoutX="269.0" layoutY="300.0" prefHeight="26.0" prefWidth="140.0" promptText="Repeat Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+            <JFXButton layoutX="126.0" layoutY="458.0" onAction="#signUp" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Sign up" textFill="#76abae">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -58,7 +58,7 @@
                </cursor>
             </JFXButton>
             <FontAwesomeIcon disable="true" glyphName="ARROW_RIGHT" layoutX="465.0" layoutY="37.0" size="2em" />
-            <TextField layoutX="179.0" layoutY="203.0" prefHeight="26.0" prefWidth="140.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="name" layoutX="179.0" layoutY="203.0" prefHeight="26.0" prefWidth="140.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-color: #222831; -fx-border-width: 0 0 1 0;" />
          </children>
       </AnchorPane>
    </center>

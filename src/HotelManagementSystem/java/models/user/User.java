@@ -34,7 +34,7 @@ public abstract class User implements Serializable {
     @DatabaseField(canBeNull = false)
     protected RoleType type;
 
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = false, unique = true)
     protected String nationalId;
 
     protected transient Client client;

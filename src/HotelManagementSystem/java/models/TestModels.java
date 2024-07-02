@@ -9,6 +9,7 @@ import models.socket.Client;
 import models.socket.Request;
 import models.socket.Server;
 import models.user.Guest;
+import org.sqlite.SQLiteException;
 
 import java.io.IOException;
 import java.security.UnresolvedPermission;
@@ -18,11 +19,8 @@ import java.util.TreeMap;
 
 public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
-        Server server = Server.getInstance(Main.port);
-        new Thread(server::start).start();
-        Client client = new Client(Main.address, Main.port);
-        client.sendRequest(new Request(Request.RequestType.LOGIN, new Guest(), Map.of("username", "John", "password", "John/2005")));
-        Guest guest = (Guest) client.receiveResponse().getData();
-        client.sendRequest(new Request(Request.RequestType.UPDATE_INFO, guest, Map.of("email", "matin@gmail.com")));
+        DaoHandler<Guest> guestDao = new DaoHandler<>(Guest.class);
+        Guest guest = new Guest("Ali", "Ali", "Ali/2005", "ali@gmail.com", "09381245167", "2005");
+        guestDao.create(guest);
     }
 }

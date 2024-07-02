@@ -37,7 +37,7 @@ public class Guest extends User implements ReservationMaker {
         setPhoneNumber(phoneNumber);
     }
 
-    public Guest(String name, String username, String password, String email, String phoneNumber, String nationalID) throws SQLException {
+    public Guest(String name, String username, String password, String email, String phoneNumber, String nationalID) {
         super(name, username, password, email, phoneNumber, nationalID);
         registrationDate = new Date();
         type = RoleType.GUEST;
