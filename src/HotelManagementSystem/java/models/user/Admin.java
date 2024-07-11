@@ -8,17 +8,19 @@ import java.util.Date;
 @DatabaseTable(tableName = "Admin")
 public class Admin extends User {
 
-    @DatabaseField(foreign = true , columnName = "Admin Security Key")
+    @DatabaseField
     private String SecurityKey = null;
 
-    @DatabaseField(foreign = true , columnName = "Salary")
+    @DatabaseField
     private final double salary = 1;
 
     @DatabaseField(canBeNull = false)
     private final Date registratioDate;
+
     public Admin(){
         registratioDate = new Date();
         type = RoleType.ADMIN;
+        setSecurityKey();
     }
 
     public Admin(String Name , String NationalID , String PhoneNumber){
@@ -26,11 +28,10 @@ public class Admin extends User {
         setName(Name);
         this.nationalId = NationalID;
         setPhoneNumber(PhoneNumber);
-        setSecurityKey();
     }
 
     public Admin(String Name , String Username,  String password , String Email , String PhoneNumber , String NationalID){
-        super();
+        super(Name, Username, password, Email, PhoneNumber, NationalID);
         registratioDate = new Date();
         type = RoleType.ADMIN;
         setSecurityKey();
