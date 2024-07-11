@@ -29,7 +29,7 @@
                         <Font name="System Bold" size="35.0" />
                     </font>
                 </Label>
-                <TextField layoutX="100.0" layoutY="248.0" prefHeight="26.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+                <TextField  fx:id="username" layoutX="100.0" layoutY="248.0" prefHeight="26.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
                 <Text layoutX="104.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" />
                 <Hyperlink onAction="#forgetPass" layoutX="340.0" layoutY="350.0" text="Click here" textFill="#76abae" />
                 <JFXButton onAction="#login" layoutX="126.0" layoutY="458.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" text="Login" textFill="#76abae">
@@ -63,7 +63,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </FontAwesomeIcon>
-                <PasswordField layoutX="100.0" layoutY="308.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
+                <PasswordField fx:id="password" layoutX="100.0" layoutY="308.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
             </children>
         </AnchorPane>
     </center>

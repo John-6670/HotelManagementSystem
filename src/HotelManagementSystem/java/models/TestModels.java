@@ -8,6 +8,7 @@ import models.socket.Client;
 import models.socket.Request;
 import models.socket.Server;
 import models.user.Guest;
+import models.user.Receptionist;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,7 +18,11 @@ public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         DaoHandler<Guest> guestDaoHandler = new DaoHandler<>(Guest.class);
 
-        Guest guest = new Guest("Joe", "Joe_99", "Joe/2005", null, null, "1365");
-        guestDaoHandler.create(guest);
+
+
+        DaoHandler<Receptionist> receptionistDaoHandler = new DaoHandler<>(Receptionist.class);
+        var receptionist0 = new Receptionist();
+        receptionistDaoHandler.create(receptionist0);
     }
+
 }
