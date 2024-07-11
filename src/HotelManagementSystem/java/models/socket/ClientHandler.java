@@ -1,6 +1,8 @@
 package models.socket;
 
 import application.hotelmanagementsystem.CommonTasks;
+import application.hotelmanagementsystem.UserData;
+import com.j256.ormlite.dao.Dao;
 import javafx.application.Platform;
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
@@ -15,6 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -99,6 +102,14 @@ public class ClientHandler implements Runnable {
                 }
 
             }
+            case PAY_BILL -> {
+                try {
+                    handlePayBill(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, "done");
+                } catch (SQLException e) {
+                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
+                }
+            }
         }
         return null;
     }
@@ -180,5 +191,17 @@ public class ClientHandler implements Runnable {
         bill.increaseAdditionalServices(service.getPrice());
         dao.update((T) guest);
         billDaoHandler.update(bill);
+        UserData.getInstance().setUser(guest);
+    }
+
+    private <T> void handlePayBill(Request request, DaoHandler<T> dao) throws SQLException {
+        Guest guest = (Guest) request.getUser();
+        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
+        Bill bill = guest.getBill();
+
+        bill.pay();
+        billDaoHandler.update(bill);
+        dao.update((T) guest);
+        UserData.getInstance().setUser(guest);
     }
 }

@@ -9,8 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import models.bill.Bill;
 import models.room.RoomType;
+import models.socket.Request;
+import models.socket.Response;
 import models.user.Guest;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,6 +32,7 @@ public class GuestReservation implements Initializable {
     private Text additionalServices;
     @FXML
     private Text roomCharge;
+    private Guest guest;
 
     public void book() {
         CommonTasks.showConfirmation("You booked a " + roomType.getValue() + " room for " + numberOfNights.getText() + " nights for " + roomPrice.getText() + "$.");
@@ -39,7 +43,18 @@ public class GuestReservation implements Initializable {
     }
 
     public void pay() {
-        CommonTasks.showConfirmation("Your bill is " + totalBill.getText() + "$.\nRoom Charge: " + roomCharge.getText() + "$,  Additional Services: " + additionalServices.getText() + "$.");
+        try {
+            guest.getClient().sendRequest(new Request(Request.RequestType.PAY_BILL, guest, null));
+            CommonTasks.showConfirmation("Your bill is " + totalBill.getText() + "$.\nRoom Charge: " + roomCharge.getText() + "$,  Additional Services: " + additionalServices.getText() + "$.");
+            Response response = guest.getClient().receiveResponse();
+            if (response.getResponseType() == Response.ResponseType.SUCCESS) {
+                updateBill();
+            } else {
+                CommonTasks.showError((String) response.getData());
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            CommonTasks.showError("An unknown error acquired!!");
+        }
     }
 
     private void updateRoomPrice() {
@@ -52,8 +67,16 @@ public class GuestReservation implements Initializable {
         }
     }
 
+    private void updateBill() {
+        Bill bill = guest.getBill();
+        additionalServices.setText(CommonTasks.intOrDouble(bill.getAdditionalServices()));
+        roomPrice.setText(CommonTasks.intOrDouble(bill.getRoomCharge()));
+        totalBill.setText(CommonTasks.intOrDouble(bill.calculateBill()));
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        guest = (Guest) UserData.getInstance().getUser();
         CommonTasks.setOnlyNumber(numberOfNights);
         CommonTasks.setOnlyNumber(changedNumberOfNights);
 
