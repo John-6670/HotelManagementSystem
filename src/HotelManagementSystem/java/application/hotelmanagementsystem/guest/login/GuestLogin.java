@@ -29,9 +29,9 @@ public class GuestLogin extends CloseButton implements LoginController {
         try {
             client.sendRequest(new Request(Request.RequestType.LOGIN, new Guest(), Map.of("username", username.getText(), "password", password.getText())));
             User user = (User) client.receiveResponse().getData();
-            user.setClient(client);
 
             if (user != null) {
+                user.setClient(client);
                 UserData.getInstance().setUser(user);
                 CommonTasks.pageNavigate("guest/dashboard/guest-dashboard.fxml");
             } else {
