@@ -92,8 +92,6 @@ public class CommonTasks extends Main {
             newStage.initStyle(StageStyle.UNDECORATED);
             Scene scene = new Scene(root, 400, 170);
             newStage.setScene(scene);
-            newStage.setX(580);
-            newStage.setY(370);
             newStage.show();
         } catch (IOException e) {
             e.printStackTrace();

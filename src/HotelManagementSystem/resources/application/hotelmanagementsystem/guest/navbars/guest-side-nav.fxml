@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:controller="application.hotelmanagementsystem.guest.navbars.GuestSideNav" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="150.0" styleClass="sideNavBox" stylesheets="@../../css/Panes.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.guest.navbars.GuestSideNav">
    <center>
-      <BorderPane prefHeight="560.0" prefWidth="150.0" BorderPane.alignment="CENTER" style="-fx-background-color: #222831" >
+      <BorderPane prefHeight="560.0" prefWidth="150.0" style="-fx-background-color: #222831" BorderPane.alignment="CENTER">
        <top>
            <AnchorPane prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
                <children>
