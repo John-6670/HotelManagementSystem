@@ -26,8 +26,7 @@ public class ReceptionistLogin extends CloseButton implements LoginController {
     public void login() {
         Client client = Main.client;
         try {
-
-            client.sendRequest(new Request(Request.RequestType.LOGIN , new Receptionist() , Map.of(username.getText() , password.getText())));
+            client.sendRequest(new Request(Request.RequestType.LOGIN , new Receptionist() , Map.of("username", username.getText(),"password", password.getText())));
             User user = (User) client.receiveResponse().getData();
             if (user != null) {
                 UserData.getInstance().setUser(user);
