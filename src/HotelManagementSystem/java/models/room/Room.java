@@ -39,6 +39,38 @@ public class Room implements Serializable {
         };
     }
 
+    public RoomType getType(String type){
+        switch (type) {
+            case "SINGLE":
+                return RoomType.SINGLE;
+            case "DOUBLE":
+                return RoomType.DOUBLE;
+            case "VIP":
+                return RoomType.VIP;
+            case "TRIPLE":
+                return RoomType.TRIPLE;
+            case "SUIT" :
+                return RoomType.SUIT;
+            case "QUADRUPLE" :
+                return RoomType.QUADRUPLE;
+        }
+        return null;
+    }
+    public String getStatus(Status status){
+        switch (status){
+            case Status.AVAILABLE :
+                return "Available";
+            case Status.BOOKED:
+                return "Booked";
+            case Status.FULLED:
+                return "Fulled";
+            case Status.OUT_OF_ORDER:
+                return "Out of Order";
+            case Status.UNDER_MAINTENANCE:
+                return "Under Maintenance";
+        }
+        return null;
+    }
     public void setStatus(Status status) {
         this.status = status;
     }

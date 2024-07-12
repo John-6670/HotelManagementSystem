@@ -1,6 +1,7 @@
 package models.socket;
 
 import models.dataBase.DaoHandler;
+import models.room.Room;
 import models.user.Admin;
 import models.user.Guest;
 import models.user.Receptionist;
@@ -55,6 +56,10 @@ public class ClientHandler implements Runnable {
             case SIGNUP -> {
                 User signupUser = handleSignup(request, dao);
             }
+            case ADD_ROOM -> {
+                Room addedRoom = handelAddRoom(request, dao);
+                return addedRoom != null ? new Response(Response.ResponseType.SUCCESS, addedRoom) : new Response(Response.ResponseType.FAIL , null);
+            }
         }
         return null;
     }
@@ -69,6 +74,15 @@ public class ClientHandler implements Runnable {
     }
 
     private <T> User handleSignup(Request request, DaoHandler<T> dao) {
+        return null;
+    }
+
+    private <T> Room handelAddRoom(Request request, DaoHandler<T> dao){
+        try{
+            Room room;
+            room = (Room) request.getData();
+            dao.create(room);
+        }
         return null;
     }
 }

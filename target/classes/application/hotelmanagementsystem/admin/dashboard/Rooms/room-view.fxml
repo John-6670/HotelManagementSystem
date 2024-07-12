@@ -65,7 +65,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="updateRoomNumber" layoutX="53.0" layoutY="94.0" promptText="Room Number" styleClass="field" stylesheets="@../../../css/fields.css" />
-                        <JFXButton layoutX="53.0" layoutY="209.0" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Search" />
+                        <JFXButton layoutX="53.0" layoutY="209.0" onAction="#searchRoom" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Search" />
                         <Hyperlink layoutX="76.0" layoutY="122.0" onAction="#loadRooms" text="See All the Rooms" textFill="#76abae" />
                      </children>
                      <effect>

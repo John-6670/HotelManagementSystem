@@ -28,7 +28,7 @@ public class AdminLogin extends CloseButton implements LoginController {
     public void login() {
         Client client = Main.client;
         try {
-            client.sendRequest(new Request(Request.RequestType.LOGIN , new Admin() , Map.of("username" , username , "passwprd" , password)));
+            client.sendRequest(new Request(Request.RequestType.LOGIN , new Admin() , Map.of("username" , username.getText() , "password" , password.getText())));
             User user = (User)client.receiveResponse().getData();
 
             if(user != null) {
