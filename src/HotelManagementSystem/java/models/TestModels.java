@@ -36,8 +36,8 @@ public class TestModels {
         reservationDaoHandler.create(reservation);*/
 
         DaoHandler<Receptionist> receptionistDaoHandler = new DaoHandler<>(Receptionist.class);
-        Admin admin = new Admin("Heli", "heli.j", "2345Hel999@", "heli2000@gmail.com", "09123478476", "0200789555");
-        Receptionist receptionist = new Receptionist("Arefe Yeganepour", "a.yeganepour", "@1384Arefe1384", "arefe.yegane1399@gmail.com", "09944030697", "0200511947", 5000.0, new Date(), admin, new Date());
+
+        Receptionist receptionist = new Receptionist("Arefe Yeganepour", "a.yeganepour", "@1384Arefe1384", "arefe.yegane1399@gmail.com", "09944030697", "0200511947", 5000.0, new Date(), new Date());
         receptionistDaoHandler.create(receptionist);
     }
 

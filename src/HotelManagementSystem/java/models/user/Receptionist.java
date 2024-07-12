@@ -24,7 +24,7 @@ public class Receptionist extends User {
 
     public Receptionist() {
         this.registrationDate = new Date();
-        this.type = RoleType.RECEPTIONIST; // Setting the role type for Receptionist
+        this.type = RoleType.RECEPTIONIST;
     }
 
     public Receptionist(double salary, Date suspendDate, Admin registrant) {
@@ -35,12 +35,13 @@ public class Receptionist extends User {
 
     }
 
-    public Receptionist(String name, String username, String password, String email, String phoneNumber, String nationalId, double salary, Date suspendDate, Admin registrant, Date registrationDate) {
+    public Receptionist(String name, String username, String password, String email, String phoneNumber, String nationalId, double salary, Date suspendDate, Date registrationDate) {
         super(name, username, password, email, phoneNumber, nationalId);
         this.salary = salary;
         this.suspendDate = suspendDate;
         this.registrant = registrant;
         this.registrationDate = registrationDate;
+        this.type = RoleType.RECEPTIONIST;
     }
 
     public double getSalary() {
