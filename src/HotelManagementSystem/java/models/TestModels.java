@@ -69,25 +69,12 @@ public class TestModels {
         DaoHandler<Guest> guestDaoHandler = new DaoHandler<>(Guest.class);
         DaoHandler<Room> roomDaoHandler = new DaoHandler<>(Room.class);
 
-        Room room = new Room(17, RoomType.DOUBLE);
-        Guest guest = new Guest("Asghar", "9999", "09897744336");
-
-        guestDaoHandler.create(guest);
-        roomDaoHandler.create(room);
-
-        Receptionist receptionist = new Receptionist("Arefe Yeganepour", "a.yeganepour", "@1384Arefe1384",
-                "arefe.yegane13999@gmail.com", "09913456677",
-                "0200511947", 5000.0, new Date(), new Date());
-        receptionistDaoHandler.create(receptionist);
+        Room room = roomDaoHandler.getById(101);
+        Guest guest = guestDaoHandler.getById(8);
+        Receptionist receptionist = receptionistDaoHandler.getById(1);
 
         // Creating the check-in entry
         var checkout = new CheckOut(room, guest, receptionist);
         checkOutDaoHandler.create(checkout);
-
-
-
-
-
-
     }
 }

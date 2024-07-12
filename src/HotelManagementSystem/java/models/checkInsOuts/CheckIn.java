@@ -11,7 +11,7 @@ import java.util.Date ;
 public class CheckIn {
 
     @DatabaseField( canBeNull = false)
-    private Date date ;
+    private Date date;
     @DatabaseField(foreign = true, columnName = "room_number", foreignColumnName = "room_number", foreignAutoRefresh = true)
     private Room room ;
     @DatabaseField(foreign = true, columnName = "guest", foreignColumnName = "ID", foreignAutoRefresh = true)
@@ -30,7 +30,6 @@ public class CheckIn {
         this.guest = guest;
         this.receptionist = receptionist;
     }
-
 
     public Room getRoom() {
         return room;
