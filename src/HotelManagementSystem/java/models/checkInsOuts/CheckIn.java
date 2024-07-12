@@ -19,8 +19,9 @@ public class CheckIn {
     @DatabaseField(foreign = true, columnName = "receptionist", foreignColumnName = "ID", foreignAutoRefresh = true)
     private Receptionist receptionist ;
 
+
     public CheckIn() {
-        date = new Date () ;
+        this.date = new Date () ;
     }
 
     public CheckIn(Room room, Guest guest, Receptionist receptionist) {

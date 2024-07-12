@@ -38,14 +38,12 @@ public class Reservation {
     /**
      * Constructs a new Reservation with the specified details.
      *
-     * @param ID        the reservation ID
      * @param startDate the start date of the reservation
      * @param endDate   the end date of the reservation
      * @param room      the room associated with the reservation
      * @param guest     the guest associated with the reservation
      */
-    public Reservation(int ID, Date startDate, Date endDate, Room room, Guest guest) {
-        this.ID = ID;
+    public Reservation( Date startDate, Date endDate, Room room, Guest guest) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.room = room;

@@ -84,6 +84,16 @@ public class Receptionist extends User {
     }
 
     public void checkOut (Guest guest){
+        if (guest.getRoom().getStatus().equals(Room.Status.FULLED)){
+            guest.getRoom().setStatus(Room.Status.AVAILABLE);
+            DaoHandler<CheckOut> checkOutDaoHandler = new DaoHandler<>(CheckOut.class);
+            var checkout = new CheckOut(guest.getRoom(), guest , this);
+
+        }
+        else{
+            CommonTasks.showError("Wrong Room !");
+        }
+
 
     }
     ArrayList <CheckIn> checkInList = new ArrayList();

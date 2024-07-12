@@ -8,6 +8,10 @@ module application {
     requires org.xerial.sqlitejdbc;
 //    requires org.apache.commons.validator;
 
+    exports models.checkInsOuts to ormlite.jdbc;
+    opens models.checkInsOuts;
+
+
     exports application.hotelmanagementsystem;
     opens application.hotelmanagementsystem to javafx.fxml;
     exports application.hotelmanagementsystem.guest.dashborad;
@@ -65,4 +69,5 @@ module application {
     opens models.service to ormlite.jdbc;
     exports models;
     opens models to javafx.graphics;
+
 }
