@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import models.socket.Client;
 import models.socket.ClientHandler;
 import models.socket.Request;
+import models.socket.Response;
 import models.user.Guest;
 
 import java.io.IOException;
@@ -64,8 +65,14 @@ public class GuestSignup extends CloseButton implements Initializable {
             }
 
             client.sendRequest(new Request(Request.RequestType.SIGNUP, new Guest(), data));
-            goToLoginPage();
-        } catch (IOException e) {
+            Response response = client.receiveResponse();
+
+            if (response.getResponseType() == Response.ResponseType.SUCCESS)
+                goToLoginPage();
+            else
+                CommonTasks.showError((String) response.getData());
+
+        } catch (IOException | ClassNotFoundException e) {
             CommonTasks.showError("Couldn't sign up now. Please try again later.");
         }
     }

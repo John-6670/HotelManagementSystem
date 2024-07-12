@@ -99,6 +99,9 @@ public class ClientHandler implements Runnable {
             case SIGNUP -> {
                 try {
                     User signupUser = handleSignup(request, dao);
+                    if (signupUser == null)
+                        return new Response(Response.ResponseType.FAIL, "You don't have permission to create a new account!");
+
                     return new Response(Response.ResponseType.SUCCESS, signupUser);
                 } catch (SQLException e) {
                     String message = e.getCause().getMessage();
@@ -128,8 +131,15 @@ public class ClientHandler implements Runnable {
                 }
             }
             case DELETE_ACCOUNT -> {
-                User deltedUser = handleDeleteAccount(request, dao);
-                return new Response(Response.ResponseType.SUCCESS, deltedUser);
+                User deltedUser = null;
+                try {
+                    deltedUser = handleDeleteAccount(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, deltedUser);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
+                }
+
             }
             case PAY_BILL -> {
                 try {
@@ -206,9 +216,6 @@ public class ClientHandler implements Runnable {
                 // Assuming Admin constructor takes specific parameters
                 // newUser = new Admin((String) data.get("name"), (String) data.get("email"), (String) data.get("password"), (String) data.get("role"));
                 break;
-            default:
-                Platform.runLater(() -> CommonTasks.showError("You don't have permission to create a new account."));
-                break;
         }
 
         if (newUser != null) {
@@ -258,14 +265,9 @@ public class ClientHandler implements Runnable {
      *
      * @author John
      */
-    private <T> User handleDeleteAccount(Request request, DaoHandler<T> dao) {
+    private <T> User handleDeleteAccount(Request request, DaoHandler<T> dao) throws SQLException {
         User user = request.getUser();
-        try {
-            dao.delete((T) user);
-        } catch (SQLException e) {
-            Platform.runLater(() -> CommonTasks.showError("An unknown error acquired."));
-            e.printStackTrace();
-        }
+        dao.delete((T) user);
 
         return user;
     }

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import models.socket.Request;
+import models.socket.Response;
 import models.user.Guest;
 import models.user.User;
 
@@ -32,7 +33,16 @@ public class GuestProfile extends CloseButton implements Initializable {
         try {
             CommonTasks.showConfirmation("You are deleting your account!!");
             guest.getClient().sendRequest(new Request(Request.RequestType.DELETE_ACCOUNT, guest, null));
-        } catch (IOException e) {
+            Response response = guest.getClient().receiveResponse();
+
+            String message;
+            if (response.getResponseType() == Response.ResponseType.FAIL)
+                message = (String) response.getData();
+            else
+                message = "This account deleted successfully";
+
+            CommonTasks.showError(message);
+        } catch (IOException | ClassNotFoundException e) {
             CommonTasks.showError("An unknown error acquired.");
             e.printStackTrace();
         }
