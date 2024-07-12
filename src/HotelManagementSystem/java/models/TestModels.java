@@ -26,6 +26,8 @@ public class TestModels {
         room.setStatus(Room.Status.AVAILABLE);
         roomDaoHandler.update(room);
 
+        DaoHandler<Reservation> reservationDaoHandler = new DaoHandler<>(Reservation.class);
+
 //        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
 //        Bill bill = billDaoHandler.getById(2);
 

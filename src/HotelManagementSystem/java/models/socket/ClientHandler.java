@@ -17,6 +17,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.HashMap;
 import java.util.List;
@@ -269,7 +271,6 @@ public class ClientHandler implements Runnable {
     }
 
     // TODO: Advanced search with Date
-
     /**
      * This method is used to handle the book room request.
      * It searches for an available room with the given information and books it for the user.
@@ -290,7 +291,7 @@ public class ClientHandler implements Runnable {
 
         try {
             RoomType roomType = RoomType.valueOf(((String) roomData.get("type")).toUpperCase());
-            Date startDate = (Date) roomData.get("date");
+            LocalDate startDate = (LocalDate) roomData.get("startDate");
             int nights = Integer.parseInt((String) roomData.get("nights"));
 
             Map<String, Object> searchCriteria = new HashMap<>();
@@ -299,8 +300,9 @@ public class ClientHandler implements Runnable {
             List<Room> availableRooms = roomDao.search(searchCriteria);
 
             if (!availableRooms.isEmpty()) {
+                LocalDate endDateLocal = startDate.plusDays(nights);
                 Room room = availableRooms.getFirst();
-                Reservation reservation = new Reservation(); // TODO: add reservation information
+                Reservation reservation = new Reservation(Date.from(startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), Date.from(endDateLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), room, guest); // TODO: add reservation information
                 Bill bill = new Bill(room.getPrice() * nights);
 
                 guest.setRoom(room);
