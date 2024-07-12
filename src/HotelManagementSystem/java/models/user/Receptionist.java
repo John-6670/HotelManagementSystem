@@ -1,9 +1,11 @@
 package models.user;
 
+import application.hotelmanagementsystem.CommonTasks;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import models.checkInsOuts.CheckOut;
 import models.checkInsOuts.CheckIn;
+import models.dataBase.DaoHandler;
 import models.room.Room;
 
 import java.util.ArrayList;
@@ -19,8 +21,10 @@ public class Receptionist extends User {
     private Admin registrant ;
     @DatabaseField( canBeNull = false)
     private Date registrationDate ;
-    public Receptionist(){
-        registrationDate = new Date();
+
+    public Receptionist() {
+        this.registrationDate = new Date();
+        this.type = RoleType.RECEPTIONIST; // Setting the role type for Receptionist
     }
 
     public Receptionist(double salary, Date suspendDate, Admin registrant) {
@@ -69,6 +73,11 @@ public class Receptionist extends User {
 
       if (guest.getRoom().getStatus().equals(Room.Status.BOOKED)){
           guest.getRoom().setStatus(Room.Status.FULLED);
+          DaoHandler<CheckIn> checkInDaoHandler = new DaoHandler<>(CheckIn.class);
+          var checkin = new CheckIn(guest.getRoom(), guest , this);
+      }
+      else{
+          CommonTasks.showError("Reservation Is Not Recognized!");
       }
 
     }
@@ -76,15 +85,17 @@ public class Receptionist extends User {
     public void checkOut (Guest guest){
 
     }
-
-    public void checkInReport (Date startDate , Date endDate){
-
-    }
     ArrayList <CheckIn> checkInList = new ArrayList();
+    public void checkInReport (Date startDate , Date endDate){
+       for (CheckIn checkIn : checkInList){
+           //if ()
+       }
+    }
+    ArrayList <CheckOut> checkOutList = new ArrayList();
     public void checkOutReport (Date startDate , Date endDate){
 
     }
-    ArrayList <CheckOut> checkOutList = new ArrayList();
+
 
 
 

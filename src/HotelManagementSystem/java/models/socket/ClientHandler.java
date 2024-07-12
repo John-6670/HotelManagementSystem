@@ -1,5 +1,7 @@
 package models.socket;
 
+import application.hotelmanagementsystem.CommonTasks;
+import models.checkInsOuts.CheckIn;
 import models.dataBase.DaoHandler;
 import models.user.Admin;
 import models.user.Guest;
@@ -11,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -71,4 +74,67 @@ public class ClientHandler implements Runnable {
     private <T> User handleSignup(Request request, DaoHandler<T> dao) {
         return null;
     }
+
+
+    private <T> Guest handleCheckIn(Request request, DaoHandler<T> dao) throws SQLException {
+        List<T> result = dao.search((Map<String, Object>) request.getData());
+        if (result.isEmpty()) {
+            return null;
+        }
+
+        return (Guest) result.getFirst();
+    }
+
+
+    private final DaoHandler<Guest> guestDaoHandler=new DaoHandler<>(Guest.class);
+
+    public Response checkInHandler(String nationalId, String name) throws SQLException {
+
+        Map<String, Object> fieldValues = new HashMap<>();
+        fieldValues.put("id", nationalId);
+        fieldValues.put("name", name);
+
+
+        List<Guest> guests = guestDaoHandler.search(fieldValues);
+
+        if (guests.isEmpty()) {
+            CommonTasks.showError("Guest Is Not Found! Name or NationalId is incorrect!");
+            return new Response(Response.ResponseType.FAIL, "guest is not found");
+
+        }
+        else{
+            Guest guest = guests.get(0);
+            Receptionist receptionist = new Receptionist();
+
+            receptionist.checkIn(guest);
+            return new Response(Response.ResponseType.SUCCESS, "guest is found");
+            }
+        }
+
+    private final DaoHandler<Guest> guestDaoHandler1=new DaoHandler<>(Guest.class);
+
+    public Response checkOutHandler(String phoneNumber) throws SQLException {
+
+        Map<String, Object> fieldValues = Map.of("phoneNumber", phoneNumber);
+
+
+        List<Guest> guests = guestDaoHandler1.search(fieldValues);
+
+        if (guests.isEmpty()) {
+            CommonTasks.showError("Guest Is Not Found!Phone Number is incorrect!");
+            return new Response(Response.ResponseType.FAIL, "guest not found");}
+        else{
+            Guest guest = guests.get(0);
+            Receptionist receptionist = new Receptionist();
+
+            receptionist.checkOut(guest);
+            return new Response(Response.ResponseType.SUCCESS, "guest is found");
+            }
+    }
+
+
+
+
+
+
 }
