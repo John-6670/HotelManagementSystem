@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import models.bill.Bill;
 import models.room.Room;
 import models.socket.Request;
+import models.socket.Response;
 import models.user.Guest;
 import models.service.Services;
 
@@ -38,22 +39,24 @@ public class GuestRoom implements Initializable {
 
     public void requestService() {
         Guest guest = (Guest) UserData.getInstance().getUser();
-        if (guest.getRoom() == null) {
-            CommonTasks.showError("Please book a room first");
+
+        if (guest.getBill() == null) {
+            CommonTasks.showError("You don't have room!!");
         } else {
             try {
-                guest.getClient().sendRequest(new Request(Request.RequestType.REQUEST_SERVICE, guest, services.getSelectionModel().getSelectedItem()));
+                guest.getClient().sendRequest(new Request(Request.RequestType.REQUEST_SERVICE, guest, Services.valueOf(services.getSelectionModel().getSelectedItem().toUpperCase().replace(' ', '_'))));
                 CommonTasks.showConfirmation("You requested a " + services.getValue() + " service for " + servicePrice.getText() + "$.");
-                updateBill(Double.parseDouble(servicePrice.getText()));
+                showNewBill();
             } catch (IOException e) {
-                CommonTasks.showError("An unknown error acquired!");
                 e.printStackTrace();
+                CommonTasks.showError("An unknown error acquired!");
             }
         }
     }
 
-    private void updateBill(double amount) {
-        additionalServices.setText(CommonTasks.intOrDouble(Double.parseDouble(additionalServices.getText()) + amount));
+    private void showNewBill() {
+        Guest guest = (Guest) UserData.getInstance().getUser();
+        servicePrice.setText(CommonTasks.intOrDouble(guest.getBill().getAdditionalServices()));
     }
 
     @Override

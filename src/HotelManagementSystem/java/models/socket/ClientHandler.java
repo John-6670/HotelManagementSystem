@@ -9,6 +9,7 @@ import models.room.Room;
 import models.service.Services;
 import models.user.*;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -68,6 +69,9 @@ public class ClientHandler implements Runnable {
             case DELETE_ACCOUNT -> {
                 User deltedUser = handleDeleteAccount(request, dao);
                 return new Response(Response.ResponseType.SUCCESS, deltedUser);
+            } case REQUEST_SERVICE -> {
+                handleServiceRequest(request, dao);
+                return new Response(Response.ResponseType.SUCCESS, null);
             }
             case BOOK_ROOM -> {
                 Room room = handleBookRoom(request, dao);
