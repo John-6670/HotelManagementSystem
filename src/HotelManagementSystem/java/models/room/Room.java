@@ -25,6 +25,14 @@ public class Room implements Serializable {
 
     public Room() {}
 
+    public void setType(RoomType type) {
+        this.type = type;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
     public Room(int roomNumber, RoomType type) throws SQLException {
         this.roomNumber = roomNumber;
         this.type = type;
@@ -41,17 +49,17 @@ public class Room implements Serializable {
 
     public RoomType getType(String type){
         switch (type) {
-            case "SINGLE":
+            case "Single":
                 return RoomType.SINGLE;
-            case "DOUBLE":
+            case "Double":
                 return RoomType.DOUBLE;
-            case "VIP":
+            case "V.I.P":
                 return RoomType.VIP;
-            case "TRIPLE":
+            case "Triple":
                 return RoomType.TRIPLE;
-            case "SUIT" :
+            case "Suit" :
                 return RoomType.SUIT;
-            case "QUADRUPLE" :
+            case "Quadruple" :
                 return RoomType.QUADRUPLE;
         }
         return null;

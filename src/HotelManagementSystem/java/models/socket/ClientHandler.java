@@ -1,7 +1,13 @@
 package models.socket;
 
+import application.hotelmanagementsystem.CommonTasks;
+import application.hotelmanagementsystem.UserData;
+import javafx.application.Platform;
+import models.bill.Bill;
 import models.dataBase.DaoHandler;
+import models.reservation.Reservation;
 import models.room.Room;
+import models.room.RoomType;
 import models.user.Admin;
 import models.user.Guest;
 import models.user.Receptionist;
@@ -12,6 +18,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +68,7 @@ public class ClientHandler implements Runnable {
             }
             case ADD_ROOM -> {
                 Room addedRoom = handelAddRoom(request, dao);
-                return addedRoom != null ? new Response(Response.ResponseType.SUCCESS, addedRoom) : new Response(Response.ResponseType.FAIL , null);
+                return addedRoom != null ? new Response(Response.ResponseType.SUCCESS, addedRoom) : new Response(Response.ResponseType.FAIL, null);
             }
         }
         return null;
@@ -77,12 +87,74 @@ public class ClientHandler implements Runnable {
         return null;
     }
 
-    private <T> Room handelAddRoom(Request request, DaoHandler<T> dao){
-        try{
-            Room room;
-            room = (Room) request.getData();
-            dao.create(room);
+    private <T> Room handelAddRoom(Request request, DaoHandler<T> dao) {
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        Map<String, Object> roomData = (Map) request.getData();
+        try {
+            int room_number = (int) roomData.get("room_number");
+            Map<String, Object> searchCriteria = new HashMap<>();
+            searchCriteria.put("room_number", room_number);
+            List<Room> list = roomDao.search(searchCriteria);
+
+            if (list.isEmpty()) {
+                Room room = new Room();
+                room.setRoomNumber(room_number);
+                room.setType(room.getType());
+                roomDao.create(room);
+                return room;
+            } else {
+                CommonTasks.showError("A room with this Room number exists!");
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            CommonTasks.showError("An unknown error acquired!");
         }
         return null;
     }
+
+//    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {
+//        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+//        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
+//        DaoHandler<Reservation> reservationDaoHandler = new DaoHandler<>(Reservation.class);
+//        Map<String, Object> roomData = (Map) request.getData();
+//        Guest guest = (Guest) request.getUser();
+//
+//        try {
+//            RoomType roomType = RoomType.valueOf(((String) roomData.get("type")).toUpperCase());
+//            LocalDate startDate = (LocalDate) roomData.get("startDate");
+//            int nights = Integer.parseInt((String) roomData.get("nights"));
+//
+//            Map<String, Object> searchCriteria = new HashMap<>();
+//            searchCriteria.put("type", roomType);
+//            searchCriteria.put("status", Room.Status.AVAILABLE);
+//            List<Room> availableRooms = roomDao.search(searchCriteria);
+//
+//            if (!availableRooms.isEmpty()) {
+//                LocalDate endDateLocal = startDate.plusDays(nights);
+//                Room room = availableRooms.getFirst();
+//                Reservation reservation = new Reservation(Date.from(startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), Date.from(endDateLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), room, guest); // TODO: add reservation information
+//                Bill bill = new Bill(room.getPrice() * nights);
+//
+//                guest.setRoom(room);
+//                guest.setReservation(reservation);
+//                guest.setBill(bill);
+//                room.setStatus(Room.Status.BOOKED);
+//
+//                roomDao.update(room);
+//                billDaoHandler.create(bill);
+//                reservationDaoHandler.create(reservation);
+//                dao.update((T) guest);
+//                UserData.getInstance().setUser(guest);
+//                return room;
+//            } else {
+//                Platform.runLater(() -> CommonTasks.showError("There isn't any available room with this information!"));
+//                return null;
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            CommonTasks.showError("An unknown error acquired!");
+//            return null;
+//        }
+//    }
 }

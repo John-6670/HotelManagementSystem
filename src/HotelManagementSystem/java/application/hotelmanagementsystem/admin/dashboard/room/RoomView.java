@@ -55,7 +55,7 @@ public class RoomView extends Room implements Initializable {
         CommonTasks.showConfirmation("Room with room number " + addRoomNumber.getText() + " and type " + roomTypeList.getSelectionModel().getSelectedItem() + ".");
         Client client = Main.client;
         try{
-            client.sendRequest(new Request(Request.RequestType.ADD_ROOM , new Admin() , Map.of("roomnumber" , addRoomNumber.getText() , "roomtype" , getType(roomTypeList.getSelectionModel().getSelectedItem()))));
+            client.sendRequest(new Request(Request.RequestType.ADD_ROOM , new Admin() , Map.of("room_number" , Integer.parseInt(addRoomNumber.getText()) , "type" , getType(roomTypeList.getSelectionModel().getSelectedItem()))));
             Room room = (Room) client.receiveResponse().getData();
             if(room != null){
                 CommonTasks.showError("Room has been Created!");

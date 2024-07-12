@@ -18,7 +18,7 @@ public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
 //        DaoHandler<Guest> guestDaoHandler = new DaoHandler<>(Guest.class);
         DaoHandler<Admin>  adminDaoHandler = new DaoHandler<>(Admin.class);
-        Admin admin = new Admin("Majid" , "Majid9091" , "Majid/9091akoo" , null , null , "15524");
+        Admin admin = new Admin("Admin" , "Admin" , "Admin" , null , null , "15524");
         adminDaoHandler.create(admin);
     }
 }
