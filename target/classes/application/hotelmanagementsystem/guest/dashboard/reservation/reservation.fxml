@@ -51,7 +51,7 @@
                                 </children>
                             </VBox>
                             <TextField fx:id="numberOfNights" alignment="CENTER" layoutX="127.0" layoutY="243.0" prefHeight="20.0" prefWidth="150.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" AnchorPane.topAnchor="243.0" />
-                            <DatePicker layoutX="114.0" layoutY="174.0" prefHeight="20.0" promptText="Date" stylesheets="@../../../css/DatePicker.css" AnchorPane.topAnchor="174.0" />
+                            <DatePicker fx:id="startDate" layoutX="114.0" layoutY="174.0" prefHeight="20.0" promptText="Date" stylesheets="@../../../css/DatePicker.css" AnchorPane.topAnchor="174.0" />
                             <ComboBox fx:id="roomType" layoutX="126.0" layoutY="100.0" prefHeight="30.0" prefWidth="150.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" AnchorPane.topAnchor="99.0" />
                             <Text fill="#ea0a0a" layoutX="79.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Please note: Changing the number of nights after booking may result in additional charges." wrappingWidth="246.739501953125" AnchorPane.bottomAnchor="25.0" />
                         </children>
@@ -141,7 +141,7 @@
                                 </font>
                             </Label>
                             <JFXButton layoutX="127.0" layoutY="151.0" onAction="#changeReservation" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Change" AnchorPane.bottomAnchor="25.0" />
-                            <DatePicker layoutX="26.0" layoutY="135.0" prefHeight="20.0" promptText="Date" stylesheets="@../../../css/DatePicker.css" />
+                            <DatePicker fx:id="changedDate" layoutX="26.0" layoutY="135.0" prefHeight="20.0" promptText="Date" stylesheets="@../../../css/DatePicker.css" />
                             <TextField fx:id="changedNumberOfNights" alignment="CENTER" layoutX="233.0" layoutY="134.0" prefWidth="150.0" promptText="Number of nights" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #222831;" />
                         </children>
                         <effect>

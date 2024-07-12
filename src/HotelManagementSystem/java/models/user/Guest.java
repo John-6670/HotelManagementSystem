@@ -8,9 +8,20 @@ import models.interfaces.ReservationMaker;
 import models.reservation.Reservation;
 import models.room.Room;
 
-import java.sql.SQLException;
 import java.util.Date;
 
+/**
+ * Guest class represents a guest in the hotel.
+ * It extends the User class and implements the ReservationMaker interface.
+ *
+ * @see User
+ * @see ReservationMaker
+ * @see Room
+ * @see Bill
+ * @see Reservation
+ *
+ * @author John
+ */
 @DatabaseTable(tableName = "Guest")
 public class Guest extends User implements ReservationMaker {
     @DatabaseField(foreign = true, columnName = "room_number", foreignColumnName = "room_number", foreignAutoRefresh = true)
@@ -25,11 +36,21 @@ public class Guest extends User implements ReservationMaker {
     @DatabaseField(canBeNull = false)
     private final Date registrationDate;
 
+    /**
+     * This constructor is used by ORMLite to create an instance of this class.
+     */
     public Guest() {
         registrationDate = new Date();
         type = RoleType.GUEST;
     }
 
+    /**
+     * This constructor is used to create an instance of this class for just booking a room.
+     *
+     * @param name the name of the guest
+     * @param nationalId the national ID of the guest
+     * @param phoneNumber the phone number of the guest
+     */
     public Guest(String name, String nationalId, String phoneNumber) {
         this();
         setName(name);
@@ -37,12 +58,28 @@ public class Guest extends User implements ReservationMaker {
         setPhoneNumber(phoneNumber);
     }
 
+    /**
+     * This constructor is used to create an instance of this class.
+     *
+     * @param name the name of the guest
+     * @param username the username of the guest
+     * @param password the password of the guest
+     * @param email the email of the guest
+     * @param phoneNumber the phone number of the guest
+     * @param nationalID the national ID of the guest
+     */
     public Guest(String name, String username, String password, String email, String phoneNumber, String nationalID) {
         super(name, username, password, email, phoneNumber, nationalID);
         registrationDate = new Date();
         type = RoleType.GUEST;
     }
 
+    /**
+     * This method is used to set the room of the guest.
+     * If the room is available, it will be set to the guest.
+     *
+     * @param room the room to be set
+     */
     public void setRoom(Room room) {
         if (room.getStatus().equals(Room.Status.AVAILABLE)) {
             this.room = room;
@@ -51,38 +88,69 @@ public class Guest extends User implements ReservationMaker {
             throw new RoomNotAvailableException("This room isn't available for booking now.");
     }
 
+    /**
+     * This method is used to set the bill of the guest.
+     *
+     * @param bill the bill to be set
+     */
     public void setBill(Bill bill) {
         this.bill = bill;
     }
 
+    /**
+     * This method is used to set the reservation of the guest.
+     *
+     * @param reservation the reservation to be set
+     */
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
 
+    /**
+     * This method is used to get the room of the guest.
+     *
+     * @return the room of the guest
+     */
     public Room getRoom() {
         return room;
     }
 
+    /**
+     * This method is used to get the bill of the guest.
+     *
+     * @return the bill of the guest
+     */
     public Bill getBill() {
         return bill;
     }
 
+    /**
+     * This method is used to get the reservation of the guest.
+     *
+     * @return the reservation of the guest
+     */
     public Reservation getReservation() {
         return reservation;
     }
 
+    /**
+     * This method is used to get the registration date of the guest.
+     *
+     * @return the registration date of the guest
+     */
     public Date getRegistrationDate() {
         return registrationDate;
     }
 
     // TODO: complete method
+
+    /**
+     * This method is used to make a reservation.
+     *
+     * @return the reservation made
+     */
     @Override
     public Reservation makeReservation() {
         return null;
-    }
-
-    // TODO: complete method
-    public void serviceRequest() {
-        return;
     }
 }

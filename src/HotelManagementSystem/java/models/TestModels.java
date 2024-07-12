@@ -3,10 +3,12 @@ package models;
 import application.hotelmanagementsystem.Main;
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
+import models.reservation.Reservation;
 import models.room.Room;
 import models.room.RoomType;
 import models.socket.Client;
 import models.socket.Request;
+import models.socket.Response;
 import models.socket.Server;
 import models.user.Guest;
 import org.sqlite.SQLiteException;
@@ -19,8 +21,19 @@ import java.util.TreeMap;
 
 public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
-        DaoHandler<Guest> guestDao = new DaoHandler<>(Guest.class);
-        Guest guest = new Guest("Ali", "Ali", "Ali/2005", "ali@gmail.com", "09381245167", "2005");
-        guestDao.create(guest);
+        DaoHandler<Room> roomDaoHandler = new DaoHandler<>(Room.class);
+        Room room = roomDaoHandler.getById(102);
+        room.setStatus(Room.Status.AVAILABLE);
+        roomDaoHandler.update(room);
+
+//        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
+//        Bill bill = billDaoHandler.getById(2);
+
+        DaoHandler<Guest> guestDaoHandler = new DaoHandler<>(Guest.class);
+        Guest guest = guestDaoHandler.getById(4);
+        guest.setRoom(null);
+        guest.setReservation(null);
+        guest.setBill(null);
+        guestDaoHandler.update(guest);
     }
 }

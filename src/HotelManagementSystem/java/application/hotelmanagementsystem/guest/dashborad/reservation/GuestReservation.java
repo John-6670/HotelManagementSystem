@@ -5,6 +5,7 @@ import application.hotelmanagementsystem.UserData;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import models.bill.Bill;
@@ -16,6 +17,7 @@ import models.user.User;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -35,15 +37,24 @@ public class GuestReservation implements Initializable {
     private Text additionalServices;
     @FXML
     private Text roomCharge;
+    @FXML
+    private DatePicker startDate;
+    @FXML
+    private DatePicker changedDate;
     private Guest guest;
 
     // TODO: Complete this method
     public void book() {
-        Guest guest = (Guest) UserData.getInstance().getUser();
         Map<String, Object> roomData = new HashMap<>();
         roomData.put("type", roomType.getSelectionModel().getSelectedItem());
-//        roomData.put("")
-//        guest.getClient().sendRequest(new Request(Request.RequestType.BOOK_ROOM, guest, roomData));
+        roomData.put("startDate", startDate.getValue());
+        roomData.put("nights", numberOfNights.getText());
+        try {
+            guest.getClient().sendRequest(new Request(Request.RequestType.BOOK_ROOM, guest, roomData));
+        } catch (IOException e) {
+            CommonTasks.showError("An unknown error acquired!");
+            e.printStackTrace();
+        }
         CommonTasks.showConfirmation("You booked a " + roomType.getValue() + " room for " + numberOfNights.getText() + " nights for " + roomPrice.getText() + "$.");
     }
 

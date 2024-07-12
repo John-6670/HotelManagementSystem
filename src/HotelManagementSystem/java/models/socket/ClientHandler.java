@@ -2,16 +2,14 @@ package models.socket;
 
 import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.UserData;
-import com.j256.ormlite.dao.Dao;
 import javafx.application.Platform;
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
 import models.reservation.Reservation;
-import models.room.Room;
+import models.room.*;
 import models.service.Services;
 import models.user.*;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -20,23 +18,48 @@ import java.lang.reflect.Method;
 import java.net.Socket;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class represents a client handler that is used to handle incoming requests from clients.
+ * It implements the Runnable interface to run the client handler in a separate thread.
+ * It contains a socket that is used to communicate with the client, an input stream to read data from the client,
+ * and an output stream to send data to the client.
+ *
+ * @see Request
+ * @see Response
+ * @see Client
+ * @see Server
+ * @see DaoHandler
+ * @see UserData
+ * @see ClientHandler
+ * @see Runnable
+ *
+ * @author John, Arefe, Majid
+ */
 public class ClientHandler implements Runnable {
     private final Socket socket;
     private final ObjectInputStream input;
     private final ObjectOutputStream out;
 
+    /**
+     * This constructor is used to create an instance of the ClientHandler class.
+     *
+     * @param socket the socket that is used to communicate with the client
+     * @throws IOException if an I/O error occurs
+     */
     public ClientHandler(Socket socket) throws IOException {
         this.socket = socket;
         out = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
     }
 
+    /**
+     * This method is used to run the client handler in a separate thread.
+     * It reads requests from the client, processes them, and sends responses back to the client.
+     */
     @Override
     public void run() {
         while (true) {
@@ -50,6 +73,14 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    /**
+     * This method is used to process a request from the client.
+     * It handles different types of requests, such as login, signup, update info, delete account, book room, request service, and pay bill.
+     * It uses a DaoHandler to interact with the database and perform the necessary operations.
+     *
+     * @param request the request to be processed
+     * @return the response to be sent back to the client
+     */
     private Response processRequest(Request request) {
         User user = request.getUser();
         DaoHandler<? extends User> dao = switch (user.getType()) {
@@ -97,14 +128,6 @@ public class ClientHandler implements Runnable {
             case DELETE_ACCOUNT -> {
                 User deltedUser = handleDeleteAccount(request, dao);
                 return new Response(Response.ResponseType.SUCCESS, deltedUser);
-            } case REQUEST_SERVICE -> {
-                try {
-                    handleServiceRequest(request, dao);
-                    return new Response(Response.ResponseType.SUCCESS, null);
-                } catch (SQLException e) {
-                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
-                }
-
             }
             case PAY_BILL -> {
                 try {
@@ -119,13 +142,29 @@ public class ClientHandler implements Runnable {
                 return room != null ? new Response(Response.ResponseType.SUCCESS, room) : new Response(Response.ResponseType.FAIL, null);
             }
             case REQUEST_SERVICE -> {
-                handleRequestService(request, dao);
-                return new Response(Response.ResponseType.SUCCESS, null);
+                try {
+                    handleRequestService(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, null);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
+                }
             }
         }
         return null;
     }
 
+    /**
+     * This method is used to handle the login request.
+     * It searches the database for a user with the given username and password.
+     *
+     * @param request the login request
+     * @param dao the DaoHandler to interact with the database
+     * @return the user that is logged in, or null if the login fails
+     * @param <T> the type of the user
+     *
+     * @author John
+     */
     private <T> User handeLogin(Request request, DaoHandler<T> dao) {
         try {
             List result = dao.search((Map) request.getData());
@@ -140,6 +179,18 @@ public class ClientHandler implements Runnable {
         return null;
     }
 
+    /**
+     * This method is used to handle the signup request.
+     * It creates a new user with the given information and adds it to the database.
+     *
+     * @param request the signup request
+     * @param dao the DaoHandler to interact with the database
+     * @return the new user that is created
+     * @param <T> the type of the user
+     * @throws SQLException if an SQL error occurs
+     *
+     * @author John
+     */
     private <T> User handleSignup(Request request, DaoHandler<T> dao) throws SQLException {
         Map<String, Object> data = (Map) request.getData();
         User newUser = null;
@@ -165,6 +216,18 @@ public class ClientHandler implements Runnable {
         return newUser;
     }
 
+    /**
+     * This method is used to handle the edit info request.
+     * It updates the user's information with the given data.
+     *
+     * @param request the edit info request
+     * @param dao the DaoHandler to interact with the database
+     * @return the user with the updated information
+     * @param <T> the type of the user
+     * @throws SQLException if an SQL error occurs
+     *
+     * @author John
+     */
     private <T> User handleEditInfo(Request request, DaoHandler<T> dao) throws SQLException {
         Map<String, Object> data = (Map) request.getData();
         User user = request.getUser();
@@ -182,6 +245,17 @@ public class ClientHandler implements Runnable {
         return user;
     }
 
+    /**
+     * This method is used to handle the delete account request.
+     * It deletes the user's account from the database.
+     *
+     * @param request the delete account request
+     * @param dao the DaoHandler to interact with the database
+     * @return the user that is deleted
+     * @param <T> the type of the user
+     *
+     * @author John
+     */
     private <T> User handleDeleteAccount(Request request, DaoHandler<T> dao) {
         User user = request.getUser();
         try {
@@ -195,15 +269,29 @@ public class ClientHandler implements Runnable {
     }
 
     // TODO: Advanced search with Date
+
+    /**
+     * This method is used to handle the book room request.
+     * It searches for an available room with the given information and books it for the user.
+     *
+     * @param request the book room request
+     * @param dao the DaoHandler to interact with the database
+     * @return the room that is booked, or null if no room is available
+     * @param <T> the type of the user
+     *
+     * @author John
+     */
     private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {
         DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
+        DaoHandler<Reservation> reservationDaoHandler = new DaoHandler<>(Reservation.class);
         Map<String, Object> roomData = (Map) request.getData();
         Guest guest = (Guest) request.getUser();
 
         try {
-            String roomType = (String) roomData.get("type");
+            RoomType roomType = RoomType.valueOf(((String) roomData.get("type")).toUpperCase());
             Date startDate = (Date) roomData.get("date");
-            int nights = (int) roomData.get("nights");
+            int nights = Integer.parseInt((String) roomData.get("nights"));
 
             Map<String, Object> searchCriteria = new HashMap<>();
             searchCriteria.put("type", roomType);
@@ -213,13 +301,18 @@ public class ClientHandler implements Runnable {
             if (!availableRooms.isEmpty()) {
                 Room room = availableRooms.getFirst();
                 Reservation reservation = new Reservation(); // TODO: add reservation information
-                Bill bill = new Bill(room.getPrice());
+                Bill bill = new Bill(room.getPrice() * nights);
+
                 guest.setRoom(room);
                 guest.setReservation(reservation);
                 guest.setBill(bill);
                 room.setStatus(Room.Status.BOOKED);
+
                 roomDao.update(room);
+                billDaoHandler.create(bill);
+                reservationDaoHandler.create(reservation);
                 dao.update((T) guest);
+                UserData.getInstance().setUser(guest);
                 return room;
             } else {
                 Platform.runLater(() -> CommonTasks.showError("There isn't any available room with this information!"));
@@ -232,24 +325,42 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    private <T> void handleRequestService(Request request, DaoHandler<T> dao) {
+    /**
+     * This method is used to handle the request service request.
+     * It adds the requested service to the user's bill.
+     *
+     * @param request the request service request
+     * @param dao the DaoHandler to interact with the database
+     * @param <T> the type of the user
+     * @throws SQLException if an SQL error occurs
+     *
+     * @author John
+     */
+    private <T> void handleRequestService(Request request, DaoHandler<T> dao) throws SQLException {
         DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
 
         Guest guest = (Guest) request.getUser();
-        Services service = Services.valueOf(((String) request.getData()).toUpperCase().replace(' ', '_'));
+        Services service = (Services) request.getData();
 
-        try {
-            Bill userBill = guest.getBill();
-            userBill.increaseAdditionalServices(service.getPrice());
-            billDaoHandler.update(userBill);
-            dao.update((T) guest);
-            UserData.getInstance().setUser(guest);
-        } catch (SQLException e) {
-            Platform.runLater(() -> CommonTasks.showError("An unknown error acquired!"));
-            e.printStackTrace();
-        }
+        Bill userBill = guest.getBill();
+        userBill.increaseAdditionalServices(service.getPrice());
+        billDaoHandler.update(userBill);
+        dao.update((T) guest);
+        UserData.getInstance().setUser(guest);
+
     }
 
+    /**
+     * This method is used to handle the pay bill request.
+     * It marks the user's bill as paid and updates the user's information.
+     *
+     * @param request the pay bill request
+     * @param dao the DaoHandler to interact with the database
+     * @param <T> the type of the user
+     * @throws SQLException if an SQL error occurs
+     *
+     * @author John
+     */
     private <T> void handlePayBill(Request request, DaoHandler<T> dao) throws SQLException {
         Guest guest = (Guest) request.getUser();
         DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);

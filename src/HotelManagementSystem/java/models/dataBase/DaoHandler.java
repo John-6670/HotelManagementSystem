@@ -12,11 +12,24 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class is used to handle the database operations.
+ *
+ * @param <T> the type of the object that the class will handle
+ *
+ * @author John
+ */
 public class DaoHandler<T> {
     private final String url = "jdbc:sqlite:identifier.sqlite";
     private static ConnectionSource connection;
     protected Dao<T, Integer> dao;
 
+    /**
+     * This constructor is used to create an instance of this class.
+     * It initializes the connection to the database and creates the table if it does not exist.
+     *
+     * @param type the type of the object that the class will handle
+     */
     public DaoHandler(Class<T> type) {
         try {
             connection = createConnection();
@@ -27,24 +40,55 @@ public class DaoHandler<T> {
         }
     }
 
+    /**
+     * This method is used to create a connection to the database.
+     *
+     * @return the connection to the database
+     * @throws SQLException if an error occurs while creating the connection
+     */
     private ConnectionSource createConnection() throws SQLException {
         return new JdbcConnectionSource(url);
     }
 
+    /**
+     * This method is used to close the connection to the database.
+     *
+     * @throws Exception if an error occurs while closing the connection
+     */
     public void closeConnection() throws Exception {
         if (connection != null) {
             connection.close();
         }
     }
 
+    /**
+     * This method is used to create an object in the database.
+     *
+     * @param obj the object to be created
+     * @throws SQLException if an error occurs while creating the object
+     */
     public void create(T obj) throws SQLException {
         dao.create(obj);
     }
 
+    /**
+     * This method is used to get an object by its ID.
+     *
+     * @param id the ID of the object
+     * @return the object with the specified ID
+     * @throws SQLException if an error occurs while getting the object
+     */
     public T getById(int id) throws SQLException {
         return dao.queryForId(id);
     }
 
+    /**
+     * This method is used to search for objects in the database.
+     *
+     * @param fieldValues the fields and their values to search for
+     * @return the objects that match the search criteria
+     * @throws SQLException if an error occurs while searching for the objects
+     */
     public List<T> search(Map<String, Object> fieldValues) throws SQLException {
         QueryBuilder<T, Integer> queryBuilder = dao.queryBuilder();
         Where<T, Integer> where = queryBuilder.where();
@@ -68,18 +112,42 @@ public class DaoHandler<T> {
         return queryBuilder.query();
     }
 
+    /**
+     * This method is used to get all the objects in the database.
+     *
+     * @return all the objects in the database
+     * @throws SQLException if an error occurs while getting all the objects
+     */
     public List<T> getAll() throws SQLException {
         return dao.queryForAll();
     }
 
+    /**
+     * This method is used to update an object in the database.
+     *
+     * @param obj the object to be updated
+     * @throws SQLException if an error occurs while updating the object
+     */
     public void update(T obj) throws SQLException {
         dao.update(obj);
     }
 
+    /**
+     * This method is used to delete an object from the database.
+     *
+     * @param obj the object to be deleted
+     * @throws SQLException if an error occurs while deleting the object
+     */
     public void delete(T obj) throws SQLException {
         dao.delete(obj);
     }
 
+    /**
+     * This method is used to delete an object from the database by its ID.
+     *
+     * @param id the ID of the object to be deleted
+     * @throws SQLException if an error occurs while deleting the object
+     */
     public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }

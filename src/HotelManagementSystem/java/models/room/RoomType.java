@@ -1,5 +1,11 @@
 package models.room;
 
+/**
+ * This enum represents the type of the room.
+ * It contains the types of the rooms in the hotel.
+ *
+ * @author John
+ */
 public enum RoomType {
     SINGLE(100),
     DOUBLE(150),

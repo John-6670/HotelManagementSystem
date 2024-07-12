@@ -1,6 +1,13 @@
 package models.service;
 
 // TODO: make prices real
+
+/**
+ * Enum class for services that can be provided to a room.
+ * Each service has a price associated with it.
+ *
+ * @author John
+ */
 public enum Services {
     CLEAN_ROOM(1),
     CHARGE(2),
@@ -18,6 +25,11 @@ public enum Services {
         return price;
     }
 
+    /**
+     * Returns the name of the service with each word capitalized.
+     *
+     * @return the name of the service with each word capitalized
+     */
     @Override
     public String toString() {
         String[] words = name().split("_");
