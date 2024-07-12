@@ -16,6 +16,8 @@ import models.user.User;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.Socket;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -43,19 +45,26 @@ public class ClientHandler implements Runnable {
                 Request request = (Request) input.readObject();
                 Response response = processRequest(request);
                 out.writeObject(response);
-            } catch (IOException | ClassNotFoundException | SQLException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    // TODO: implement processRequest method
-    private Response processRequest(Request request) throws SQLException {
+    /**
+     * This method is used to process a request from the client.
+     * It handles different types of requests, such as login, signup, update info, delete account, book room, request service, and pay bill.
+     * It uses a DaoHandler to interact with the database and perform the necessary operations.
+     *
+     * @param request the request to be processed
+     * @return the response to be sent back to the client
+     */
+    private Response processRequest(Request request) {
         User user = request.getUser();
         DaoHandler<? extends User> dao = switch (user.getType()) {
-            case GUEST -> new DaoHandler<Guest>(Guest.class);
-            case ADMIN -> new DaoHandler<Admin>(Admin.class);
-            default -> new DaoHandler<Receptionist>(Receptionist.class);
+            case GUEST -> new DaoHandler<>(Guest.class);
+            case ADMIN -> new DaoHandler<>(Admin.class);
+            default -> new DaoHandler<>(Receptionist.class);
         };
 
         switch (request.getType()) {
@@ -64,53 +73,177 @@ public class ClientHandler implements Runnable {
                 return loginUser != null ? new Response(Response.ResponseType.SUCCESS, loginUser) : new Response(Response.ResponseType.FAIL, null);
             }
             case SIGNUP -> {
-                User signupUser = handleSignup(request, dao);
+                try {
+                    User signupUser = handleSignup(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, signupUser);
+                } catch (SQLException e) {
+                    String message = e.getCause().getMessage();
+                    String errorMessageIdentifier = switch (message) {
+                        case String ignored when message.contains("username") -> "email";
+                        case String ignored when message.contains("email") -> "email";
+                        case String ignored when message.contains("nationalId") -> "national ID";
+                        default -> "phone number";
+                    };
+
+                    String errorMessage = "This " + errorMessageIdentifier + " is already taken by another user.";
+                    return new Response(Response.ResponseType.FAIL, errorMessage);
+                }
+            }
+            case UPDATE_INFO -> {
+                try {
+                    User newUser = handleEditInfo(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, newUser);
+                } catch (SQLException e) {
+                    String message;
+                    if (e.getCause().getMessage().contains("email"))
+                        message = "This email is already taken by another user.";
+                    else
+                        message = "This Phone number is already taken by another user.";
+
+                    return new Response(Response.ResponseType.FAIL, message);
+                }
+            }
+            case DELETE_ACCOUNT -> {
+                User deltedUser = handleDeleteAccount(request, dao);
+                return new Response(Response.ResponseType.SUCCESS, deltedUser);
             }
             case ADD_ROOM -> {
-                Room addedRoom = handelAddRoom(request, dao);
-                return addedRoom != null ? new Response(Response.ResponseType.SUCCESS, addedRoom) : new Response(Response.ResponseType.FAIL, null);
+                try {
+                    Room room = handelAddRoom(request);
+                    return new Response(Response.ResponseType.SUCCESS, room);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return new Response(Response.ResponseType.FAIL, "A room with this Room number exists!");
+                }
             }
         }
         return null;
     }
 
-    private <T> User handeLogin(Request request, DaoHandler<T> dao) throws SQLException {
-        List result = dao.search((Map) request.getData());
-        if (result.isEmpty()) {
-            return null;
-        }
-
-        return (User) result.getFirst();
-    }
-
-    private <T> User handleSignup(Request request, DaoHandler<T> dao) {
-        return null;
-    }
-
-    private <T> Room handelAddRoom(Request request, DaoHandler<T> dao) {
-        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
-        Map<String, Object> roomData = (Map) request.getData();
+    /**
+     * This method is used to handle the login request.
+     * It searches the database for a user with the given username and password.
+     *
+     * @param request the login request
+     * @param dao the DaoHandler to interact with the database
+     * @return the user that is logged in, or null if the login fails
+     * @param <T> the type of the user
+     *
+     * @author John
+     */
+    private <T> User handeLogin(Request request, DaoHandler<T> dao) {
         try {
-            int room_number = (int) roomData.get("room_number");
-            Map<String, Object> searchCriteria = new HashMap<>();
-            searchCriteria.put("room_number", room_number);
-            List<Room> list = roomDao.search(searchCriteria);
-
-            if (list.isEmpty()) {
-                Room room = new Room();
-                room.setRoomNumber(room_number);
-                room.setType(room.getType());
-                roomDao.create(room);
-                return room;
-            } else {
-                CommonTasks.showError("A room with this Room number exists!");
+            List result = dao.search((Map) request.getData());
+            if (result.isEmpty()) {
                 return null;
             }
+            return (User) result.getFirst();
         } catch (SQLException e) {
             e.printStackTrace();
-            CommonTasks.showError("An unknown error acquired!");
         }
+
         return null;
+    }
+
+    /**
+     * This method is used to handle the signup request.
+     * It creates a new user with the given information and adds it to the database.
+     *
+     * @param request the signup request
+     * @param dao the DaoHandler to interact with the database
+     * @return the new user that is created
+     * @param <T> the type of the user
+     * @throws SQLException if an SQL error occurs
+     *
+     * @author John
+     */
+    private <T> User handleSignup(Request request, DaoHandler<T> dao) throws SQLException {
+        Map<String, Object> data = (Map) request.getData();
+        User newUser = null;
+
+        switch (request.getUser().getType()) {
+            case GUEST:
+                // Assuming Guest constructor takes specific parameters
+                newUser = new Guest((String) data.get("name"), (String) data.get("username"), (String) data.get("password"), (String) data.get("email"), (String) data.get("phoneNumber"), (String) data.get("nationalId"));
+                break;
+            case ADMIN:
+                // Assuming Admin constructor takes specific parameters
+                // newUser = new Admin((String) data.get("name"), (String) data.get("email"), (String) data.get("password"), (String) data.get("role"));
+                break;
+            default:
+                Platform.runLater(() -> CommonTasks.showError("You don't have permission to create a new account."));
+                break;
+        }
+
+        if (newUser != null) {
+            dao.create((T) newUser);
+        }
+
+        return newUser;
+    }
+
+    /**
+     * This method is used to handle the edit info request.
+     * It updates the user's information with the given data.
+     *
+     * @param request the edit info request
+     * @param dao the DaoHandler to interact with the database
+     * @return the user with the updated information
+     * @param <T> the type of the user
+     * @throws SQLException if an SQL error occurs
+     *
+     * @author John
+     */
+    private <T> User handleEditInfo(Request request, DaoHandler<T> dao) throws SQLException {
+        Map<String, Object> data = (Map) request.getData();
+        User user = request.getUser();
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
+            String methodName = "set" + entry.getKey().substring(0, 1).toUpperCase() + entry.getKey().substring(1);
+            try {
+                Method setter = user.getClass().getMethod(methodName, entry.getValue().getClass());
+                setter.invoke(user, entry.getValue());
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+
+        dao.update((T) user);
+        return user;
+    }
+
+    /**
+     * This method is used to handle the delete account request.
+     * It deletes the user's account from the database.
+     *
+     * @param request the delete account request
+     * @param dao the DaoHandler to interact with the database
+     * @return the user that is deleted
+     * @param <T> the type of the user
+     *
+     * @author John
+     */
+    private <T> User handleDeleteAccount(Request request, DaoHandler<T> dao) {
+        User user = request.getUser();
+        try {
+            dao.delete((T) user);
+        } catch (SQLException e) {
+            Platform.runLater(() -> CommonTasks.showError("An unknown error acquired."));
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    private <T> Room handelAddRoom(Request request) throws SQLException {
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        Map<String, Object> roomData = (Map) request.getData();
+
+        int room_number = (int) roomData.get("room_number");
+        RoomType type = (RoomType) roomData.get("type");
+        Room room = new Room(room_number, type);
+
+        roomDao.create(room);
+        return room;
     }
 
 //    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {

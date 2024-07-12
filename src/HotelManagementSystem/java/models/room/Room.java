@@ -33,7 +33,7 @@ public class Room implements Serializable {
         this.roomNumber = roomNumber;
     }
 
-    public Room(int roomNumber, RoomType type) throws SQLException {
+    public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
         this.type = type;
         price = type.getPrice();
