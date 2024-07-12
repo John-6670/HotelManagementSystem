@@ -39,8 +39,12 @@ public class Bill implements Serializable {
         return additionalServices;
     }
 
-    // TODO: implement method
     public double calculateBill() {
         return roomCharge + additionalServices;
+    }
+
+    public void pay() {
+        roomCharge = 0;
+        additionalServices = 0;
     }
 }

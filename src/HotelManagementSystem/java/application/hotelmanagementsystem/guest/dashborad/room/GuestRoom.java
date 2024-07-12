@@ -36,31 +36,38 @@ public class GuestRoom implements Initializable {
     private Text additionalServices;
     @FXML
     private Text totalBill;
+    private Guest guest;
 
     public void requestService() {
-        Guest guest = (Guest) UserData.getInstance().getUser();
-
         if (guest.getBill() == null) {
             CommonTasks.showError("You don't have room!!");
         } else {
             try {
-                guest.getClient().sendRequest(new Request(Request.RequestType.REQUEST_SERVICE, guest, Services.valueOf(services.getSelectionModel().getSelectedItem().toUpperCase().replace(' ', '_'))));
+                Services service = Services.valueOf(services.getSelectionModel().getSelectedItem().toUpperCase().replace(' ', '_'));
+                guest.getClient().sendRequest(new Request(Request.RequestType.REQUEST_SERVICE, guest, service));
                 CommonTasks.showConfirmation("You requested a " + services.getValue() + " service for " + servicePrice.getText() + "$.");
-                showNewBill();
-            } catch (IOException e) {
+                Response response = guest.getClient().receiveResponse();
+                if (response.getResponseType() == Response.ResponseType.SUCCESS)
+                    showNewBill(service);
+                else
+                    CommonTasks.showError((String) response.getData());
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
                 CommonTasks.showError("An unknown error acquired!");
             }
         }
     }
 
-    private void showNewBill() {
-        Guest guest = (Guest) UserData.getInstance().getUser();
-        servicePrice.setText(CommonTasks.intOrDouble(guest.getBill().getAdditionalServices()));
+    private void showNewBill(Services service) {
+        String additionalPrice = additionalServices.getText();
+        String totalPrice = totalBill.getText();
+        additionalServices.setText(CommonTasks.intOrDouble(Double.valueOf(additionalPrice) + service.getPrice()));
+        totalBill.setText(CommonTasks.intOrDouble(Double.valueOf(totalPrice) + service.getPrice()));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        guest = (Guest) UserData.getInstance().getUser();
         for (Services service : Services.values()) {
             services.getItems().add(service.toString());
         }
@@ -72,7 +79,6 @@ public class GuestRoom implements Initializable {
             }
         });
 
-        Guest guest = (Guest) UserData.getInstance().getUser();
         Room room = guest.getRoom();
         if (room != null) {
             roomNumber.setText(String.valueOf(room.getRoomNumber()));

@@ -1,6 +1,8 @@
 package models.socket;
 
 import application.hotelmanagementsystem.CommonTasks;
+import application.hotelmanagementsystem.UserData;
+import com.j256.ormlite.dao.Dao;
 import javafx.application.Platform;
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
@@ -20,6 +22,9 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ClientHandler implements Runnable {
     private final Socket socket;
@@ -59,19 +64,55 @@ public class ClientHandler implements Runnable {
                 return loginUser != null ? new Response(Response.ResponseType.SUCCESS, loginUser) : new Response(Response.ResponseType.FAIL, null);
             }
             case SIGNUP -> {
-                User signupUser = handleSignup(request, dao);
-                return new Response(Response.ResponseType.SUCCESS, signupUser);
+                try {
+                    User signupUser = handleSignup(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, signupUser);
+                } catch (SQLException e) {
+                    String message = e.getCause().getMessage();
+                    String errorMessageIdentifier = switch (message) {
+                        case String ignored when message.contains("username") -> "email";
+                        case String ignored when message.contains("email") -> "email";
+                        case String ignored when message.contains("nationalId") -> "national ID";
+                        default -> "phone number";
+                    };
+
+                    String errorMessage = "This " + errorMessageIdentifier + " is already taken by another user.";
+                    return new Response(Response.ResponseType.FAIL, errorMessage);
+                }
             }
             case UPDATE_INFO -> {
-                handleEditInfo(request, dao);
-                return new Response(Response.ResponseType.SUCCESS, null);
+                try {
+                    User newUser = handleEditInfo(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, newUser);
+                } catch (SQLException e) {
+                    String message;
+                    if (e.getCause().getMessage().contains("email"))
+                        message = "This email is already taken by another user.";
+                    else
+                        message = "This Phone number is already taken by another user.";
+
+                    return new Response(Response.ResponseType.FAIL, message);
+                }
             }
             case DELETE_ACCOUNT -> {
                 User deltedUser = handleDeleteAccount(request, dao);
                 return new Response(Response.ResponseType.SUCCESS, deltedUser);
             } case REQUEST_SERVICE -> {
-                handleServiceRequest(request, dao);
-                return new Response(Response.ResponseType.SUCCESS, null);
+                try {
+                    handleServiceRequest(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, null);
+                } catch (SQLException e) {
+                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
+                }
+
+            }
+            case PAY_BILL -> {
+                try {
+                    handlePayBill(request, dao);
+                    return new Response(Response.ResponseType.SUCCESS, "done");
+                } catch (SQLException e) {
+                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
+                }
             }
             case BOOK_ROOM -> {
                 Room room = handleBookRoom(request, dao);
@@ -99,7 +140,7 @@ public class ClientHandler implements Runnable {
         return null;
     }
 
-    private <T> User handleSignup(Request request, DaoHandler<T> dao) {
+    private <T> User handleSignup(Request request, DaoHandler<T> dao) throws SQLException {
         Map<String, Object> data = (Map) request.getData();
         User newUser = null;
 
@@ -118,29 +159,13 @@ public class ClientHandler implements Runnable {
         }
 
         if (newUser != null) {
-            try {
-                dao.create((T) newUser);
-            } catch (SQLException e) {
-                String message = e.getCause().getMessage();
-                String errorMessageIdentifier = switch (message) {
-                    case String ignored when message.contains("username") -> "email";
-                    case String ignored when message.contains("email") -> "email";
-                    case String ignored when message.contains("nationalId") -> "national ID";
-                    default -> "phone number";
-                };
-
-                String errorMessage = "This " + errorMessageIdentifier + " is already taken by another user.";
-                Platform.runLater(() -> CommonTasks.showError(errorMessage));
-                
-                e.printStackTrace();
-                return null;
-            }
+           dao.create((T) newUser);
         }
 
         return newUser;
     }
 
-    private <T> void handleEditInfo(Request request, DaoHandler<T> dao) {
+    private <T> User handleEditInfo(Request request, DaoHandler<T> dao) throws SQLException {
         Map<String, Object> data = (Map) request.getData();
         User user = request.getUser();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
@@ -153,15 +178,8 @@ public class ClientHandler implements Runnable {
             }
         }
 
-        try {
-            dao.update((T) user);
-        } catch (SQLException e) {
-            if (e.getCause().getMessage().contains("email")) {
-                Platform.runLater(() -> CommonTasks.showError("This email is already taken by another user."));
-            } else {
-                Platform.runLater(() -> CommonTasks.showError("This Phone number is already taken by another user."));
-            }
-        }
+        dao.update((T) user);
+        return user;
     }
 
     private <T> User handleDeleteAccount(Request request, DaoHandler<T> dao) {
@@ -224,9 +242,22 @@ public class ClientHandler implements Runnable {
             Bill userBill = guest.getBill();
             userBill.increaseAdditionalServices(service.getPrice());
             billDaoHandler.update(userBill);
+            dao.update((T) guest);
+            UserData.getInstance().setUser(guest);
         } catch (SQLException e) {
             Platform.runLater(() -> CommonTasks.showError("An unknown error acquired!"));
             e.printStackTrace();
         }
+    }
+
+    private <T> void handlePayBill(Request request, DaoHandler<T> dao) throws SQLException {
+        Guest guest = (Guest) request.getUser();
+        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
+        Bill bill = guest.getBill();
+
+        bill.pay();
+        billDaoHandler.update(bill);
+        dao.update((T) guest);
+        UserData.getInstance().setUser(guest);
     }
 }

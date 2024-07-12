@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import models.exceptions.InvalidPhoneNumberException;
 import models.socket.Client;
 import models.socket.Request;
+import models.socket.Response;
 import models.user.Guest;
 import models.user.User;
 
@@ -40,7 +41,6 @@ public class GuestEdit implements Initializable {
         String oldPassword = oldPass.getText();
 
         if (nationalID.equals(guest.getNationalId()) && oldPassword.equals(guest.getPassword())) {
-            Client client = Main.client;
             try {
                 Map<String, String> newData = new HashMap<>();
                 if (!email.getText().isEmpty()) {
@@ -60,8 +60,13 @@ public class GuestEdit implements Initializable {
                 }
 
                 CommonTasks.showConfirmation("You are changing your profile information!!");
-                client.sendRequest(new Request(Request.RequestType.UPDATE_INFO, guest, newData));
-            } catch (IOException e) {
+                guest.getClient().sendRequest(new Request(Request.RequestType.UPDATE_INFO, guest, newData));
+                Response response = guest.getClient().receiveResponse();
+                if (response.getResponseType() == Response.ResponseType.SUCCESS)
+                    UserData.getInstance().setUser((User) response.getData());
+                else
+                    CommonTasks.showError((String) response.getData());
+            } catch (IOException | ClassNotFoundException e) {
                 CommonTasks.showError("An unknown error acquired");
                 e.printStackTrace();
             }
