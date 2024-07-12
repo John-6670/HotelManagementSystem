@@ -9,9 +9,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import models.bill.Bill;
 import models.room.RoomType;
+import models.socket.Request;
 import models.user.Guest;
+import models.user.User;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class GuestReservation implements Initializable {
@@ -30,7 +34,13 @@ public class GuestReservation implements Initializable {
     @FXML
     private Text roomCharge;
 
+    // TODO: Complete this method
     public void book() {
+        Guest guest = (Guest) UserData.getInstance().getUser();
+        Map<String, Object> roomData = new HashMap<>();
+        roomData.put("type", roomType.getSelectionModel().getSelectedItem());
+//        roomData.put("")
+//        guest.getClient().sendRequest(new Request(Request.RequestType.BOOK_ROOM, guest, roomData));
         CommonTasks.showConfirmation("You booked a " + roomType.getValue() + " room for " + numberOfNights.getText() + " nights for " + roomPrice.getText() + "$.");
     }
 

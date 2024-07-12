@@ -1,7 +1,9 @@
 package models.room;
 
+import application.hotelmanagementsystem.receptionist.navbars.ReceptionistSideNav;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import models.reservation.Reservation;
 
 import java.io.Serializable;
 import java.sql.SQLException;

@@ -8,9 +8,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import models.bill.Bill;
 import models.room.Room;
+import models.socket.Request;
 import models.user.Guest;
 import models.service.Services;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,7 +37,23 @@ public class GuestRoom implements Initializable {
     private Text totalBill;
 
     public void requestService() {
-        CommonTasks.showConfirmation("You requested a " + services.getValue() + " service for " + servicePrice.getText() + "$.");
+        Guest guest = (Guest) UserData.getInstance().getUser();
+        if (guest.getRoom() == null) {
+            CommonTasks.showError("Please book a room first");
+        } else {
+            try {
+                guest.getClient().sendRequest(new Request(Request.RequestType.REQUEST_SERVICE, guest, services.getSelectionModel().getSelectedItem()));
+                CommonTasks.showConfirmation("You requested a " + services.getValue() + " service for " + servicePrice.getText() + "$.");
+                updateBill(Double.parseDouble(servicePrice.getText()));
+            } catch (IOException e) {
+                CommonTasks.showError("An unknown error acquired!");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void updateBill(double amount) {
+        additionalServices.setText(CommonTasks.intOrDouble(Double.parseDouble(additionalServices.getText()) + amount));
     }
 
     @Override

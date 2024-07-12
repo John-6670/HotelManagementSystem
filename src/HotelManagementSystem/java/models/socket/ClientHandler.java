@@ -2,7 +2,11 @@ package models.socket;
 
 import application.hotelmanagementsystem.CommonTasks;
 import javafx.application.Platform;
+import models.bill.Bill;
 import models.dataBase.DaoHandler;
+import models.reservation.Reservation;
+import models.room.Room;
+import models.service.Services;
 import models.user.*;
 
 import java.io.IOException;
@@ -12,8 +16,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ClientHandler implements Runnable {
     private final Socket socket;
@@ -39,7 +44,6 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    // TODO: implement processRequest method
     private Response processRequest(Request request) {
         User user = request.getUser();
         DaoHandler<? extends User> dao = switch (user.getType()) {
@@ -64,6 +68,14 @@ public class ClientHandler implements Runnable {
             case DELETE_ACCOUNT -> {
                 User deltedUser = handleDeleteAccount(request, dao);
                 return new Response(Response.ResponseType.SUCCESS, deltedUser);
+            }
+            case BOOK_ROOM -> {
+                Room room = handleBookRoom(request, dao);
+                return room != null ? new Response(Response.ResponseType.SUCCESS, room) : new Response(Response.ResponseType.FAIL, null);
+            }
+            case REQUEST_SERVICE -> {
+                handleRequestService(request, dao);
+                return new Response(Response.ResponseType.SUCCESS, null);
             }
         }
         return null;
@@ -158,5 +170,59 @@ public class ClientHandler implements Runnable {
         }
 
         return user;
+    }
+
+    // TODO: Advanced search with Date
+    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        Map<String, Object> roomData = (Map) request.getData();
+        Guest guest = (Guest) request.getUser();
+
+        try {
+            String roomType = (String) roomData.get("type");
+            Date startDate = (Date) roomData.get("date");
+            int nights = (int) roomData.get("nights");
+
+            Map<String, Object> searchCriteria = new HashMap<>();
+            searchCriteria.put("type", roomType);
+            searchCriteria.put("status", Room.Status.AVAILABLE);
+            List<Room> availableRooms = roomDao.search(searchCriteria);
+
+            if (!availableRooms.isEmpty()) {
+                Room room = availableRooms.getFirst();
+                Reservation reservation = new Reservation(); // TODO: add reservation information
+                Bill bill = new Bill(room.getPrice());
+                guest.setRoom(room);
+                guest.setReservation(reservation);
+                guest.setBill(bill);
+                room.setStatus(Room.Status.BOOKED);
+                roomDao.update(room);
+                dao.update((T) guest);
+                return room;
+            } else {
+                Platform.runLater(() -> CommonTasks.showError("There isn't any available room with this information!"));
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            CommonTasks.showError("An unknown error acquired!");
+            return null;
+        }
+    }
+
+    private <T> void handleRequestService(Request request, DaoHandler<T> dao) {
+        DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
+
+        Guest guest = (Guest) request.getUser();
+        Services service = Services.valueOf(((String) request.getData()).toUpperCase().replace(' ', '_'));
+
+        try {
+            Bill userBill = guest.getBill();
+            userBill.increaseAdditionalServices(service.getPrice());
+            billDaoHandler.update(userBill);
+        } catch (SQLException e) {
+            Platform.runLater(() -> CommonTasks.showError("An unknown error acquired!"));
+            e.printStackTrace();
+        }
     }
 }
