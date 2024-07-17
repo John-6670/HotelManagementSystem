@@ -150,8 +150,14 @@ public class ClientHandler implements Runnable {
                 }
             }
             case BOOK_ROOM -> {
-                Room room = handleBookRoom(request, dao);
-                return room != null ? new Response(Response.ResponseType.SUCCESS, room) : new Response(Response.ResponseType.FAIL, null);
+                try {
+                    Room room = handleBookRoom(request, dao);
+                    return room != null ? new Response(Response.ResponseType.SUCCESS, room) :
+                            new Response(Response.ResponseType.FAIL, "There isn't any available room with this information!");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
+                }
             }
             case REQUEST_SERVICE -> {
                 try {
@@ -191,6 +197,7 @@ public class ClientHandler implements Runnable {
         return null;
     }
 
+    // TODO: add admin and receptionist signup
     /**
      * This method is used to handle the signup request.
      * It creates a new user with the given information and adds it to the database.
@@ -284,47 +291,40 @@ public class ClientHandler implements Runnable {
      *
      * @author John
      */
-    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {
+    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) throws SQLException {
         DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
         DaoHandler<Bill> billDaoHandler = new DaoHandler<>(Bill.class);
         DaoHandler<Reservation> reservationDaoHandler = new DaoHandler<>(Reservation.class);
         Map<String, Object> roomData = (Map) request.getData();
         Guest guest = (Guest) request.getUser();
 
-        try {
-            RoomType roomType = RoomType.valueOf(((String) roomData.get("type")).toUpperCase());
-            LocalDate startDate = (LocalDate) roomData.get("startDate");
-            int nights = Integer.parseInt((String) roomData.get("nights"));
+        RoomType roomType = RoomType.valueOf(((String) roomData.get("type")).toUpperCase());
+        LocalDate startDate = (LocalDate) roomData.get("startDate");
+        int nights = Integer.parseInt((String) roomData.get("nights"));
 
-            Map<String, Object> searchCriteria = new HashMap<>();
-            searchCriteria.put("type", roomType);
-            searchCriteria.put("status", Room.Status.AVAILABLE);
-            List<Room> availableRooms = roomDao.search(searchCriteria);
+        Map<String, Object> searchCriteria = new HashMap<>();
+        searchCriteria.put("type", roomType);
+        searchCriteria.put("status", Room.Status.AVAILABLE);
+        List<Room> availableRooms = roomDao.search(searchCriteria);
 
-            if (!availableRooms.isEmpty()) {
-                LocalDate endDateLocal = startDate.plusDays(nights);
-                Room room = availableRooms.getFirst();
-                Reservation reservation = new Reservation(Date.from(startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), Date.from(endDateLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), room, guest); // TODO: add reservation information
-                Bill bill = new Bill(room.getPrice() * nights);
+        if (!availableRooms.isEmpty()) {
+            LocalDate endDateLocal = startDate.plusDays(nights);
+            Room room = availableRooms.getFirst();
+            Reservation reservation = new Reservation(Date.from(startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), Date.from(endDateLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), room, guest); // TODO: add reservation information
+            Bill bill = new Bill(room.getPrice() * nights);
 
-                guest.setRoom(room);
-                guest.setReservation(reservation);
-                guest.setBill(bill);
-                room.setStatus(Room.Status.BOOKED);
+            guest.setRoom(room);
+            guest.setReservation(reservation);
+            guest.setBill(bill);
+            room.setStatus(Room.Status.BOOKED);
 
-                roomDao.update(room);
-                billDaoHandler.create(bill);
-                reservationDaoHandler.create(reservation);
-                dao.update((T) guest);
-                UserData.getInstance().setUser(guest);
-                return room;
-            } else {
-                Platform.runLater(() -> CommonTasks.showError("There isn't any available room with this information!"));
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            CommonTasks.showError("An unknown error acquired!");
+            roomDao.update(room);
+            billDaoHandler.create(bill);
+            reservationDaoHandler.create(reservation);
+            dao.update((T) guest);
+            UserData.getInstance().setUser(guest);
+            return room;
+        } else {
             return null;
         }
     }

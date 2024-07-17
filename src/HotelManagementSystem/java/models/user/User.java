@@ -6,8 +6,6 @@ import models.socket.Client;
 
 import java.io.Serializable;
 
-// TODO: resolve email validate issue
-
 /**
  * This class represents a user in the system.
  * It is an abstract class that is extended by the Admin, Guest, and Receptionist classes.
