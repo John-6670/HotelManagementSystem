@@ -43,14 +43,13 @@ public class GuestReservation implements Initializable {
     private DatePicker changedDate;
     private Guest guest;
 
-    // TODO: Complete this method
     public void book() {
         Map<String, Object> roomData = new HashMap<>();
         roomData.put("type", roomType.getSelectionModel().getSelectedItem());
         roomData.put("startDate", startDate.getValue());
         roomData.put("nights", numberOfNights.getText());
         try {
-            guest.getClient().sendRequest(new Request(Request.RequestType.BOOK_ROOM, guest, roomData));
+            guest.makeReservation(roomData);
         } catch (IOException e) {
             CommonTasks.showError("An unknown error acquired!");
             e.printStackTrace();

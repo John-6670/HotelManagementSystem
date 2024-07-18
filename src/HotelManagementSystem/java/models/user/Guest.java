@@ -7,8 +7,12 @@ import models.exceptions.RoomNotAvailableException;
 import models.interfaces.ReservationMaker;
 import models.reservation.Reservation;
 import models.room.Room;
+import models.socket.Request;
+import models.socket.Response;
 
+import java.io.IOException;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Guest class represents a guest in the hotel.
@@ -142,15 +146,14 @@ public class Guest extends User implements ReservationMaker {
         return registrationDate;
     }
 
-    // TODO: complete method
-
     /**
      * This method is used to make a reservation.
      *
      * @return the reservation made
      */
     @Override
-    public Reservation makeReservation() {
-        return null;
+    public Reservation makeReservation(Map data) throws IOException {
+        client.sendRequest(new Request(Request.RequestType.BOOK_ROOM, this, data));
+        return reservation;
     }
 }

@@ -310,7 +310,7 @@ public class ClientHandler implements Runnable {
         if (!availableRooms.isEmpty()) {
             LocalDate endDateLocal = startDate.plusDays(nights);
             Room room = availableRooms.getFirst();
-            Reservation reservation = new Reservation(Date.from(startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), Date.from(endDateLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), room, guest); // TODO: add reservation information
+            Reservation reservation = new Reservation(Date.from(startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), Date.from(endDateLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), room, guest);
             Bill bill = new Bill(room.getPrice() * nights);
 
             guest.setRoom(room);
