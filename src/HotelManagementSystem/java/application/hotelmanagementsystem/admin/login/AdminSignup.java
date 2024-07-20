@@ -45,7 +45,7 @@ public class AdminSignup extends CloseButton implements Initializable {
             return;
         }
         if(!Objects.equals(passWord.getText(), repPassWord.getText())){
-            CommonTasks.showError("Password and repeat Password can't be different!");
+            CommonTasks.showError("Password and repeat Password don't match!");
             return;
         }
         try {

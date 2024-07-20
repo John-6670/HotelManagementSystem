@@ -34,7 +34,6 @@ public class Admin extends User {
 
     public void setSecurityKey() {
         String SecurityKey = null;
-        //TODO : write method for a random and unique Security Key
         this.SecurityKey = SecurityKey;
     }
 

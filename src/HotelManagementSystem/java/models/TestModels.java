@@ -2,6 +2,7 @@ package models;
 
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
+import models.report.Report;
 import models.room.Room;
 import models.room.RoomType;
 import models.socket.Client;
@@ -17,8 +18,12 @@ import java.util.Map;
 public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
 //        DaoHandler<Guest> guestDaoHandler = new DaoHandler<>(Guest.class);
-        DaoHandler<Admin>  adminDaoHandler = new DaoHandler<>(Admin.class);
-        Admin admin = new Admin("Admin" , "Admin" , "Admin" , null , null , "15524");
-        adminDaoHandler.create(admin);
+//        DaoHandler<Admin>  adminDaoHandler = new DaoHandler<>(Admin.class);
+  //      Admin admin = new Admin("Admin" , "Admin" , "Admin" , null , null , "15524");
+
+          new Report();
+          DaoHandler<Report> daoHandler = new DaoHandler<>(Report.class);
+          Report report = new Report("Test" , "Test");
+          daoHandler.create(report);
     }
 }
