@@ -126,8 +126,8 @@ public class DaoHandler<T> {
                 Date itemStartDate = temporalItem.getStartDate();
                 Date itemEndDate = temporalItem.getEndDate();
 
-                boolean matchesStartDate = startDate == null || (itemStartDate != null && !itemStartDate.before((Date) startDate));
-                boolean matchesEndDate = endDate == null || (itemEndDate != null && !itemEndDate.after((Date) endDate));
+                boolean matchesStartDate = startDate == null || (itemStartDate != null && !itemStartDate.after((Date) startDate));
+                boolean matchesEndDate = endDate == null || (itemEndDate != null && !itemEndDate.before((Date) endDate));
 
                 if (matchesStartDate && matchesEndDate) {
                     filteredResults.add(item);
