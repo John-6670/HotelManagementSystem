@@ -3,7 +3,6 @@ package application.hotelmanagementsystem.guest.login;
 import application.hotelmanagementsystem.CloseButton;
 import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.Main;
-import application.hotelmanagementsystem.UserData;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;

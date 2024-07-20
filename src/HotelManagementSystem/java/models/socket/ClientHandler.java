@@ -5,6 +5,7 @@ import application.hotelmanagementsystem.UserData;
 import javafx.application.Platform;
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
+import models.exceptions.InvalidPasswordException;
 import models.reservation.Reservation;
 import models.room.*;
 import models.service.Services;
@@ -114,6 +115,8 @@ public class ClientHandler implements Runnable {
 
                     String errorMessage = "This " + errorMessageIdentifier + " is already taken by another user.";
                     return new Response(Response.ResponseType.FAIL, errorMessage);
+                } catch (InvalidPasswordException e) {
+                    return new Response(Response.ResponseType.FAIL, e.getMessage());
                 }
             }
             case UPDATE_INFO -> {
