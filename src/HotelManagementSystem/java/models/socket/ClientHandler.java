@@ -122,10 +122,13 @@ public class ClientHandler implements Runnable {
                     return new Response(Response.ResponseType.SUCCESS, newUser);
                 } catch (SQLException e) {
                     String message;
-                    if (e.getCause().getMessage().contains("email"))
+                    String errorMessage = e.getCause().getMessage();
+                    if (errorMessage.contains("email"))
                         message = "This email is already taken by another user.";
-                    else
+                    else if (errorMessage.contains("phone"))
                         message = "This Phone number is already taken by another user.";
+                    else
+                        message = "Password is not strong enough";
 
                     return new Response(Response.ResponseType.FAIL, message);
                 }
@@ -258,6 +261,7 @@ public class ClientHandler implements Runnable {
         }
 
         dao.update((T) user);
+        UserData.getInstance().setUser(user);
         return user;
     }
 
