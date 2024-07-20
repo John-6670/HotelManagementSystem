@@ -7,8 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import models.socket.Request;
+import models.socket.Response;
+import models.user.Admin;
+import models.user.Guest;
 import models.user.User;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,7 +43,23 @@ public class AdminProfile extends CloseButton implements Initializable {
     }
 
     public void quit() {
-        
+        Admin admin = (Admin) UserData.getInstance().getUser();
+        try {
+            CommonTasks.showConfirmation("You are deleting your account!!");
+            admin.getClient().sendRequest(new Request(Request.RequestType.DELETE_ACCOUNT, admin, null));
+            Response response = admin.getClient().receiveResponse();
+
+            String message;
+            if (response.getResponseType() == Response.ResponseType.FAIL)
+                message = (String) response.getData();
+            else
+                message = "This account deleted successfully";
+
+            CommonTasks.showError(message);
+        } catch (IOException | ClassNotFoundException e) {
+            CommonTasks.showError("An unknown error acquired.");
+            e.printStackTrace();
+        }
     }
 
     public void showSecurityKey() {
