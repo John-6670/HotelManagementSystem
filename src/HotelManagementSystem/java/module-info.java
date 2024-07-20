@@ -1,11 +1,13 @@
 module application {
     requires javafx.controls;
     requires javafx.fxml;
+    requires ormlite.jdbc;
 
-    requires com.dlsc.formsfx;
-    requires org.kordamp.ikonli.javafx;
-    requires org.kordamp.bootstrapfx.core;
     requires com.jfoenix;
+    requires java.sql;
+    requires org.xerial.sqlitejdbc;
+    requires java.desktop;
+//    requires org.apache.commons.validator;
 
     exports application.hotelmanagementsystem;
     opens application.hotelmanagementsystem to javafx.fxml;
@@ -43,4 +45,25 @@ module application {
     opens application.hotelmanagementsystem.guest.dashborad.reservation to javafx.fxml;
     exports application.hotelmanagementsystem.guest.dashborad.room;
     opens application.hotelmanagementsystem.guest.dashborad.room to javafx.fxml;
+
+    exports models.reservation;
+    opens models.reservation to ormlite.jdbc;
+    exports models.dataBase;
+    opens models.dataBase to ormlite.jdbc;
+    exports models.exceptions;
+    opens models.exceptions to ormlite.jdbc;
+    exports models.socket;
+    opens models.socket to ormlite.jdbc;
+    exports models.user;
+    opens models.user to ormlite.jdbc;
+    exports models.bill;
+    opens models.bill to ormlite.jdbc;
+    exports models.interfaces;
+    opens models.interfaces to ormlite.jdbc;
+    exports models.room;
+    opens models.room to ormlite.jdbc;
+    exports models.service;
+    opens models.service to ormlite.jdbc;
+    exports models;
+    opens models to javafx.graphics;
 }

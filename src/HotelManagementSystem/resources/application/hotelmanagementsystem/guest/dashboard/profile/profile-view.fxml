@@ -21,7 +21,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </FontAwesomeIcon>
-            <JFXButton layoutX="960.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
+            <JFXButton onAction="#closeWindow" layoutX="960.0" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css/Button.css" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -56,7 +56,7 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="134.0" layoutY="12.0" prefHeight="36.0" prefWidth="313.0" text="-">
+                  <Label fx:id="username" alignment="CENTER_RIGHT" layoutX="134.0" layoutY="12.0" prefHeight="36.0" prefWidth="313.0" text="-">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="134.0" layoutY="70.0" prefHeight="36.0" prefWidth="313.0" text="-">
+                  <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="134.0" layoutY="70.0" prefHeight="36.0" prefWidth="313.0" text="-">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -134,7 +134,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="44.0" prefHeight="27.0" prefWidth="220.0" text="-">
+                  <Label fx:id="email" alignment="CENTER" layoutY="44.0" prefHeight="27.0" prefWidth="220.0" text="-">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -144,7 +144,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="123.0" prefHeight="27.0" prefWidth="220.0" text="-">
+                  <Label fx:id="phoneNumber" alignment="CENTER" layoutY="123.0" prefHeight="27.0" prefWidth="220.0" text="-">
                      <font>
                         <Font size="13.0" />
                      </font>

@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class CommonTasks extends Main {
@@ -123,5 +125,25 @@ public class CommonTasks extends Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String intOrDouble(double value) {
+        if (value % 1 == 0)
+            return String.valueOf((int) value);
+
+        return String.valueOf(value);
+    }
+
+    public static boolean isAnyEmpty(TextField... fields) {
+        for (TextField field : fields) {
+            if (field.getText().isEmpty())
+                return true;
+        }
+        return false;
+
+    }
+
+    public static boolean isPasswordMatch(PasswordField password, PasswordField confirmPassword) {
+        return password.getText().equals(confirmPassword.getText());
     }
 }
