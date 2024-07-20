@@ -129,4 +129,12 @@ public class CommonTasks extends Main {
 
         return String.valueOf(value);
     }
+    public static boolean isAnyEmpty(TextField... fields) {
+        for (TextField field : fields) {
+            if (field.getText().isEmpty())
+                return true;
+        }
+        return false;
+
+    }
 }

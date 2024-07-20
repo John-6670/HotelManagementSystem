@@ -354,7 +354,7 @@ public class ClientHandler implements Runnable {
         List<Admin> admins = roomDao.getAll();
         code = random.nextInt(upperBound - lowerBound) + lowerBound;
         for(Admin admin : admins){
-            if(Integer.parseInt(admin.getSecurityKey()) == code)
+            if(Objects.equals(admin.getSecurityKey(), String.valueOf(code)))
                 code = random.nextInt(upperBound - lowerBound) + lowerBound;
 
         }
