@@ -68,8 +68,6 @@ public class DaoHandler<T> {
         return queryBuilder.query();
     }
 
-
-
     public List<T> getAll() throws SQLException {
         return dao.queryForAll();
     }
