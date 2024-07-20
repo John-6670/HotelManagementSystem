@@ -58,6 +58,15 @@ public class ClientHandler implements Runnable {
             case SIGNUP -> {
                 User signupUser = handleSignup(request, dao);
             }
+            case CHECK_IN -> {
+                Guest guest = handleCheckIn(request);
+                return guest != null ? new Response(Response.ResponseType.SUCCESS, guest) : new Response(Response.ResponseType.FAIL, null);
+            }
+            case CHECK_OUT -> {
+                Guest guest = handleCheckOut(request);
+                return guest != null ? new Response(Response.ResponseType.SUCCESS, guest) : new Response(Response.ResponseType.FAIL, null);
+
+            }
         }
         return null;
     }
@@ -76,61 +85,33 @@ public class ClientHandler implements Runnable {
     }
 
 
-    private <T> Guest handleCheckIn(Request request, DaoHandler<T> dao) throws SQLException {
-        List<T> result = dao.search((Map<String, Object>) request.getData());
+    private <T> Guest handleCheckIn(Request request) throws SQLException {
+         DaoHandler<Guest> guestDaoHandler=new DaoHandler<>(Guest.class);
+        List<T> result = guestDaoHandler.search((Map) request.getData());
         if (result.isEmpty()) {
             return null;
         }
 
+        var receptionist = new Receptionist();
+        receptionist.checkIn((Guest) result.getFirst());
+        return (Guest) result.getFirst();
+    }
+
+    private <T> Guest handleCheckOut(Request request) throws SQLException {
+        DaoHandler<Guest> guestDaoHandler=new DaoHandler<>(Guest.class);
+        List<T> result = guestDaoHandler.search((Map) request.getData());
+        if (result.isEmpty()) {
+            return null;
+        }
+
+        var receptionist = new Receptionist();
+        receptionist.checkOut((Guest) result.getFirst());
         return (Guest) result.getFirst();
     }
 
 
-    private final DaoHandler<Guest> guestDaoHandler=new DaoHandler<>(Guest.class);
-
-    public Response checkInHandler(String nationalId, String name) throws SQLException {
-
-        Map<String, Object> fieldValues = new HashMap<>();
-        fieldValues.put("id", nationalId);
-        fieldValues.put("name", name);
 
 
-        List<Guest> guests = guestDaoHandler.search(fieldValues);
-
-        if (guests.isEmpty()) {
-            CommonTasks.showError("Guest Is Not Found! Name or NationalId is incorrect!");
-            return new Response(Response.ResponseType.FAIL, "guest is not found");
-
-        }
-        else{
-            Guest guest = guests.get(0);
-            Receptionist receptionist = new Receptionist();
-
-            receptionist.checkIn(guest);
-            return new Response(Response.ResponseType.SUCCESS, "guest is found");
-            }
-        }
-
-    private final DaoHandler<Guest> guestDaoHandler1=new DaoHandler<>(Guest.class);
-
-    public Response checkOutHandler(String phoneNumber) throws SQLException {
-
-        Map<String, Object> fieldValues = Map.of("phoneNumber", phoneNumber);
-
-
-        List<Guest> guests = guestDaoHandler1.search(fieldValues);
-
-        if (guests.isEmpty()) {
-            CommonTasks.showError("Guest Is Not Found!Phone Number is incorrect!");
-            return new Response(Response.ResponseType.FAIL, "guest not found");}
-        else{
-            Guest guest = guests.get(0);
-            Receptionist receptionist = new Receptionist();
-
-            receptionist.checkOut(guest);
-            return new Response(Response.ResponseType.SUCCESS, "guest is found");
-            }
-    }
 
 
 
