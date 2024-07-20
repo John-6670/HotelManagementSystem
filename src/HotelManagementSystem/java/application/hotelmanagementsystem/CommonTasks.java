@@ -137,4 +137,18 @@ public class CommonTasks extends Main {
         return false;
 
     }
+
+    public static String addSpaces(String str) {
+        if (str == null || str.isEmpty()) {
+            return str; // Handle empty string or null case (optional)
+        }
+        StringBuilder spacedString = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            spacedString.append(str.charAt(i));
+            if (i < str.length() - 1) {
+                spacedString.append("  "); // Add two spaces after each character except the last one
+            }
+        }
+        return spacedString.toString();
+    }
 }

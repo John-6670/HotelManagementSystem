@@ -136,6 +136,10 @@ public class ClientHandler implements Runnable {
                 List<Room> rooms = handelGetAllRooms(request);
                 return new Response(Response.ResponseType.SUCCESS, rooms);
             }
+            case GET_ADMIN_KEY -> {
+                Admin admin = handelGetAdminKey(request);
+                return new Response(Response.ResponseType.SUCCESS, admin);
+            }
         }
         return null;
     }
@@ -189,7 +193,7 @@ public class ClientHandler implements Runnable {
             case ADMIN:
                 // Assuming Admin constructor takes specific parameters
                 String SecurityKey = handelSecurityKey();
-                newUser = new Admin((String) data.get("name"),(String) data.get("username"),  (String) data.get("password"),(String) data.get("email"),  (String) data.get("phoneNumber"), (String) data.get("nationalId"));
+                newUser = new Admin((String) data.get("name"),(String) data.get("username"),  (String) data.get("password"),(String) data.get("email"),  (String) data.get("phoneNumber"), (String) data.get("nationalId") , SecurityKey);
                 break;
             default:
                 Platform.runLater(() -> CommonTasks.showError("You don't have permission to create a new account."));
@@ -359,6 +363,17 @@ public class ClientHandler implements Runnable {
 
         }
         return String.valueOf(code);
+    }
+    public <T>Admin handelGetAdminKey (Request request) throws SQLException {
+        DaoHandler<Admin> daoHandler = new DaoHandler<>(Admin.class);
+        List result = daoHandler.search((Map)request.getData());
+        if(!result.isEmpty()){
+            Admin admin = (Admin)result.getFirst();
+            return admin;
+        }
+        else
+            return null;
+
     }
 
 //    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {

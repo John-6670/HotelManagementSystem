@@ -20,20 +20,17 @@ public class Admin extends User {
     public Admin(){
         registratioDate = new Date();
         type = RoleType.ADMIN;
-        setSecurityKey();
     }
 
-    public Admin(String Name , String Username,  String password , String Email , String PhoneNumber , String NationalID){
+    public Admin(String Name , String Username,  String password , String Email , String PhoneNumber , String NationalID , String SecurityKey){
         super(Name, Username, password, Email, PhoneNumber, NationalID);
         registratioDate = new Date();
         type = RoleType.ADMIN;
-        setSecurityKey();
-        setSecurityKey();
+        setSecurityKey(SecurityKey);
     }
 
 
-    public void setSecurityKey() {
-        String SecurityKey = null;
+    public void setSecurityKey(String SecurityKey) {
         this.SecurityKey = SecurityKey;
     }
 

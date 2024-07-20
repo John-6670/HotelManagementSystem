@@ -37,5 +37,12 @@
     -fx-text-fill: #222831;
 }
 
+.noneEditable{
+    -fx-text-fill: #76ABAE;
+    -fx-font-size: 15px;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #76ABAE;
+}
+
 
 
