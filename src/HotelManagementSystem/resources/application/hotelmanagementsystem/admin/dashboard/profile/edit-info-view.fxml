@@ -21,17 +21,17 @@
             </Label>
             <TextField fx:id="nationalId" layoutX="130.0" layoutY="103.0" prefHeight="30.0" prefWidth="200.0" promptText="National ID" styleClass="field" />
             <Text layoutX="140.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your National ID and Your password" textAlignment="CENTER" wrappingWidth="183.51953125" />
-            <PasswordField fx:id="oldPassword" layoutX="130.0" layoutY="143.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
+            <PasswordField layoutX="130.0" layoutY="143.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
             <Label layoutX="107.0" layoutY="197.0" text="Enter Your New Information">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Text layoutX="138.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you let any field of information empty, it won't change" textAlignment="CENTER" wrappingWidth="183.51953125" />
-            <TextField fx:id="newEmail" layoutX="130.0" layoutY="280.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" styleClass="field" />
-            <TextField fx:id="newPhoneNumber" layoutX="130.0" layoutY="321.0" prefHeight="30.0" prefWidth="200.0" promptText="Phone Number" styleClass="field" />
-            <PasswordField fx:id="newPassword" layoutX="131.0" layoutY="362.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
-            <PasswordField fx:id="newRepPassword" layoutX="130.0" layoutY="403.0" prefHeight="30.0" prefWidth="200.0" promptText="Password Repeat" styleClass="field" />
+            <TextField layoutX="130.0" layoutY="280.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" styleClass="field" />
+            <TextField fx:id="phoneNumber" layoutX="130.0" layoutY="321.0" prefHeight="30.0" prefWidth="200.0" promptText="Phone Number" styleClass="field" />
+            <PasswordField layoutX="131.0" layoutY="362.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" styleClass="field" />
+            <PasswordField layoutX="130.0" layoutY="403.0" prefHeight="30.0" prefWidth="200.0" promptText="Password Repeat" styleClass="field" />
             <JFXButton layoutX="146.0" layoutY="465.0" onAction="#edit" prefHeight="41.0" prefWidth="170.0" styleClass="regButton" text="Verify and Submit" />
          </children>
          <stylesheets>

@@ -2,13 +2,16 @@ package application.hotelmanagementsystem.admin.dashboard.profile;
 
 import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.Main;
+import application.hotelmanagementsystem.UserData;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import models.socket.Client;
 import models.socket.Request;
+import models.socket.Response;
 import models.user.Admin;
+import models.user.Guest;
 import models.user.User;
 
 import java.io.IOException;
@@ -34,47 +37,41 @@ public class AdminEdit implements Initializable {
 
 
     public void edit() throws IOException {
-        Client client = Main.client;
-        try {
-            client.sendRequest(new Request(Request.RequestType.CHECK_If_PASS_IS_VALID , new Admin() , Map.of("password" , oldPassword.getText() , "nationalId" , nationalId.getText())));
-            Admin admin = (Admin)client.receiveResponse().getData();
-            if(admin != null){
-                try{
-                    Map<String,Object> data = new HashMap<>();
-                    if(newEmail.getText() != null)
-                        data.put("email" , newEmail.getText());
-                    if(newPhoneNumber.getText() != null)
-                        data.put("phoneNumber" , newPhoneNumber.getText());
-                    if(Objects.equals(newPassword.getText(), newRepPassword.getText()) && newPassword.getText() != null)
-                        data.put("password" , newPassword.getText());
-                    else if(Objects.equals(newPassword.getText(), newRepPassword.getText())){
-                        CommonTasks.showError("Password and Repeat doesn't match!");
-                        return;
-                    }
+        Admin admin = (Admin)UserData.getInstance().getUser();
+        String nationalID = this.nationalId.getText();
 
-                    client.sendRequest(new Request(Request.RequestType.UPDATE_INFO, new Admin(), data));
-                    User user = (User)client.receiveResponse().getData();
-                    if(user != null)
-                        CommonTasks.showError("Information has been updated successfully!");
-                    else
-                        CommonTasks.showError("Couldn't update your Information!");
-                    nationalId.setText("");
-                    oldPassword.setText("");
-                    newPassword.setText("");
-                    newRepPassword.setText("");
-                    newEmail.setText("");
-                    newPhoneNumber.setText("");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
+        if (nationalID.equals(admin.getNationalId()) && oldPassword.getText().equals(admin.getPassword())) {
+            try {
+                Map<String, String> newData = new HashMap<>();
+                if (!newEmail.getText().isEmpty()) {
+                    newData.put("email", newEmail.getText());
                 }
+
+                if (!newPhoneNumber.getText().isEmpty()) {
+                    newData.put("phoneNumber", newPhoneNumber.getText());
+                }
+
+                String password = this.newPassword.getText();
+                if (!password.isEmpty()) {
+                    String repeatPassword = newRepPassword.getText();
+                    if (password.equals(repeatPassword)) {
+                        newData.put("password", password);
+                    }
+                }
+
+                CommonTasks.showConfirmation("You are changing your profile information!!");
+                admin.getClient().sendRequest(new Request(Request.RequestType.UPDATE_INFO, admin, newData));
+                Response response = admin.getClient().receiveResponse();
+                if (response.getResponseType() == Response.ResponseType.SUCCESS)
+                    UserData.getInstance().setUser((User) response.getData());
+                else
+                    CommonTasks.showError((String) response.getData());
+            } catch (IOException | ClassNotFoundException e) {
+                CommonTasks.showError("An unknown error acquired");
+                e.printStackTrace();
             }
-            else{
-                CommonTasks.showError("Password or NationalId is Wrong!");
-            }
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } else {
+            CommonTasks.showError("Current password or national ID is incorrect.");
         }
     }
 

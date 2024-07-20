@@ -38,7 +38,7 @@ public class AdminProfile extends CloseButton implements Initializable {
     }
 
     public void quit() {
-        CommonTasks.showConfirmation("Your are going to quit from the hotel!!");
+        
     }
 
     public void showSecurityKey() {
