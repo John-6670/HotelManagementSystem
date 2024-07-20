@@ -9,6 +9,9 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import models.interfaces.Temporal;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -110,6 +113,29 @@ public class DaoHandler<T> {
             }
         }
         return queryBuilder.query();
+    }
+
+   public List<T> search(Map<String, Object> fieldValues, Object startDate, Object endDate) throws SQLException {
+        // Step 1: Use the existing search method to get initial results
+        List<T> initialResults = search(fieldValues);
+
+        // Step 2: Manually filter the results based on the period
+        List<T> filteredResults = new ArrayList<>();
+        for (T item : initialResults) {
+            if (item instanceof Temporal temporalItem) { // Ensure item is an instance of Temporal
+                Date itemStartDate = temporalItem.getStartDate();
+                Date itemEndDate = temporalItem.getEndDate();
+
+                boolean matchesStartDate = startDate == null || (itemStartDate != null && !itemStartDate.before((Date) startDate));
+                boolean matchesEndDate = endDate == null || (itemEndDate != null && !itemEndDate.after((Date) endDate));
+
+                if (matchesStartDate && matchesEndDate) {
+                    filteredResults.add(item);
+                }
+            }
+        }
+        // Step 3: Return the filtered list
+        return filteredResults;
     }
 
     /**
