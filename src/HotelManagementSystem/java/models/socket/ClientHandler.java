@@ -140,6 +140,10 @@ public class ClientHandler implements Runnable {
                 Admin admin = handelGetAdminKey(request);
                 return new Response(Response.ResponseType.SUCCESS, admin);
             }
+            case CHECK_If_PASS_IS_VALID -> {
+                Admin admin = handelCheckPass(request);
+                return new Response(Response.ResponseType.SUCCESS, admin);
+            }
         }
         return null;
     }
@@ -374,6 +378,16 @@ public class ClientHandler implements Runnable {
         else
             return null;
 
+    }
+    public <T>Admin handelCheckPass(Request request) throws SQLException {
+        DaoHandler<Admin> adminDaoHandler = new DaoHandler<>(Admin.class);
+        List result = adminDaoHandler.search((Map)request.getData());
+        if(!result.isEmpty()){
+            Admin admin = (Admin)result.getFirst();
+            return admin;
+        }
+        else
+            return null;
     }
 
 //    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {
