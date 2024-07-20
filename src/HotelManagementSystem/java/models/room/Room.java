@@ -47,6 +47,7 @@ public class Room implements Serializable {
         };
     }
 
+
     public RoomType getType(String type){
         switch (type) {
             case "Single":
@@ -64,6 +65,23 @@ public class Room implements Serializable {
         }
         return null;
     }
+    public String getType(RoomType roomType){
+        switch (roomType){
+            case RoomType.SINGLE:
+                return "Single";
+            case RoomType.DOUBLE:
+                return "Double";
+            case RoomType.TRIPLE:
+                return "Triple";
+            case RoomType.QUADRUPLE:
+                return "Quadruple";
+            case RoomType.SUIT:
+                return "Suit";
+            case RoomType.VIP:
+                return "V.I.P";
+        }
+        return null;
+    }
     public String getStatus(Status status){
         switch (status){
             case Status.AVAILABLE :
@@ -71,11 +89,27 @@ public class Room implements Serializable {
             case Status.BOOKED:
                 return "Booked";
             case Status.FULLED:
-                return "Fulled";
+                return "Full";
             case Status.OUT_OF_ORDER:
                 return "Out of Order";
             case Status.UNDER_MAINTENANCE:
                 return "Under Maintenance";
+        }
+        return null;
+    }
+
+    public Status getStatus(String status){
+        switch (status){
+            case "Available":
+                return Status.AVAILABLE;
+            case "Booked":
+                return Status.BOOKED;
+            case "Full":
+                return Status.FULLED;
+            case "Out of Order":
+                return Status.OUT_OF_ORDER;
+            case "Under Maintenance":
+                return Status.UNDER_MAINTENANCE;
         }
         return null;
     }

@@ -42,8 +42,8 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="107.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
-                  <ComboBox layoutX="247.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Status" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
+                  <ComboBox fx:id="roomType" layoutX="107.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Room Type" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
+                  <ComboBox fx:id="roomStatus" layoutX="247.0" layoutY="8.0" prefHeight="34.0" prefWidth="130.0" promptText="Status" styleClass="choice-box" stylesheets="@../../../css/choicebox.css" />
                   <Label layoutX="389.0" layoutY="16.0" text="Range">
                      <font>
                         <Font size="15.0" />
@@ -74,7 +74,7 @@
                   </DropShadow>
                </effect>
                <children>
-                  <ListView layoutX="17.0" layoutY="15.0" prefHeight="282.0" prefWidth="626.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
+                  <ListView fx:id="roomsList" layoutX="17.0" layoutY="15.0" prefHeight="282.0" prefWidth="626.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
                </children>
             </AnchorPane>
          </children>

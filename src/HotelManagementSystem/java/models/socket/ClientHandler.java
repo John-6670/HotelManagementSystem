@@ -22,10 +22,7 @@ import java.net.Socket;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ClientHandler implements Runnable {
     private Socket socket;
@@ -45,7 +42,7 @@ public class ClientHandler implements Runnable {
                 Request request = (Request) input.readObject();
                 Response response = processRequest(request);
                 out.writeObject(response);
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -59,7 +56,7 @@ public class ClientHandler implements Runnable {
      * @param request the request to be processed
      * @return the response to be sent back to the client
      */
-    private Response processRequest(Request request) {
+    private Response processRequest(Request request) throws SQLException {
         User user = request.getUser();
         DaoHandler<? extends User> dao = switch (user.getType()) {
             case GUEST -> new DaoHandler<>(Guest.class);
@@ -113,8 +110,31 @@ public class ClientHandler implements Runnable {
                     return new Response(Response.ResponseType.SUCCESS, room);
                 } catch (SQLException e) {
                     e.printStackTrace();
+
                     return new Response(Response.ResponseType.FAIL, "A room with this Room number exists!");
                 }
+            }
+            case SEARCH_IF_ROOM_EXISTS -> {
+                try{
+                    Room room = handelSearchIfRoomExist(request);
+                    return new Response(Response.ResponseType.SUCCESS, room);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+
+                    return new Response(Response.ResponseType.FAIL, "Couldn't find the room");
+                }
+            }
+            case UPDATE_ROOM -> {
+                Room room = handleUpdateRoomSit(request);
+                return new Response(Response.ResponseType.SUCCESS, room);
+            }
+            case REMOVE_ROOM -> {
+                Room room = handelRemoveRoom(request);
+                return new Response(Response.ResponseType.SUCCESS, room);
+            }
+            case GET_ALL_ROOMS -> {
+                List<Room> rooms = handelGetAllRooms(request);
+                return new Response(Response.ResponseType.SUCCESS, rooms);
             }
         }
         return null;
@@ -133,7 +153,7 @@ public class ClientHandler implements Runnable {
      */
     private <T> User handeLogin(Request request, DaoHandler<T> dao) {
         try {
-            List result = dao.search((Map) request.getData());
+            List result = dao.search((Map)request.getData());
             if (result.isEmpty()) {
                 return null;
             }
@@ -168,7 +188,8 @@ public class ClientHandler implements Runnable {
                 break;
             case ADMIN:
                 // Assuming Admin constructor takes specific parameters
-                // newUser = new Admin((String) data.get("name"), (String) data.get("email"), (String) data.get("password"), (String) data.get("role"));
+                String SecurityKey = handelSecurityKey();
+                newUser = new Admin((String) data.get("name"),(String) data.get("username"),  (String) data.get("password"),(String) data.get("email"),  (String) data.get("phoneNumber"), (String) data.get("nationalId"));
                 break;
             default:
                 Platform.runLater(() -> CommonTasks.showError("You don't have permission to create a new account."));
@@ -198,7 +219,7 @@ public class ClientHandler implements Runnable {
         Map<String, Object> data = (Map) request.getData();
         User user = request.getUser();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
-            String methodName = "set" + entry.getKey().substring(0, 1).toUpperCase() + entry.getKey().substring(1);
+            String methodName = "set" + entry.getKey().substring(0, 1).toUpperCase() + entry.getKey ().substring(1);
             try {
                 Method setter = user.getClass().getMethod(methodName, entry.getValue().getClass());
                 setter.invoke(user, entry.getValue());
@@ -244,6 +265,100 @@ public class ClientHandler implements Runnable {
 
         roomDao.create(room);
         return room;
+    }
+
+    public <T> Room handelSearchIfRoomExist(Request request) throws SQLException{
+        try {
+            DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+            List result = roomDao.search((Map) request.getData());
+            if (result.isEmpty()) {
+                return null;
+            }
+            return (Room) result.getFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public <T> Room handleUpdateRoomSit(Request request){
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        Map<String, Object> roomData = (Map) request.getData();
+        try {
+            List result = roomDao.search(Map.of("room_number" , roomData.get("room_number")));
+            if(!result.isEmpty()){
+                Room room = (Room) result.getFirst();
+                room.setStatus((Room.Status) roomData.get("status"));
+                roomDao.update(room);
+                return room;
+            }
+            else{
+                return null;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public <T> Room handelRemoveRoom(Request request){
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        try {
+            List result = roomDao.search((Map)request.getData());
+            if(result.isEmpty()){
+                return null;
+            }
+            else {
+                Room room = (Room) result.getFirst();
+                roomDao.delete(room);
+                return room;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public <T> List<Room> handelGetAllRooms(Request request) throws SQLException {
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        List<Room> rooms = roomDao.getAll();
+        Map<String, Object> roomData = (Map)request.getData();
+        RoomType roomType = (RoomType) roomData.get("type");
+        Room.Status status = (Room.Status) roomData.get("status");
+        int min = (int)roomData.get("min");
+        int max = (int)roomData.get("max");
+        if(!rooms.isEmpty()){
+            try {
+                for(Room room : rooms){
+                    if(
+                            (!room.getType().equals(roomType)) && (roomType != null)
+                                    ||     ((!room.getStatus().equals(status)) && (status != null))
+                                    ||      ((room.getPrice() > max) && (max >= 0))
+                                    ||      ((room.getPrice() < min) && (min >= 0))){
+                        rooms.remove(room);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return rooms;
+    }
+
+    public String handelSecurityKey() throws SQLException {
+        DaoHandler<Admin> roomDao = new DaoHandler<>(Admin.class);
+        int lowerBound = 10000;
+        int upperBound = 99999;
+        Random random = new Random();
+        int code;
+        List<Admin> admins = roomDao.getAll();
+        code = random.nextInt(upperBound - lowerBound) + lowerBound;
+        for(Admin admin : admins){
+            if(Integer.parseInt(admin.getSecurityKey()) == code)
+                code = random.nextInt(upperBound - lowerBound) + lowerBound;
+
+        }
+        return String.valueOf(code);
     }
 
 //    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {

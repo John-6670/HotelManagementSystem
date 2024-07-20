@@ -89,7 +89,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ListView fx:id="newStatus" layoutX="27.0" layoutY="78.0" prefHeight="84.0" prefWidth="200.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
+                        <ListView fx:id="newStatus" layoutX="27.0" layoutY="78.0" prefHeight="109.0" prefWidth="200.0" styleClass="regList" stylesheets="@../../../css/lists.css" />
                         <JFXButton layoutX="57.0" layoutY="209.0" onAction="#updateRoom" prefHeight="37.0" prefWidth="150.0" styleClass="regButton" stylesheets="@../../../css/Button.css" text="Update" />
                      </children>
                      <effect>
@@ -111,7 +111,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="12.0" layoutY="130.0" prefWidth="230.0" text="-" textFill="#222831">
+                        <Label fx:id="roomSitWhenCantDelete" alignment="CENTER" layoutX="12.0" layoutY="130.0" prefWidth="230.0" text="-" textFill="#222831">
                            <font>
                               <Font size="18.0" />
                            </font>
