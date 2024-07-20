@@ -38,19 +38,25 @@ public class AdminSignup extends CloseButton implements Initializable {
         CommonTasks.pageNavigate("admin/login/admin-login-view.fxml");
     }
 
-    public void signup(){
-        Map<String, Object> signupData = new HashMap<>();
-        signupData.put("name" , fullName.getText());
-        signupData.put("username" , userName.getText());
-        signupData.put("password" , passWord.getText());
-        signupData.put("phoneNumber" , phoneNumber.getText());
-        signupData.put("nationalId" , nationalId.getText());
-        signupData.put("email" , email.getText());
+    public void signup() throws IOException {
 
-        Client client = Main.client;
         try {
-            client.sendRequest(new Request(Request.RequestType.SIGNUP , new Admin() , signupData));
+            Map<String, Object> signupData = new HashMap<>();
+            signupData.put("name" , fullName.getText());
+            signupData.put("username" , userName.getText());
+            signupData.put("password" , passWord.getText());
+            signupData.put("phoneNumber" , phoneNumber.getText());
+            signupData.put("nationalId" , nationalId.getText());
+            signupData.put("email" , email.getText());
 
+            Client client = Main.client;
+            client.sendRequest(new Request(Request.RequestType.SIGNUP , new Admin() , signupData));
+            Admin admin = (Admin)client.receiveResponse().getData();
+            if(admin != null){
+                CommonTasks.showError("Sign up has been made!");
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            CommonTasks.showError("Couldn't Please try later!");
         }
     }
     @Override
