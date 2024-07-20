@@ -29,6 +29,7 @@ public class AdminDashboard implements Initializable {
         listView.setPrefWidth(150.0);
         ReportView reportView = (ReportView) CommonTasks.loadPage("admin/dashboard/reports/report-view.fxml", listView);
         reportView.setDashboard(this);
+        reportView.loadAllReports();
     }
 
     public void loadReportSample() {

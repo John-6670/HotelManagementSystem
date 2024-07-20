@@ -5,6 +5,7 @@ import application.hotelmanagementsystem.UserData;
 import javafx.application.Platform;
 import models.bill.Bill;
 import models.dataBase.DaoHandler;
+import models.report.Report;
 import models.reservation.Reservation;
 import models.room.Room;
 import models.room.RoomType;
@@ -143,6 +144,14 @@ public class ClientHandler implements Runnable {
             case CHECK_If_PASS_IS_VALID -> {
                 Admin admin = handelCheckPass(request);
                 return new Response(Response.ResponseType.SUCCESS, admin);
+            }
+            case ADD_REPORT -> {
+                Report report = handeladdReport(request);
+                return new Response(Response.ResponseType.SUCCESS, report);
+            }
+            case GET_ALL_REPORTS ->{
+                List<Report> reports = handelGerAllReports(request);
+                return new Response(Response.ResponseType.SUCCESS, reports);
             }
         }
         return null;
@@ -388,6 +397,29 @@ public class ClientHandler implements Runnable {
         }
         else
             return null;
+    }
+    public <T>Report handeladdReport(Request request) {
+        DaoHandler<Report> reportDaoHandler = new DaoHandler<>(Report.class);
+        Map<String, Object> data = (Map) request.getData();
+        Report report = null;
+        try {
+            String Subject = (String) data.get("Subject");
+            String Content = (String) data.get("Content");
+            report = new Report(Subject, Content);
+            reportDaoHandler.create(report);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return report;
+    }
+    public <T>List<Report> handelGerAllReports(Request request){
+        DaoHandler<Report> reportDaoHandler = new DaoHandler<>(Report.class);
+        try {
+            return reportDaoHandler.getAll();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 //    private <T> Room handleBookRoom(Request request, DaoHandler<T> dao) {

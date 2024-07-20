@@ -33,7 +33,6 @@ public class RoomSearch extends Room implements Initializable {
     private ComboBox<String> roomStatus;
     @FXML
     private ListView roomsList;
-
     public void loadRooms() throws IOException {
         roomsList.getItems().clear();
         Client client = Main.client;

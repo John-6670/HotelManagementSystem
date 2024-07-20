@@ -19,4 +19,12 @@ public class Report {
     public Report(){
 
     }
+
+    public String getSubject() {
+        return Subject;
+    }
+
+    public String getContent() {
+        return Content;
+    }
 }
