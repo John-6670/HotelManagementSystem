@@ -89,7 +89,7 @@ public class ReceptionistReservation implements Initializable {
         Client client = Main.client;
         try {
             // Send check-out request to the server with guest phone number
-            client.sendRequest(new Request(Request.RequestType.CHECK_IN , new Receptionist() , Map.of("name", name.getText() ,"password", nationalId.getText())));
+            client.sendRequest(new Request(Request.RequestType.CHECK_IN , new Receptionist() , Map.of("name", name.getText() ,"nationalId", nationalId.getText())));
             // Receive the response and cast it to Guest
             Guest guest = (Guest) client.receiveResponse().getData();
             if (guest != null) {

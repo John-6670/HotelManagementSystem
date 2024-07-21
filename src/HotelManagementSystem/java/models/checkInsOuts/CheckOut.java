@@ -5,10 +5,12 @@ import com.j256.ormlite.table.DatabaseTable;
 import models.user.Receptionist;
 import models.user.Guest ;
 import models.room.Room ;
+
+import java.io.Serializable;
 import java.util.Date ;
 
 @DatabaseTable(tableName = "CheckOut")
-public class CheckOut {
+public class CheckOut implements Serializable {
 
     @DatabaseField( canBeNull = false)
     private Date date ;

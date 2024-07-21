@@ -3,6 +3,7 @@ package models.user;
 import application.hotelmanagementsystem.CommonTasks;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import javafx.application.Platform;
 import models.checkInsOuts.CheckOut;
 import models.checkInsOuts.CheckIn;
 import models.dataBase.DaoHandler;
@@ -87,7 +88,7 @@ public class Receptionist extends User {
           var checkin = new CheckIn(guest.getRoom(), guest , this);
       }
       else{
-          CommonTasks.showError("Reservation Is Not Recognized!");
+          Platform.runLater(() -> CommonTasks.showError("Reservation Is Not Recognized!"));
       }
 
     }

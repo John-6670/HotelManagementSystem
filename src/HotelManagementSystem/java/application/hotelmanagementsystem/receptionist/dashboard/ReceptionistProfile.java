@@ -4,6 +4,7 @@ import application.hotelmanagementsystem.CloseButton;
 import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.UserData;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -13,7 +14,7 @@ import models.user.User;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ReceptionistProfile extends CloseButton {
+public class ReceptionistProfile extends CloseButton implements Initializable  {
     @FXML
     private AnchorPane editInfo;
     @FXML
@@ -46,10 +47,6 @@ public class ReceptionistProfile extends CloseButton {
 
         }
     }
-
-
-
-
 
     public void edit() {
         CommonTasks.loadPage("receptionist/dashboard/profile/edit-info-view.fxml", editInfo);

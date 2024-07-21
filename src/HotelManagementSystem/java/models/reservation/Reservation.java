@@ -5,6 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import models.room.Room;
 import models.user.Guest;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * Each reservation is associated with a room and a guest.
  */
 @DatabaseTable(tableName = "Reservations")
-public class Reservation {
+public class Reservation implements Serializable {
     @DatabaseField(generatedId = true)
     private int ID;
 
