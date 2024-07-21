@@ -29,6 +29,7 @@ public class ReceptionistProfile extends CloseButton implements Initializable  {
     @FXML
     private Text monthSalary;
 
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         User user = UserData.getInstance().getUser();
         userName.setText(user.getUsername());
