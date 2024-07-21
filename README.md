@@ -169,3 +169,11 @@ This model is widely used in software development due to its scalability, securi
     ```bash
     mvn clean install
     ```
+
+## Contributors
+
+This project exists thanks to all the people who contribute.
+
+- **Mohammadmatin Hazrati** - *Guest Handling, Main Logic of Client-Server and Database Handling* - [John-6670](https://github.com/John-6670)
+- **Majid Akhondi** - *Admin Handling and Main UI Design* - [MajidSeeZ](https://github.com/MajidSeeZ)
+- **Arefe Yeganepour** - *Receptionist Management* - [ArefeYeganepour](https://github.com/ArefeYeganepour)
