@@ -10,15 +10,17 @@ import models.socket.Request;
 import models.socket.Server;
 import models.user.Admin;
 import models.user.Guest;
+import models.user.Receptionist;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Map;
 
 public class TestModels {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
-          DaoHandler<Report> daoHandler = new DaoHandler<>(Report.class);
-          Report report = new Report("Test" , "Test");
-          daoHandler.create(report);
+          DaoHandler<Receptionist> receptionistDaoHandler = new DaoHandler<>(Receptionist.class);
+          Receptionist receptionist = new Receptionist("Sara", "Sara", "Sara/2005", "sara@gmail.com", "09671452678", "1765", 24, null, new Date());
+          receptionistDaoHandler.create(receptionist);
     }
 }

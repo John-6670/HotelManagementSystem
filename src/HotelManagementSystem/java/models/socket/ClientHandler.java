@@ -73,7 +73,7 @@ public class ClientHandler implements Runnable {
                 Request request = (Request) input.readObject();
                 Response response = processRequest(request);
                 out.writeObject(response);
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -87,7 +87,7 @@ public class ClientHandler implements Runnable {
      * @param request the request to be processed
      * @return the response to be sent back to the client
      */
-    private Response processRequest(Request request) {
+    private Response processRequest(Request request) throws SQLException {
         User user = request.getUser();
         DaoHandler<? extends User> dao = switch (user.getType()) {
             case GUEST -> new DaoHandler<>(Guest.class);
@@ -371,7 +371,7 @@ public class ClientHandler implements Runnable {
 
         Map<String, Object> searchCriteria = new HashMap<>();
         searchCriteria.put("type", roomType);
-        searchCriteria.put("status", Room);
+        searchCriteria.put("status", Room.Status.AVAILABLE);
         List<Room> availableRooms = roomDao.search(searchCriteria);
 
         if (!availableRooms.isEmpty()) {

@@ -68,4 +68,6 @@ module application {
     opens models to javafx.graphics;
     exports models.report;
     opens models.report to ormlite.jdbc;
+    opens models.checkInsOuts;
+    exports models.checkInsOuts to ormlite.jdbc;
 }
