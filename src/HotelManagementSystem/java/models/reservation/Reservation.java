@@ -5,6 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import models.room.Room;
 import models.user.*;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @author Arefe
  */
 @DatabaseTable(tableName = "Reservations")
-public class Reservation {
+public class Reservation implements Serializable {
     @DatabaseField(generatedId = true)
     private int ID;
 
@@ -37,7 +38,8 @@ public class Reservation {
     /**
      * Default constructor for ORMLite.
      */
-    public Reservation() {}
+    public Reservation() {
+    }
 
     /**
      * Constructs a new Reservation with the specified details.
@@ -47,7 +49,7 @@ public class Reservation {
      * @param room      the room associated with the reservation
      * @param guest     the guest associated with the reservation
      */
-    public Reservation(Date startDate, Date endDate, Room room, Guest guest) {
+    public Reservation( Date startDate, Date endDate, Room room, Guest guest) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.room = room;

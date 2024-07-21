@@ -4,6 +4,7 @@ import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.UserData;
 import javafx.application.Platform;
 import models.bill.Bill;
+import models.checkInsOuts.CheckIn;
 import models.dataBase.DaoHandler;
 import models.exceptions.InvalidPasswordException;
 import models.reservation.Reservation;
@@ -223,6 +224,15 @@ public class ClientHandler implements Runnable {
             case GET_ALL_REPORTS -> {
                 List<Report> reports = handelGerAllReports(request);
                 return new Response(Response.ResponseType.SUCCESS, reports);
+            }
+            case CHECK_IN -> {
+                Guest guest = handleCheckIn(request);
+                return guest != null ? new Response(Response.ResponseType.SUCCESS, guest) : new Response(Response.ResponseType.FAIL, null);
+            }
+            case CHECK_OUT -> {
+                Guest guest = handleCheckOut(request);
+                return guest != null ? new Response(Response.ResponseType.SUCCESS, guest) : new Response(Response.ResponseType.FAIL, null);
+
             }
         }
         return null;
@@ -583,5 +593,28 @@ public class ClientHandler implements Runnable {
         return null;
     }
 
+    private <T> Guest handleCheckIn(Request request) throws SQLException {
+         DaoHandler<Guest> guestDaoHandler=new DaoHandler<>(Guest.class);
+        List<T> result = guestDaoHandler.search((Map) request.getData());
+        if (result.isEmpty()) {
+            return null;
+        }
+
+        var receptionist = new Receptionist();
+        receptionist.checkIn((Guest) result.getFirst());
+        return (Guest) result.getFirst();
+    }
+
+    private <T> Guest handleCheckOut(Request request) throws SQLException {
+        DaoHandler<Guest> guestDaoHandler=new DaoHandler<>(Guest.class);
+        List<T> result = guestDaoHandler.search((Map) request.getData());
+        if (result.isEmpty()) {
+            return null;
+        }
+
+        var receptionist = new Receptionist();
+        receptionist.checkOut((Guest) result.getFirst());
+        return (Guest) result.getFirst();
+    }
     
 }

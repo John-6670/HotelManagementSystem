@@ -3,14 +3,23 @@
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="identifier" uuid="b772743e-bd94-46d4-9da9-92e2bde2cafd">
     <data-source source="LOCAL" name="identifier.sqlite" uuid="1de3d730-f49c-4207-a5e9-0512b35ddf97">
+    <data-source source="LOCAL" name="identifier" uuid="ed85762a-1ea3-4f69-9516-fb34d3af269b">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/identifier.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\John\OneDrive\Documents\Projects\Java\HotelManagementSystem\identifier.sqlite</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.45.1/org/xerial/sqlite-jdbc/3.45.1.0/sqlite-jdbc-3.45.1.0.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.45.1/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="identifier.sqlite" uuid="a2794491-b53c-424d-b70b-363116e714f9">
       <driver-ref>sqlite.xerial</driver-ref>

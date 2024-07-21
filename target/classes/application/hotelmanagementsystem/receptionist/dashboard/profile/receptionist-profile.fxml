@@ -48,7 +48,7 @@
                                 <Font size="27.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="134.0" layoutY="12.0" prefHeight="36.0" prefWidth="313.0" text="-">
+                        <Label fx:id="userName" alignment="CENTER_RIGHT" layoutX="134.0" layoutY="12.0" prefHeight="36.0" prefWidth="313.0" text="-">
                             <font>
                                 <Font size="25.0" />
                             </font>
@@ -58,7 +58,7 @@
                                 <Font size="25.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="134.0" layoutY="70.0" prefHeight="36.0" prefWidth="313.0" text="-">
+                        <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="134.0" layoutY="70.0" prefHeight="36.0" prefWidth="313.0" text="-">
                             <font>
                                 <Font size="21.0" />
                             </font>
@@ -148,12 +148,12 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Text fill="#222830" layoutX="38.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                  <Text fx:id="email" fill="#222830" layoutX="38.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Text>
-                  <Text fill="#222830" layoutX="38.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                  <Text fx:id="phoneNumber" fill="#222830" layoutX="38.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -168,7 +168,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Text fill="#222830" layoutX="340.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                  <Text fx:id="monthSalary" fill="#222830" layoutX="340.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                      <font>
                         <Font size="21.0" />
                      </font>

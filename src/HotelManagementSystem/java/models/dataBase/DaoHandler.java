@@ -7,6 +7,7 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import models.interfaces.Temporal;
 
 import java.sql.SQLException;
 import models.interfaces.Temporal;
@@ -126,8 +127,8 @@ public class DaoHandler<T> {
                 Date itemStartDate = temporalItem.getStartDate();
                 Date itemEndDate = temporalItem.getEndDate();
 
-                boolean matchesStartDate = startDate == null || (itemStartDate != null && !itemStartDate.after((Date) startDate));
-                boolean matchesEndDate = endDate == null || (itemEndDate != null && !itemEndDate.before((Date) endDate));
+                boolean matchesStartDate = startDate == null || (itemStartDate != null && !itemStartDate.before((Date) startDate));
+                boolean matchesEndDate = endDate == null || (itemEndDate != null && !itemEndDate.after((Date) endDate));
 
                 if (matchesStartDate && matchesEndDate) {
                     filteredResults.add(item);

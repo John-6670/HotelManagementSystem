@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.receptionist.dashboard.ReceptionistReport">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -33,8 +33,8 @@
                               <Font size="26.0" />
                            </font>
                         </Label>
-                        <DatePicker layoutX="106.0" layoutY="98.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
-                        <DatePicker layoutX="106.0" layoutY="162.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
+                        <DatePicker fx:id="datePicker1" layoutX="106.0" layoutY="98.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
+                        <DatePicker fx:id="datePicker2" layoutX="106.0" layoutY="162.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
                         <Label layoutX="175.0" layoutY="70.0" text="From" textFill="#222831">
                            <font>
                               <Font size="15.0" />
@@ -45,12 +45,12 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button layoutX="119.0" layoutY="214.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../css/Button.css" text="Search" textFill="#76abae">
+                        <Button onAction="#checkInReport" layoutX="119.0" layoutY="214.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../css/Button.css" text="Search" textFill="#76abae">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <ListView layoutX="31.0" layoutY="270.0" prefHeight="250.0" prefWidth="326.0" AnchorPane.bottomAnchor="19.600000000000023" />
+                        <ListView fx:id="listView1" layoutX="31.0" layoutY="270.0" prefHeight="250.0" prefWidth="326.0" AnchorPane.bottomAnchor="19.600000000000023" />
                      </children>
                      <effect>
                         <DropShadow offsetX="4.0" offsetY="4.0">
@@ -71,7 +71,7 @@
                               <Font size="26.0" />
                            </font>
                         </Label>
-                        <DatePicker layoutX="114.0" layoutY="122.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
+                        <DatePicker fx:id="datePicker" layoutX="114.0" layoutY="122.0" promptText="Date" stylesheets="@../../css/DatePicker.css" />
                         <Label layoutX="164.0" layoutY="83.0" text="Pick A Date" textFill="#222831">
                            <font>
                               <Font size="15.0" />
@@ -82,7 +82,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <ListView layoutX="40.0" layoutY="270.0" prefHeight="250.0" prefWidth="326.0" AnchorPane.bottomAnchor="19.600000000000023" />
+                        <ListView fx:id="listView" layoutX="40.0" layoutY="270.0" prefHeight="250.0" prefWidth="326.0" AnchorPane.bottomAnchor="19.600000000000023" />
                      </children>
                      <effect>
                         <DropShadow offsetX="4.0" offsetY="4.0">
