@@ -3,10 +3,14 @@ package application.hotelmanagementsystem.receptionist.dashboard;
 import application.hotelmanagementsystem.CommonTasks;
 import application.hotelmanagementsystem.Main;
 import application.hotelmanagementsystem.UserData;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import models.reservation.Reservation;
 import models.socket.Client;
 import models.socket.Request;
 import models.user.Guest;
@@ -57,6 +61,20 @@ public class ReceptionistReservation implements Initializable {
 
     @FXML
     private Text checkOutDate ;
+    @FXML
+    private DatePicker datePicker ;
+    @FXML
+    private DatePicker datePicker1 ;
+    @FXML
+    private DatePicker datePicker2 ;
+    @FXML
+    private ListView<String> listView;
+    @FXML
+    private ListView<String> listView1;
+
+
+
+
 
 
     public void checkIn (){
@@ -111,12 +129,6 @@ public class ReceptionistReservation implements Initializable {
     }
 
 
-
-
-
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CommonTasks.setOnlyNumber(nights);
@@ -124,4 +136,21 @@ public class ReceptionistReservation implements Initializable {
         CommonTasks.setOnlyNumber(nationalId1);
         CommonTasks.setOnlyNumber(phoneNumber1);
     }
+
+
+
+
+
+    public void billReport (){
+        Client client = Main.client;
+
+
+
+
+
+
+
+    }
+
+
 }

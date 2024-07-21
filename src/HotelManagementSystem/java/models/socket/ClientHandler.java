@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,6 +109,12 @@ public class ClientHandler implements Runnable {
         receptionist.checkOut((Guest) result.getFirst());
         return (Guest) result.getFirst();
     }
+
+   // private <T> ArrayList<CheckIn> handleCheckInReport (Request request) throws SQLException{
+        DaoHandler<CheckIn> checkInDaoHandler=new DaoHandler<>(CheckIn.class);
+        //List<T> result = checkInDaoHandler.search((Map) , )
+
+   // }
 
 
 
