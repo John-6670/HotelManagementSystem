@@ -69,7 +69,16 @@ public class Receptionist extends User {
         return registrationDate;
     }
 
-
+    /**
+     * Handles the check-in process for a guest.
+     * <p>
+     * This method updates the room status to FULLED if the room is currently booked.
+     * It also creates a new CheckIn record for the guest.
+     * If the room is not booked, it displays an error message.
+     * </p>
+     *
+     * @param guest The guest who is checking in.
+     */
     public void checkIn (Guest guest){
 
       if (guest.getRoom().getStatus().equals(Room.Status.BOOKED)){
@@ -82,7 +91,16 @@ public class Receptionist extends User {
       }
 
     }
-
+    /**
+     * Handles the check-out process for a guest.
+     * <p>
+     * This method updates the room status to AVAILABLE if the room is currently filled.
+     * It also creates a new CheckOut record for the guest.
+     * If the room is not filled, it displays an error message.
+     * </p>
+     *
+     * @param guest The guest who is checking out.
+     */
     public void checkOut (Guest guest){
         if (guest.getRoom().getStatus().equals(Room.Status.FULLED)){
             guest.getRoom().setStatus(Room.Status.AVAILABLE);
@@ -96,17 +114,6 @@ public class Receptionist extends User {
 
 
     }
-    ArrayList <CheckIn> checkInList = new ArrayList();
-    public void checkInReport (Date startDate , Date endDate){
-       for (CheckIn checkIn : checkInList){
-           //if ()
-       }
-    }
-    ArrayList <CheckOut> checkOutList = new ArrayList();
-    public void checkOutReport (Date startDate , Date endDate){
-
-    }
-
 
 
 

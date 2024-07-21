@@ -76,15 +76,21 @@ public class ReceptionistReservation implements Initializable {
     @FXML
     private ListView<String> listView1;
 
-
-
-
-
+    /**
+     * Handles the check-in process for a guest.
+     * <p>
+     * This method sends a check-in request to the server with the provided guest name and national ID.
+     * It then receives a response containing the guest information and updates the UI with the guest's room details.
+     * If the guest information is not found, it displays an error message.
+     * </p>
+     */
 
     public void checkIn (){
         Client client = Main.client;
         try {
+            // Send check-out request to the server with guest phone number
             client.sendRequest(new Request(Request.RequestType.CHECK_IN , new Receptionist() , Map.of("name", name.getText() ,"password", nationalId.getText())));
+            // Receive the response and cast it to Guest
             Guest guest = (Guest) client.receiveResponse().getData();
             if (guest != null) {
                 roomNumber.setText(CommonTasks.intOrDouble(guest.getRoom().getRoomNumber()));
@@ -105,6 +111,14 @@ public class ReceptionistReservation implements Initializable {
         }
 
     }
+    /**
+     * Handles the check-out process for a guest.
+     * <p>
+     * This method sends a check-out request to the server with the provided guest phone number.
+     * It then receives a response containing the guest information and updates the UI with the guest's billing details.
+     * If the guest information is not found, it displays an error message.
+     * </p>
+     */
     public void checkOut (){
         Client client = Main.client;
         try {
@@ -128,10 +142,17 @@ public class ReceptionistReservation implements Initializable {
             e.printStackTrace();
         }
 
-
-
     }
 
+    /**
+     * Initializes the controller class.
+     * <p>
+     * This method is called after the FXML file has been loaded. It sets up the text fields to accept only numeric input.
+     * </p>
+     *
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -183,7 +204,14 @@ public class ReceptionistReservation implements Initializable {
 
     }
 
-
+    /**
+     * Generates a bill report for reservations on a specific date.
+     * <p>
+     * This method sends a bill report request to the server with the selected date from the DatePicker.
+     * It then receives a response containing a list of reservations and updates the ListView with the calculated bill for each reservation.
+     * If an exception occurs, it is caught and an appropriate message is displayed.
+     * </p>
+     */
 
     public void billReport (){
 
@@ -191,6 +219,7 @@ public class ReceptionistReservation implements Initializable {
         Client client = Main.client;
         try {
             client.sendRequest(new Request(Request.RequestType.BILL_REPORT , new Receptionist() , Map.of("date", datePicker.getValue())));
+            // Receive the response and cast it to List<Reservation>
             List<Reservation> reservations = (List<Reservation>) client.receiveResponse().getData();
             for (Reservation reservation : reservations){
                 listView.getItems().add(CommonTasks.intOrDouble(reservation.getGuest().getBill().calculateBill()));

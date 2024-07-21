@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.receptionist.dashboard.ReceptionistReservation">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -45,7 +45,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button layoutX="119.0" layoutY="214.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../css/Button.css" text="Search" textFill="#76abae">
+                        <Button onAction="#checkInReport" layoutX="119.0" layoutY="214.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #222831; -fx-background-radius: 0;" stylesheets="@../../css/Button.css" text="Search" textFill="#76abae">
                            <font>
                               <Font size="13.0" />
                            </font>
