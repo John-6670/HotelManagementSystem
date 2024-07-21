@@ -10,6 +10,11 @@ import models.reservation.Reservation;
 import models.room.*;
 import models.service.Services;
 import models.user.*;
+import models.report.Report;
+import models.reservation.Reservation;
+import models.room.RoomType;
+import models.user.Guest;
+import models.user.User;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,9 +26,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * This class represents a client handler that is used to handle incoming requests from clients.
@@ -174,10 +176,58 @@ public class ClientHandler implements Runnable {
                     return new Response(Response.ResponseType.FAIL, "An unknown error acquired!");
                 }
             }
+            case ADD_ROOM -> {
+                try {
+                    Room room = handelAddRoom(request);
+                    return new Response(Response.ResponseType.SUCCESS, room);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+
+                    return new Response(Response.ResponseType.FAIL, "A room with this Room number exists!");
+                }
+            }
+            case SEARCH_IF_ROOM_EXISTS -> {
+                try {
+                    Room room = handelSearchIfRoomExist(request);
+                    return new Response(Response.ResponseType.SUCCESS, room);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+
+                    return new Response(Response.ResponseType.FAIL, "Couldn't find the room");
+                }
+            }
+            case UPDATE_ROOM -> {
+                Room room = handleUpdateRoomSit(request);
+                return new Response(Response.ResponseType.SUCCESS, room);
+            }
+            case REMOVE_ROOM -> {
+                Room room = handelRemoveRoom(request);
+                return new Response(Response.ResponseType.SUCCESS, room);
+            }
+            case GET_ALL_ROOMS -> {
+                List<Room> rooms = handelGetAllRooms(request);
+                return new Response(Response.ResponseType.SUCCESS, rooms);
+            }
+            case GET_ADMIN_KEY -> {
+                Admin admin = handelGetAdminKey(request);
+                return new Response(Response.ResponseType.SUCCESS, admin);
+            }
+            case CHECK_If_PASS_IS_VALID -> {
+                Admin admin = handelCheckPass(request);
+                return new Response(Response.ResponseType.SUCCESS, admin);
+            }
+            case ADD_REPORT -> {
+                Report report = handeladdReport(request);
+                return new Response(Response.ResponseType.SUCCESS, report);
+            }
+            case GET_ALL_REPORTS -> {
+                List<Report> reports = handelGerAllReports(request);
+                return new Response(Response.ResponseType.SUCCESS, reports);
+            }
         }
         return null;
     }
-
+        
     /**
      * This method is used to handle the login request.
      * It searches the database for a user with the given username and password.
@@ -311,7 +361,7 @@ public class ClientHandler implements Runnable {
 
         Map<String, Object> searchCriteria = new HashMap<>();
         searchCriteria.put("type", roomType);
-        searchCriteria.put("status", Room.Status.AVAILABLE);
+        searchCriteria.put("status", Room);
         List<Room> availableRooms = roomDao.search(searchCriteria);
 
         if (!availableRooms.isEmpty()) {
@@ -382,4 +432,156 @@ public class ClientHandler implements Runnable {
         dao.update((T) guest);
         UserData.getInstance().setUser(guest);
     }
+
+    private <T> Room handelAddRoom(Request request) throws SQLException {
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        Map<String, Object> roomData = (Map) request.getData();
+
+        int room_number = (int) roomData.get("room_number");
+        RoomType type = (RoomType) roomData.get("type");
+        Room room = new Room(room_number, type);
+
+        roomDao.create(room);
+        return room;
+    }
+
+    public <T> Room handelSearchIfRoomExist(Request request) throws SQLException{
+        try {
+            DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+            List result = roomDao.search((Map) request.getData());
+            if (result.isEmpty()) {
+                return null;
+            }
+            return (Room) result.getFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public <T> Room handleUpdateRoomSit(Request request){
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        Map<String, Object> roomData = (Map) request.getData();
+        try {
+            List result = roomDao.search(Map.of("room_number" , roomData.get("room_number")));
+            if(!result.isEmpty()){
+                Room room = (Room) result.getFirst();
+                room.setStatus((Room.Status) roomData.get("status"));
+                roomDao.update(room);
+                return room;
+            }
+            else{
+                return null;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public <T> Room handelRemoveRoom(Request request){
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        try {
+            List result = roomDao.search((Map)request.getData());
+            if(result.isEmpty()){
+                return null;
+            }
+            else {
+                Room room = (Room) result.getFirst();
+                roomDao.delete(room);
+                return room;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public <T> List<Room> handelGetAllRooms(Request request) throws SQLException {
+        DaoHandler<Room> roomDao = new DaoHandler<>(Room.class);
+        List<Room> rooms = roomDao.getAll();
+        Map<String, Object> roomData = (Map)request.getData();
+        RoomType roomType = (RoomType) roomData.get("type");
+        Room.Status status = (Room.Status) roomData.get("status");
+        int min = (int)roomData.get("min");
+        int max = (int)roomData.get("max");
+        if(!rooms.isEmpty()){
+            try {
+                for(Room room : rooms){
+                    if(
+                            (!room.getType().equals(roomType)) && (roomType != null)
+                                    ||     ((!room.getStatus().equals(status)) && (status != null))
+                                    ||      ((room.getPrice() > max) && (max >= 0))
+                                    ||      ((room.getPrice() < min) && (min >= 0))){
+                        rooms.remove(room);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return rooms;
+    }
+
+    public String handelSecurityKey() throws SQLException {
+        DaoHandler<Admin> roomDao = new DaoHandler<>(Admin.class);
+        int lowerBound = 10000;
+        int upperBound = 99999;
+        Random random = new Random();
+        int code;
+        List<Admin> admins = roomDao.getAll();
+        code = random.nextInt(upperBound - lowerBound) + lowerBound;
+        for(Admin admin : admins){
+            if(Objects.equals(admin.getSecurityKey(), String.valueOf(code)))
+                code = random.nextInt(upperBound - lowerBound) + lowerBound;
+
+        }
+        return String.valueOf(code);
+    }
+    public <T>Admin handelGetAdminKey (Request request) throws SQLException {
+        DaoHandler<Admin> daoHandler = new DaoHandler<>(Admin.class);
+        List result = daoHandler.search((Map)request.getData());
+        if(!result.isEmpty()){
+            Admin admin = (Admin)result.getFirst();
+            return admin;
+        }
+        else
+            return null;
+
+    }
+    public <T>Admin handelCheckPass(Request request) throws SQLException {
+        DaoHandler<Admin> adminDaoHandler = new DaoHandler<>(Admin.class);
+        List result = adminDaoHandler.search((Map)request.getData());
+        if(!result.isEmpty()){
+            Admin admin = (Admin)result.getFirst();
+            return admin;
+        }
+        else
+            return null;
+    }
+    public <T>Report handeladdReport(Request request) {
+        DaoHandler<Report> reportDaoHandler = new DaoHandler<>(Report.class);
+        Map<String, Object> data = (Map) request.getData();
+        Report report = null;
+        try {
+            String Subject = (String) data.get("Subject");
+            String Content = (String) data.get("Content");
+            report = new Report(Subject, Content);
+            reportDaoHandler.create(report);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return report;
+    }
+    public <T>List<Report> handelGerAllReports(Request request){
+        DaoHandler<Report> reportDaoHandler = new DaoHandler<>(Report.class);
+        try {
+            return reportDaoHandler.getAll();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    
 }

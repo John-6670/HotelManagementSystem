@@ -14,8 +14,8 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField id="reportField" layoutX="16.0" layoutY="123.0" prefHeight="36.0" prefWidth="190.0" promptText="Subject" styleClass="field" stylesheets="@../../../css/fields.css" />
-      <TextArea layoutX="16.0" layoutY="169.0" prefHeight="304.0" prefWidth="510.0" styleClass="reportArea" stylesheets="@../../../css/fields.css" />
+      <TextField id="reportField" fx:id="reportSubject" layoutX="16.0" layoutY="123.0" prefHeight="36.0" prefWidth="190.0" promptText="Subject" styleClass="field" stylesheets="@../../../css/fields.css" />
+      <TextArea fx:id="reportContent" layoutX="16.0" layoutY="169.0" prefHeight="304.0" prefWidth="510.0" styleClass="reportArea" stylesheets="@../../../css/fields.css" />
       <JFXButton layoutX="377.0" layoutY="492.0" onAction="#addReport" prefHeight="26.0" prefWidth="149.0" styleClass="cancelButton" stylesheets="@../../../css/Button.css" text="Submit" />
    </children>
 </AnchorPane>

@@ -25,11 +25,10 @@
 }
 
 .navBox {
-    -fx-border-color: #222831;
-    -fx-border-width: 0 0 0 0;
+
 }
 
-.sideBox{
-    -fx-border-width: 1 0 0 0;
+.sideNavBox{
     -fx-border-color: #222831;
+    -fx-border-width: 0 0 1 0;
 }

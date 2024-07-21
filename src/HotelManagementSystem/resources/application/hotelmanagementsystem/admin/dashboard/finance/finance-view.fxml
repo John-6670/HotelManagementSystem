@@ -36,7 +36,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="93.0" layoutY="130.0" prefHeight="21.0" prefWidth="270.0" style="-fx-label-padding: 0 20;" styleClass="regLabel" text="-">
+                  <Label fx:id="adminSalary" alignment="CENTER" layoutX="93.0" layoutY="130.0" prefHeight="21.0" prefWidth="270.0" style="-fx-label-padding: 0 20;" styleClass="regLabel" text="-">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -127,12 +127,12 @@
                </font>
             </Label>
             <FontAwesomeIcon disable="true" fill="#222831" glyphName="CLOSE" layoutX="936.0" layoutY="39.0" size="3em" />
-            <JFXButton onAction="#closeWindow" layoutX="930.0" layoutY="7.0" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" ">
+            <JFXButton layoutX="930.0" layoutY="7.0" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton onAction="#back" layoutX="24.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" " />
+            <JFXButton layoutX="24.0" layoutY="5.0" onAction="#back" prefHeight="40.0" prefWidth="40.0" styleClass="backButton" text=" " />
             <FontAwesomeIcon disable="true" fill="#222831" glyphName="ARROW_LEFT" layoutX="31.0" layoutY="38.0" size="2.5em">
                <cursor>
                   <Cursor fx:constant="HAND" />

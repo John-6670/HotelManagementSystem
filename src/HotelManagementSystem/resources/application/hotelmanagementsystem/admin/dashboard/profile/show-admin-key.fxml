@@ -11,21 +11,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane fx:controller="application.hotelmanagementsystem.admin.dashboard.profile.ShowSecurityKey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.hotelmanagementsystem.admin.dashboard.profile.ShowSecurityKey">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="26.0" layoutY="37.0" promptText="National ID" styleClass="field" />
-            <PasswordField layoutX="26.0" layoutY="84.0" promptText="Password" styleClass="field" />
-            <JFXButton layoutX="49.0" layoutY="139.0" prefHeight="37.0" prefWidth="103.0" styleClass="regButton" text="Submit" />
+            <TextField fx:id="nationalId" layoutX="26.0" layoutY="37.0" promptText="National ID" styleClass="field" />
+            <PasswordField fx:id="password" layoutX="26.0" layoutY="84.0" promptText="Password" styleClass="field" />
+            <JFXButton layoutX="49.0" layoutY="139.0" onAction="#Submit" prefHeight="37.0" prefWidth="103.0" styleClass="regButton" text="Submit" />
          </children>
       </AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="alertBox" BorderPane.alignment="CENTER">
          <children>
-            <TextField editable="false" layoutX="26.0" layoutY="87.0" promptText="Admin Key">
+            <TextField fx:id="adminKey" editable="false" layoutX="47.0" layoutY="84.0" prefHeight="32.0" prefWidth="106.0" promptText="Admin Key" text="-  -  -  -  -">
                <styleClass>
                   <String fx:value="field" />
                   <String fx:value="noneEditable" />
@@ -34,12 +33,12 @@
                   <Cursor fx:constant="DISAPPEAR" />
                </cursor>
             </TextField>
-            <Button onAction="#closeWindow" layoutX="163.0" layoutY="3.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="backButton" text=" ">
+            <Button layoutX="163.0" layoutY="3.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="30.0" prefWidth="30.0" styleClass="backButton" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <FontAwesomeIcon disable="true" fill="#76abae" glyphName="CLOSE" layoutX="171.0" layoutY="26.0" size="2em" />
+            <FontAwesomeIcon disable="true" fill="#76abae" glyphName="CLOSE" layoutX="171.0" layoutY="26.0" onDragDetected="#closeApp" size="2em" />
          </children>
       </AnchorPane>
    </right>

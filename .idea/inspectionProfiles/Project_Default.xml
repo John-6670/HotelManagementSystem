@@ -3,6 +3,8 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="ExtractMethodRecommender" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="minLength" value="552" />
+    <inspection_tool class="ConstantValue" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="REPORT_CONSTANT_REFERENCE_VALUES" value="false" />
     </inspection_tool>
   </profile>
 </component>

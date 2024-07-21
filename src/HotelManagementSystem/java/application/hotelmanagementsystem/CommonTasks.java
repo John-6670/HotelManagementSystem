@@ -94,8 +94,6 @@ public class CommonTasks extends Main {
             newStage.initStyle(StageStyle.UNDECORATED);
             Scene scene = new Scene(root, 400, 170);
             newStage.setScene(scene);
-            newStage.setX(580);
-            newStage.setY(370);
             newStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -133,7 +131,6 @@ public class CommonTasks extends Main {
 
         return String.valueOf(value);
     }
-
     public static boolean isAnyEmpty(TextField... fields) {
         for (TextField field : fields) {
             if (field.getText().isEmpty())
@@ -145,5 +142,19 @@ public class CommonTasks extends Main {
 
     public static boolean isPasswordMatch(PasswordField password, PasswordField confirmPassword) {
         return password.getText().equals(confirmPassword.getText());
+    }
+    
+    public static String addSpaces(String str) {
+        if (str == null || str.isEmpty()) {
+            return str; // Handle empty string or null case (optional)
+        }
+        StringBuilder spacedString = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            spacedString.append(str.charAt(i));
+            if (i < str.length() - 1) {
+                spacedString.append("  "); // Add two spaces after each character except the last one
+            }
+        }
+        return spacedString.toString();
     }
 }
