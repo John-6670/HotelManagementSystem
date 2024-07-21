@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +69,9 @@ public class ClientHandler implements Runnable {
                 return guest != null ? new Response(Response.ResponseType.SUCCESS, guest) : new Response(Response.ResponseType.FAIL, null);
 
             }
+            case CHECK_IN_CHECK_OUT_REPORT -> {
+
+            }
         }
         return null;
     }
@@ -110,9 +114,12 @@ public class ClientHandler implements Runnable {
         return (Guest) result.getFirst();
     }
 
-   // private <T> ArrayList<CheckIn> handleCheckInReport (Request request) throws SQLException{
-        DaoHandler<CheckIn> checkInDaoHandler=new DaoHandler<>(CheckIn.class);
-        //List<T> result = checkInDaoHandler.search((Map) , )
+   // private <T> List<CheckIn> handleCheckInReport (Request request) throws SQLException{
+      //  DaoHandler<CheckIn> checkInDaoHandler=new DaoHandler<>(CheckIn.class);
+       // LocalDate startDate = (LocalDate) request.getParameters().get("startDate");
+        //LocalDate endDate = (LocalDate) request.getParameters().get("endDate");
+
+       // return checkInDaoHandler.search((Map) , startDate , endDate);
 
    // }
 
