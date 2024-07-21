@@ -37,4 +37,8 @@ public class Admin extends User {
     public String getSecurityKey() {
         return SecurityKey;
     }
+
+    public double getSalary() {
+        return salary;
+    }
 }
